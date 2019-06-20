@@ -4,6 +4,8 @@
 
 #include "Player.h"
 
+
+
 Player::Player(std::string path) {
 this->path = path;
 this->posX = 100;
@@ -23,23 +25,33 @@ Player::~Player() {
 
 }
 
+void Player::setView(float x, float y) {
+this->view.setCenter(x+100,y);
+}
+
+
 
 void Player::movement(float time) {
 if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
     this->state = LEFT; this->speed = 0.15f;
     this->currentFrameTime += time*0.005f;
     if(this->currentFrameTime > 3) { currentFrameTime -= 3; }
+    sprite.setTextureRect(sf::IntRect(94 * int(currentFrameTime), 94, 72.0, 76.0));
+    this->setView(posX,posY);
 }
 else if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
     this->state = RIGHT; this->speed = 0.15f;
     this->currentFrameTime += time*0.005f;
     if(this->currentFrameTime > 3) currentFrameTime -= 3;
+    sprite.setTextureRect(sf::IntRect(94 * int(currentFrameTime), 192, 72.0, 76.0));
+    this->setView(posX,posY);
 }
 if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
     this->state = JUMP; this->speed = 0.4f;
-    this->currentFrameTime += time*0.005f;
-    if(this->currentFrameTime > 3) currentFrameTime -= 3;
+    this->setView(posX,posY);
 }
+
+
 }
 
 

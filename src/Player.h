@@ -5,9 +5,7 @@
 #ifndef CATCHONBUBBLE_PLAYER_H
 #define CATCHONBUBBLE_PLAYER_H
 
-
-#include <SFML/Graphics.hpp>
-#include <iostream>
+#include "Map.h"
 
 class Player {
 protected:
@@ -26,9 +24,11 @@ protected:
     MovementDirection state;
     float currentFrameTime;
 public:
+    sf::View view;
     Player(std::string path);
     virtual ~Player();
 
+    void setView(float x,float y);
     void movement(float time);
 
     void update(float time);
