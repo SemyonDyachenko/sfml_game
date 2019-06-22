@@ -36,14 +36,14 @@ if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
     this->state = LEFT; this->speed = 0.15f;
     this->currentFrameTime += time*0.005f;
     if(this->currentFrameTime > 3) { currentFrameTime -= 3; }
-    sprite.setTextureRect(sf::IntRect(94 * int(currentFrameTime), 94, 72.0, 76.0));
+    sprite.setTextureRect(sf::IntRect(94 * int(currentFrameTime), 94, 96, 96));
     this->setView(posX,posY);
 }
 else if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
     this->state = RIGHT; this->speed = 0.15f;
     this->currentFrameTime += time*0.005f;
     if(this->currentFrameTime > 3) currentFrameTime -= 3;
-    sprite.setTextureRect(sf::IntRect(94 * int(currentFrameTime), 192, 72.0, 76.0));
+    sprite.setTextureRect(sf::IntRect(94 * int(currentFrameTime), 192, 96, 96));
     this->setView(posX,posY);
 }
 if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
@@ -71,8 +71,8 @@ void Player::update(float time) {
     this->speed = 0;
 }
 
-void Player::render(sf::RenderWindow &window) {
-window.draw(this->sprite);
+void Player::render(sf::RenderWindow * window) {
+window->draw(this->sprite);
 }
 
 

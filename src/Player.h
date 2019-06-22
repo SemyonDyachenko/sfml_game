@@ -5,7 +5,10 @@
 #ifndef CATCHONBUBBLE_PLAYER_H
 #define CATCHONBUBBLE_PLAYER_H
 
-#include "Map.h"
+#include <SFML/Graphics.hpp>
+#include <iostream>
+#include <string.h>
+#include <stack>
 
 class Player {
 protected:
@@ -32,7 +35,7 @@ public:
     void movement(float time);
 
     void update(float time);
-    void render(sf::RenderWindow & window);
+    void render(sf::RenderWindow * window);
 };
 
 
