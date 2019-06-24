@@ -6,17 +6,17 @@
 
 
 
-Player::Player(std::string path) {
+Player::Player(std::string path,float x,float y) {
 this->path = path;
-this->posX = 100;
-this->posY = 100;
+this->posX = x;
+this->posY = y;
 this->speed= 0;
 if(!this->image.loadFromFile(path)) std::cout << "error:not load image file" << path << std::endl;
 //this->shape.setSize(sf::Vector2f(texture.getSize().x,texture.getSize().y));
 this->texture.loadFromImage(this->image);
 this->sprite.setTexture(this->texture);
 this->sprite.setPosition(posX,posY);
-this->sprite.setTextureRect(sf::IntRect(0,192,96,96));
+this->sprite.setTextureRect(sf::IntRect(0,192,192,192));
 this->state = STAY;
 currentFrameTime = 0;
 }
@@ -36,14 +36,14 @@ if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
     this->state = LEFT; this->speed = 0.15f;
     this->currentFrameTime += time*0.005f;
     if(this->currentFrameTime > 3) { currentFrameTime -= 3; }
-    sprite.setTextureRect(sf::IntRect(94 * int(currentFrameTime), 94, 96, 96));
+    sprite.setTextureRect(sf::IntRect(192 * int(currentFrameTime), 50, 142, 142));
     this->setView(posX,posY);
 }
 else if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
     this->state = RIGHT; this->speed = 0.15f;
     this->currentFrameTime += time*0.005f;
     if(this->currentFrameTime > 3) currentFrameTime -= 3;
-    sprite.setTextureRect(sf::IntRect(94 * int(currentFrameTime), 192, 96, 96));
+    sprite.setTextureRect(sf::IntRect(192 * int(currentFrameTime), 192, 192, 192));
     this->setView(posX,posY);
 }
 if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
@@ -53,6 +53,7 @@ if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
 
 
 }
+
 
 
 void Player::update(float time) {

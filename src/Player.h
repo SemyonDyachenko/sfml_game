@@ -5,10 +5,7 @@
 #ifndef CATCHONBUBBLE_PLAYER_H
 #define CATCHONBUBBLE_PLAYER_H
 
-#include <SFML/Graphics.hpp>
-#include <iostream>
-#include <string.h>
-#include <stack>
+#include "Bullet.h"
 
 class Player {
 protected:
@@ -28,7 +25,7 @@ protected:
     float currentFrameTime;
 public:
     sf::View view;
-    Player(std::string path);
+    Player(std::string path,float x,float y);
     virtual ~Player();
 
     void setView(float x,float y);

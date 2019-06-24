@@ -13,6 +13,9 @@ private:
     sf::RectangleShape backgroundShape;
     sf::Texture backgroundTexture;
 
+    sf::RectangleShape ground;
+    sf::Texture groundTexture;
+
     //mouse
     sf::Vector2i pixelPos;
     sf::Vector2f pos;
