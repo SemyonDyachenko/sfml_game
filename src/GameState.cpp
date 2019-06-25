@@ -9,7 +9,7 @@ void GameState::initTextures()
 
     if(!this->groundTexture.loadFromFile("../res/images/ground.png")) {std::cout << "error load img for ground ..!!" << "\n"; }
     this->ground.setTexture(&this->groundTexture);
-
+    this->ground.setFillColor(sf::Color(255,255,255,150));
 
 }
 
@@ -22,7 +22,7 @@ GameState::GameState(sf::RenderWindow * window, std::stack<State*>*states) : Sta
     this->initTextures();
     this->ground.setSize(sf::Vector2f(this->window->getSize().x,groundTexture.getSize().y));
     this->ground.setPosition(0,this->window->getSize().y - this->groundTexture.getSize().y/2);
-    this->player = new Player("../res/images/hero.png",500,ground.getPosition().y-96);
+    this->player = new Player("../res/images/hero.png",500,ground.getPosition().y);
 }
 
 

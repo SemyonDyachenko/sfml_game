@@ -23,6 +23,9 @@ protected:
     std::string path;
     MovementDirection state;
     float currentFrameTime;
+    float width,height;
+    bool playerOnGround;
+    float onGroundvalue;
 public:
     sf::View view;
     Player(std::string path,float x,float y);

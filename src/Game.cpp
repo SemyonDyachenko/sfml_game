@@ -6,8 +6,8 @@ void Game::initWindow()
     /* here init and create window */
     this->vertical_sync_enable = false;
     this->FrameRateLimit = 60;
-    this->winSizeX = 800;
-    this->winSizeY = 600;
+    this->winSizeX = 1280;
+    this->winSizeY = 720;
     this->winTitle = "Sfml rpg";
     this->window = new sf::RenderWindow(sf::VideoMode(winSizeX, winSizeY), winTitle);
     this->window->setVerticalSyncEnabled(this->vertical_sync_enable);
