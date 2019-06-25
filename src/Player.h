@@ -33,7 +33,7 @@ public:
 
     void setView(float x,float y);
     void movement(float time);
-
+    void checkCollision();
     void update(float time);
     void render(sf::RenderWindow * window);
 };

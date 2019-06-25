@@ -7,8 +7,8 @@
 
 
 Player::Player(std::string path,float x,float y) {
-this->width = 80;
-this->height = 80;
+this->width =83;
+this->height = 83;
 this->path = path;
 this->speed= 0;
 if(!this->image.loadFromFile(path)) std::cout << "error:not load image file" << path << std::endl;
@@ -49,14 +49,27 @@ else if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
     if(this->currentFrameTime > 3) currentFrameTime -= 3;
     sprite.setTextureRect(sf::IntRect(96 * int(currentFrameTime), 192, 96, 96));
     this->setView(posX,posY);
-}
+} 
 if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && (playerOnGround)) {
-    this->state = JUMP; this->dy = -0.5f;
-    this->setView(posX,posY);
+    this->state = JUMP;
+    this->dy = -0.5f;
     this->playerOnGround = false;
 }
 
 
+
+}
+
+void Player::checkCollision() {
+    if((this->posY+height) > onGroundvalue)
+    {
+        this->posY = posY - 0.3;
+        this->dy = 0;
+        this->playerOnGround = true;
+    } else
+        {
+        this->playerOnGround = false;
+        }
 }
 
 
@@ -72,13 +85,13 @@ void Player::update(float time) {
     }
 
     posX += dx*time;
-    if((this->posY+height) >= onGroundvalue) {this->posY = onGroundvalue - height;this->dy = 0;this->playerOnGround = true;} else {this->playerOnGround = false;}
+    checkCollision();
     posY += dy*time;
-    if((this->posY+height) >= onGroundvalue) {this->posY = onGroundvalue - height; this->dy = 0;this->playerOnGround = true;} else {this->playerOnGround = false;}
+    checkCollision();
     this->speed = 0;
     this->sprite.setPosition(posX,posY);
     this->dy = dy + 0.0015*time;
-    if((this->posY+height) >= onGroundvalue) {this->posY = onGroundvalue - height; this->dy = 0;this->playerOnGround = true;} else {this->playerOnGround = false;}
+    checkCollision();
 
 }
 

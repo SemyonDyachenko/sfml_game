@@ -9,6 +9,7 @@ void GameState::initTextures()
 
     if(!this->groundTexture.loadFromFile("../res/images/ground.png")) {std::cout << "error load img for ground ..!!" << "\n"; }
     this->ground.setTexture(&this->groundTexture);
+    this->ground.setTextureRect(sf::IntRect(0,0,window->getSize().x,groundTexture.getSize().y));
     this->ground.setFillColor(sf::Color(255,255,255,150));
 
 }
@@ -60,9 +61,7 @@ void GameState::render(sf::RenderWindow * window)
     if (!window)
         window = this->window;
 
-    window->popGLStates();
     window->draw(this->backgroundShape);
-    window->pushGLStates();
     window->draw(this->ground);
     this->player->render(window);
 

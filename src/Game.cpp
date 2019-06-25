@@ -13,11 +13,6 @@ void Game::initWindow()
     this->window->setVerticalSyncEnabled(this->vertical_sync_enable);
     this->window->setFramerateLimit(this->FrameRateLimit);
 
-    glEnable(GL_TEXTURE_2D);
-    glDepthMask(GL_TRUE);
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    gluPerspective(90.f,1.f,1.f,2000.f);
 }
 
 void Game::initStates()
