@@ -9,9 +9,10 @@ void Game::initWindow()
     this->winSizeX = 1280;
     this->winSizeY = 720;
     this->winTitle = "Sfml rpg";
-    this->window = new sf::RenderWindow(sf::VideoMode(winSizeX, winSizeY), winTitle);
+    this->window = new sf::RenderWindow(sf::VideoMode(winSizeX, winSizeY), winTitle,sf::Style::Titlebar);
     this->window->setVerticalSyncEnabled(this->vertical_sync_enable);
     this->window->setFramerateLimit(this->FrameRateLimit);
+    this->window->setPosition(sf::Vector2i(0,0));
 
 }
 

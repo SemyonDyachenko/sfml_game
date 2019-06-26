@@ -16,6 +16,9 @@ private:
     sf::RectangleShape ground;
     sf::Texture groundTexture;
 
+    sf::Music music;
+    std::string musicpath;
+
     //mouse
     sf::Vector2i pixelPos;
     sf::Vector2f pos;

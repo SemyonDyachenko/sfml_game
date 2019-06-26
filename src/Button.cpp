@@ -15,7 +15,7 @@ Button::Button(float x, float y, float w, float h, sf::Font * font, std::string 
     this->text.setFont(*this->font);
     this->text.setString(text);
     this->text.setFillColor(sf::Color::White);
-    this->text.setCharacterSize(18);
+    this->text.setCharacterSize(45);
     this->text.setPosition(
             this->button.getPosition().x + (this->button.getGlobalBounds().width / 2.f) - this->text.getGlobalBounds().width / 2.f,
             this->button.getPosition().y + (this->button.getGlobalBounds().height / 2.f) - this->text.getGlobalBounds().height / 2.f

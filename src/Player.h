@@ -9,6 +9,7 @@
 
 class Player {
 protected:
+    sf::RenderWindow * window;
     float posX,posY,dx,dy;
     float speed;
     enum MovementDirection {
@@ -28,7 +29,7 @@ protected:
     float onGroundvalue;
 public:
     sf::View view;
-    Player(std::string path,float x,float y);
+    Player(sf::RenderWindow *window,std::string path,float x,float y);
     virtual ~Player();
 
     void setView(float x,float y);

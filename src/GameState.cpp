@@ -23,7 +23,13 @@ GameState::GameState(sf::RenderWindow * window, std::stack<State*>*states) : Sta
     this->initTextures();
     this->ground.setSize(sf::Vector2f(this->window->getSize().x,groundTexture.getSize().y));
     this->ground.setPosition(0,this->window->getSize().y - this->groundTexture.getSize().y/2);
-    this->player = new Player("../res/images/hero.png",500,ground.getPosition().y);
+    this->player = new Player(this->window,"../res/images/hero.png",500,ground.getPosition().y);
+    this->player->view.reset(sf::FloatRect(0,0,this->window->getSize().x,this->window->getSize().y));
+    this->musicpath = "../res/music/backMusic1.ogg";
+    if(!this->music.openFromFile(this->musicpath)) {std::cout << "error open music "<< "\n";}
+    this->music.setLoop(true);
+    this->music.setVolume(5);
+    this->music.play();
 }
 
 
@@ -54,6 +60,7 @@ void GameState::update(const float& time)
     this->updateMousePosition();
     this->updateInput(time);
     this->player->update(time);
+    this->window->setView(this->player->view);
 }
 
 void GameState::render(sf::RenderWindow * window)

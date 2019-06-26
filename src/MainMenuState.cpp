@@ -18,7 +18,8 @@ void MainMenuState::initBackground()
         std::cout << "ERROR in GAMEMENUSTATE (initBackground):: ERROR LOAD TEXTURE FROM FILE";
     }
 
-    this->background.setTexture(&this->backgroundTexture);
+  //  this->background.setTexture(&this->backgroundTexture);
+  this->background.setFillColor(sf::Color(0,0,0));
 }
 
 void MainMenuState::initFonts()
@@ -32,9 +33,10 @@ void MainMenuState::initFonts()
 
 void MainMenuState::initButtons()
 {
-    this->buttons["GAME_STATE"] = new Button(100, 100, 150, 50, &this->font, "New Game", sf::Color(70, 70, 70, 200), sf::Color(150, 150, 150, 255), sf::Color(20, 20, 20, 200));
-    this->buttons["SETTINGS_STATE"] = new Button(100, 200, 150, 50, &this->font, "Settings", sf::Color(70, 70, 70, 200), sf::Color(150, 150, 150, 255), sf::Color(20, 20, 20, 200));
-    this->buttons["EXIT_STATE"] = new Button(100, 300, 150, 50, &this->font, "Quit", sf::Color(70, 70, 70, 200), sf::Color(150, 150, 150, 255), sf::Color(20, 20, 20, 200));
+    this->buttons["GAME_STATE"] = new Button(10, 10, this->window->getSize().x/2-20, this->window->getSize().y/2-20, &this->font, "SINGLE GAME", sf::Color(221, 59, 59, 200), sf::Color(150, 150, 150, 255), sf::Color(20, 20, 20, 200));
+    this->buttons["SETTINGS_STATE"] = new Button(this->window->getSize().x/2,10, this->window->getSize().x/2-20, this->window->getSize().y/2-20, &this->font, "SETTINGS", sf::Color(78, 113, 183, 200), sf::Color(150, 150, 150, 255), sf::Color(20, 20, 20, 200));
+    this->buttons["ONLINE_STATE"] = new Button(10, this->window->getSize().y/2, this->window->getSize().x/2-20, this->window->getSize().y/2-20, &this->font, "ONLINE", sf::Color(247, 119, 69, 200), sf::Color(150, 150, 150, 255), sf::Color(20, 20, 20, 200));
+    this->buttons["EXIT_STATE"] = new Button(this->window->getSize().x/2,this->window->getSize().y/2,this->window->getSize().x/2-20, this->window->getSize().y/2-20, &this->font, "QUIT", sf::Color(65, 147, 59, 200), sf::Color(150, 150, 150, 255), sf::Color(20, 20, 20, 200));
 }
 
 MainMenuState::MainMenuState(sf::RenderWindow * window,std::stack<State*>* states) : State(window,states)

@@ -6,7 +6,8 @@
 
 
 
-Player::Player(std::string path,float x,float y) {
+Player::Player(sf::RenderWindow *window,std::string path,float x,float y) {
+this->window = window;
 this->width =83;
 this->height = 83;
 this->path = path;
@@ -30,26 +31,26 @@ Player::~Player() {
 }
 
 void Player::setView(float x, float y) {
-this->view.setCenter(x+100,y);
+this->view.setCenter(x+20,y);
 }
 
 
 
 void Player::movement(float time) {
 if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-    this->state = RIGHT; this->speed = 0.15f;
+    this->state = RIGHT; this->speed = 0.25f;
     this->currentFrameTime += time*0.005f;
     if(this->currentFrameTime > 3) { currentFrameTime -= 3; }
-    sprite.setTextureRect(sf::IntRect(96 * int(currentFrameTime), 94, 96, 96));
-    this->setView(posX,posY);
+    sprite.setTextureRect(sf::IntRect(96 * int(currentFrameTime), 94, 83, 83));
+  //  this->setView(posX,posY);
 }
 else if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-    this->state = LEFT; this->speed = 0.15f;
+    this->state = LEFT; this->speed = 0.25f;
     this->currentFrameTime += time*0.005f;
     if(this->currentFrameTime > 3) currentFrameTime -= 3;
-    sprite.setTextureRect(sf::IntRect(96 * int(currentFrameTime), 192, 96, 96));
-    this->setView(posX,posY);
-} 
+    sprite.setTextureRect(sf::IntRect(96 * int(currentFrameTime), 192, 83, 83));
+   // this->setView(posX,posY);
+}
 if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && (playerOnGround)) {
     this->state = JUMP;
     this->dy = -0.5f;
@@ -66,10 +67,13 @@ void Player::checkCollision() {
         this->posY = posY - 0.3;
         this->dy = 0;
         this->playerOnGround = true;
-    } else
-        {
+    }
+     else
+    {
         this->playerOnGround = false;
-        }
+   }
+
+    //
 }
 
 
@@ -84,14 +88,28 @@ void Player::update(float time) {
         case JUMP:break;
     }
 
-    posX += dx*time;
+    this->posX += dx*time;
     checkCollision();
-    posY += dy*time;
+    this->posY += dy*time;
     checkCollision();
     this->speed = 0;
     this->sprite.setPosition(posX,posY);
     this->dy = dy + 0.0015*time;
     checkCollision();
+
+    if(this->posX+width > this->window->getSize().x) {
+
+            this->posX += -0.25*time;
+            this->posY += -0.3*time;
+
+    }
+
+    if(this->posX < 0) {
+
+            this->posX += 0.25*time;
+            this->posY += -0.3*time;
+
+    }
 
 }
 
