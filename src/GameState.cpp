@@ -30,7 +30,6 @@ GameState::GameState(sf::RenderWindow * window, std::stack<State*>*states) : Sta
     this->music.setLoop(true);
     this->music.setVolume(15);
     this->music.play();
-
 }
 
 

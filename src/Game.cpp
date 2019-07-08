@@ -6,13 +6,21 @@ void Game::initWindow()
     /* here init and create window */
     this->vertical_sync_enable = false;
     this->FrameRateLimit = 60;
-    this->winSizeX = 1920;
-    this->winSizeY = 1080;
+    this->winSizeX = 1280;
+    this->winSizeY = 720;
     this->winTitle = "Sfml rpg";
     this->window = new sf::RenderWindow(sf::VideoMode(winSizeX, winSizeY), winTitle,sf::Style::Titlebar);
     this->window->setVerticalSyncEnabled(this->vertical_sync_enable);
     this->window->setFramerateLimit(this->FrameRateLimit);
     this->window->setPosition(sf::Vector2i(0,0));
+
+	glEnable(GL_DEPTH);
+	glDepthMask(GL_TRUE);
+	glClearDepth(1.f);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluPerspective(90.f, 1.f, 1.f, 2000.f);
+	glEnable(GL_TEXTURE_2D);
 
 }
 
