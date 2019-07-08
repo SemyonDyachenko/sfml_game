@@ -10,14 +10,17 @@ class GameState :public State
 private:
     Player *  player;
     sf::RenderWindow * window;
-    sf::RectangleShape backgroundShape;
-    sf::Texture backgroundTexture;
+    sf::RectangleShape backgroundShape;    
+	sf::Texture backTexture;
+	sf::Texture groundTexture;
 
-    sf::RectangleShape ground;
-    sf::Texture groundTexture;
+	sf::RectangleShape ground;
+	sf::RectangleShape  background;
 
     sf::Music music;
     std::string musicpath;
+
+	float viewSizeX,viewSizeY;
 
     //mouse
     sf::Vector2i pixelPos;

@@ -8,8 +8,10 @@
 
 Player::Player(sf::RenderWindow *window,std::string path,float x,float y) {
 this->window = window;
-this->width =83;
-this->height = 83;
+this->width = 103;
+this->height = 147;
+this->rectX = 0;
+this->rectY = 0;
 this->path = path;
 this->speed= 0;
 if(!this->image.loadFromFile(path)) std::cout << "error:not load image file" << path << std::endl;
@@ -19,11 +21,13 @@ this->sprite.setTexture(this->texture);
 this->posX = x;
 this->posY = y-this->height;
 this->sprite.setPosition(posX,posY);
-this->sprite.setTextureRect(sf::IntRect(0,192,width,height));
+this->sprite.setTextureRect(sf::IntRect(rectX, rectY,width,height));
 this->state = STAY;
 currentFrameTime = 0;
 this->playerOnGround = false;
 this->onGroundvalue = y;
+this->bulletState = 0;
+this->sleep = 0;
 }
 
 Player::~Player() {
@@ -38,17 +42,25 @@ this->view.setCenter(x+20,y);
 
 void Player::movement(float time) {
 if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+	this->width = 150;
+	this->height = 147;
+	this->rectX = 150;
+	this->rectY = 0;
     this->state = RIGHT; this->speed = 0.25f;
-    this->currentFrameTime += time*0.005f;
-    if(this->currentFrameTime > 3) { currentFrameTime -= 3; }
-    sprite.setTextureRect(sf::IntRect(96 * int(currentFrameTime), 94, 83, 83));
+    this->currentFrameTime += time*0.01f;
+    if(this->currentFrameTime > 6) { currentFrameTime -= 6; }
+    sprite.setTextureRect(sf::IntRect(rectX * int(currentFrameTime), rectY, width, height));
   //  this->setView(posX,posY);
 }
 else if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+	this->width = 150;
+	this->height = 147;
+	this->rectX = 150;
+	this->rectY = 153;
     this->state = LEFT; this->speed = 0.25f;
-    this->currentFrameTime += time*0.005f;
-    if(this->currentFrameTime > 3) currentFrameTime -= 3;
-    sprite.setTextureRect(sf::IntRect(96 * int(currentFrameTime), 192, 83, 83));
+    this->currentFrameTime += time*0.01f;
+    if(this->currentFrameTime > 6) currentFrameTime -= 6;
+    sprite.setTextureRect(sf::IntRect(rectX * int(currentFrameTime), rectY, width, height));
    // this->setView(posX,posY);
 }
 if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && (playerOnGround)) {
@@ -57,47 +69,110 @@ if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && (playerOnGround)) {
     this->playerOnGround = false;
 }
 
-
+/*if (!sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && !sf::Keyboard::isKeyPressed(sf::Keyboard::A) && !sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+{
+	this->speed = 0;
+	this->currentFrameTime += 0.005 * time;
+	if (currentFrameTime > 3) currentFrameTime -= 3;
+	this->sprite.setTextureRect(sf::IntRect(96 * int(currentFrameTime), 94, 83, 83));
+}
+*/ 
+ // выше анимация на случай кода персонаж просто стоит ,потом нарисую 
 
 }
 
-void Player::checkCollision() {
-    if((this->posY+height) > onGroundvalue)
-    {
-        this->posY = posY - 0.3;
-        this->dy = 0;
-        this->playerOnGround = true;
-    }
-     else
-    {
-        this->playerOnGround = false;
-   }
 
+
+void Player::checkCollision(float Dy,float Dx, sf::RectangleShape*object) {
+	if (sf::FloatRect(posX, posY, width, height).intersects(sf::FloatRect(object->getPosition().x,object->getPosition().y,object->getSize().x,object->getSize().y)))
+	{
+		if (Dy > 0) { this->posY = object->getPosition().y - height; this->dy = 0; this->playerOnGround = true; }
+   }
     //
 }
 
 
 
-void Player::update(float time) {
-    movement(time);
-    switch(state) {
+void Player::update(float time, sf::RectangleShape*object) {
+	movement(time);
+	switch (state) {
 
-        case STAY:break;
-        case LEFT:this->dx = -speed; break;
-        case RIGHT:this->dx = speed; break;
-        case JUMP:break;
-    }
+	case STAY:break;
+	case LEFT:this->dx = -speed; break;
+	case RIGHT:this->dx = speed; break;
+	case JUMP:break;
+	}
 
-    this->posX += dx*time;
-    checkCollision();
-    this->posY += dy*time;
-    checkCollision();
-    this->speed = 0;
-    this->sprite.setPosition(posX,posY);
-    this->dy = dy + 0.0015*time;
-    checkCollision();
+	this->posX += dx * time;
+	checkCollision(dy, dx, object);
+	this->posY += dy * time;
+	checkCollision(dy, 0, object);
+	this->speed = 0;
+	this->sprite.setPosition(posX, posY);
+	this->dy = dy + 0.0014*time;
+	checkCollision(dx, dy, object);
+	if (playerOnGround)
+	{
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::E)) {
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+				this->bulletState = 3;
 
-    if(this->posX+width > this->window->getSize().x) {
+				if (timer.getElapsedTime().asMilliseconds() > 500) {
+					timer.restart();
+					this->bullets.push_back(new Bullet(this->window, bulletState, posX + this->width / 2, this->posY));
+
+				}
+
+
+			}
+			else {
+				if (this->state == LEFT) {
+					this->bulletState = 1;
+
+					if (timer.getElapsedTime().asMilliseconds() > 500) {
+						timer.restart();
+						this->bullets.push_back(new Bullet(this->window, bulletState, this->posX, posY + this->height / 2));
+
+					}
+
+				}
+
+				if (this->state == RIGHT) {
+					this->bulletState = 2;
+					if (timer.getElapsedTime().asMilliseconds() > 500) {
+						timer.restart();
+						this->bullets.push_back(new Bullet(this->window, bulletState, this->posX + width, posY + this->height / 2));
+					}
+				}
+
+
+				if (this->state == JUMP) {
+					if (this->rectY == 0) {
+						if (timer.getElapsedTime().asMilliseconds() > 500) {
+							timer.restart();
+							this->bullets.push_back(new Bullet(this->window, bulletState, this->posX + width, posY + this->height / 2));
+						}
+					}
+					if (this->rectY >= 153) {
+						if (timer.getElapsedTime().asMilliseconds() > 500) {
+							timer.restart();
+							this->bullets.push_back(new Bullet(this->window, bulletState, this->posX, posY + this->height / 2));
+						}
+					}
+				}
+			}
+		}
+
+	}
+
+	
+	if (bullets.size() != 0) {
+		for (size_t i = 0; i < bullets.size(); i++) {
+			bullets[i]->update(time);
+		}
+	}
+
+    if(this->posX+width > this->view.getSize().x) {
 
             this->posX += -0.25*time;
             this->posY += -0.3*time;
@@ -115,6 +190,13 @@ void Player::update(float time) {
 
 void Player::render(sf::RenderWindow * window) {
 window->draw(this->sprite);
+
+if (bullets.size() != 0) {
+	for (size_t i = 0; i < bullets.size(); i++) {
+		bullets[i]->render(window);
+	}
+}
+
 }
 
 

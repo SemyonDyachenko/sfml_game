@@ -5,30 +5,34 @@
 #ifndef CATCHONBUBBLE_BULLET_H
 #define CATCHONBUBBLE_BULLET_H
 
-
-#include <iostream>
-#include <string>
-#include <stack>
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
-#include <GL/gl.h>
-#include <GL/glut.h>
+#include <stack>
+#include <map>
+#include <string>
+#include <vector>
+#include <list>
+#include <iostream>
+
 
 class Bullet {
-protected:
+
+public:
+
+	sf::RenderWindow *window;
     sf::Image image;
     sf::Sprite sprite;
     sf::Texture texture;
 
-    float posX,posY,speed;
+    float posX,posY,speedX,speedY;
     int state;
+	bool isAlive;
 
-public:
-    Bullet();
+    Bullet(sf::RenderWindow* widnow,int state,float x,float y);
     ~Bullet();
 
 
-    void update();
+    void update(float time);
     void render(sf::RenderWindow * window);
 };
 
