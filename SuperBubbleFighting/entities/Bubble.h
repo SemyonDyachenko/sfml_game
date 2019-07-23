@@ -1,14 +1,7 @@
 #ifndef BUBBLE_H
 #define BUBBLE_H
 
-#include <stack>
-#include <iostream>
-#include <string>
-#include <map>
-#include <SFML/Graphics.hpp>
-#include <SFML/Network.hpp>
-#include <SFML/Audio.hpp>
-#include <glut.h>
+#include "Tile.h"
 
 class Bubble
 {

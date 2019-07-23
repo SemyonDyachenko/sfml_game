@@ -1,0 +1,103 @@
+<!DOCTYPE SpriteDecomposer>
+<sprites image="skeleton.png" transparentColor="">
+ <animation title="stay" delay="150">
+  <cut w="27" x="543" y="173" h="47" row="1" col="1"/>
+  <cut w="25" x="579" y="173" h="47" row="1" col="1"/>
+  <cut w="25" x="613" y="173" h="47" row="1" col="1"/>
+  <cut w="25" x="649" y="173" h="47" row="1" col="1"/>
+  <cut w="24" x="685" y="173" h="47" row="1" col="1"/>
+  <cut w="27" x="719" y="174" h="46" row="1" col="1"/>
+  <cut w="29" x="751" y="174" h="46" row="1" col="1"/>
+  <cut w="26" x="787" y="173" h="47" row="1" col="1"/>
+  <cut w="26" x="820" y="174" h="46" row="1" col="1"/>
+  <cut w="25" x="855" y="173" h="47" row="1" col="1"/>
+  <cut w="26" x="889" y="174" h="46" row="1" col="1"/>
+ </animation>
+ <animation title="walkleft" delay="150">
+  <cut w="25" x="5" y="269" h="47" row="1" col="1"/>
+  <cut w="23" x="39" y="269" h="47" row="1" col="1"/>
+  <cut w="21" x="72" y="269" h="47" row="1" col="1"/>
+  <cut w="22" x="104" y="269" h="47" row="1" col="1"/>
+  <cut w="22" x="138" y="269" h="47" row="1" col="1"/>
+  <cut w="27" x="166" y="269" h="45" row="1" col="1"/>
+  <cut w="27" x="198" y="271" h="45" row="1" col="1"/>
+  <cut w="26" x="231" y="269" h="47" row="1" col="1"/>
+  <cut w="26" x="262" y="272" h="44" row="1" col="1"/>
+  <cut w="27" x="292" y="269" h="47" row="1" col="1"/>
+  <cut w="25" x="324" y="269" h="47" row="1" col="1"/>
+  <cut w="23" x="357" y="269" h="47" row="1" col="1"/>
+  <cut w="22" x="388" y="269" h="47" row="1" col="1"/>
+ </animation>
+ <animation title="walkleft" delay="150">
+  <cut w="23" x="1063" y="640" h="47" row="1" col="1"/>
+  <cut w="25" x="1031" y="640" h="47" row="1" col="1"/>
+  <cut w="24" x="1000" y="640" h="47" row="1" col="1"/>
+  <cut w="23" x="967" y="640" h="47" row="1" col="1"/>
+  <cut w="24" x="934" y="640" h="47" row="1" col="1"/>
+  <cut w="25" x="901" y="640" h="45" row="1" col="1"/>
+  <cut w="26" x="869" y="640" h="47" row="1" col="1"/>
+  <cut w="27" x="837" y="640" h="47" row="1" col="1"/>
+  <cut w="26" x="806" y="640" h="47" row="1" col="1"/>
+  <cut w="28" x="774" y="640" h="47" row="1" col="1"/>
+  <cut w="25" x="743" y="640" h="47" row="1" col="1"/>
+  <cut w="25" x="714" y="640" h="47" row="1" col="1"/>
+  <cut w="23" x="684" y="640" h="47" row="1" col="1"/>
+ </animation>
+ <animation title="attackleft" delay="150">
+  <cut w="26" x="1059" y="378" h="47" row="1" col="1"/>
+  <cut w="26" x="997" y="378" h="47" row="1" col="1"/>
+  <cut w="28" x="936" y="378" h="47" row="1" col="1"/>
+  <cut w="23" x="875" y="378" h="47" row="1" col="1"/>
+  <cut w="27" x="815" y="371" h="54" row="1" col="1"/>
+  <cut w="30" x="754" y="372" h="53" row="1" col="1"/>
+  <cut w="32" x="692" y="377" h="48" row="1" col="1"/>
+  <cut w="59" x="599" y="372" h="53" row="1" col="1"/>
+  <cut w="45" x="541" y="399" h="26" row="1" col="1"/>
+  <cut w="45" x="481" y="394" h="31" row="1" col="1"/>
+  <cut w="46" x="419" y="393" h="32" row="1" col="1"/>
+  <cut w="46" x="356" y="393" h="32" row="1" col="1"/>
+  <cut w="48" x="292" y="393" h="32" row="1" col="1"/>
+  <cut w="42" x="235" y="393" h="32" row="1" col="1"/>
+  <cut w="38" x="181" y="381" h="44" row="1" col="1"/>
+  <cut w="23" x="134" y="378" h="47" row="1" col="1"/>
+  <cut w="24" x="70" y="378" h="47" row="1" col="1"/>
+  <cut w="25" x="8" y="378" h="47" row="1" col="1"/>
+ </animation>
+ <animation title="attackright" delay="150">
+  <cut w="26" x="9" y="7" h="47" row="1" col="1"/>
+  <cut w="27" x="70" y="7" h="47" row="1" col="1"/>
+  <cut w="27" x="130" y="7" h="47" row="1" col="1"/>
+  <cut w="23" x="196" y="7" h="47" row="1" col="1"/>
+  <cut w="25" x="252" y="1" h="53" row="1" col="1"/>
+  <cut w="30" x="310" y="2" h="52" row="1" col="1"/>
+  <cut w="32" x="370" y="6" h="48" row="1" col="1"/>
+  <cut w="57" x="436" y="1" h="53" row="1" col="1"/>
+  <cut w="44" x="508" y="26" h="28" row="1" col="1"/>
+  <cut w="46" x="567" y="23" h="31" row="1" col="1"/>
+  <cut w="46" x="629" y="22" h="32" row="1" col="1"/>
+  <cut w="47" x="692" y="22" h="32" row="1" col="1"/>
+  <cut w="48" x="754" y="22" h="32" row="1" col="1"/>
+  <cut w="44" x="815" y="22" h="32" row="1" col="1"/>
+  <cut w="36" x="876" y="10" h="44" row="1" col="1"/>
+  <cut w="23" x="936" y="7" h="47" row="1" col="1"/>
+  <cut w="25" x="998" y="8" h="46" row="1" col="1"/>
+  <cut w="25" x="1061" y="7" h="47" row="1" col="1"/>
+ </animation>
+ <animation title="dead" delay="150">
+  <cut w="13" x="12" y="83" h="46" row="1" col="1"/>
+  <cut w="27" x="42" y="83" h="46" row="1" col="1"/>
+  <cut w="27" x="88" y="83" h="46" row="1" col="1"/>
+  <cut w="30" x="132" y="83" h="46" row="1" col="1"/>
+  <cut w="29" x="180" y="83" h="46" row="1" col="1"/>
+  <cut w="30" x="227" y="83" h="46" row="1" col="1"/>
+  <cut w="28" x="275" y="83" h="46" row="1" col="1"/>
+  <cut w="28" x="323" y="83" h="46" row="1" col="1"/>
+  <cut w="27" x="370" y="83" h="46" row="1" col="1"/>
+  <cut w="25" x="418" y="87" h="42" row="1" col="1"/>
+  <cut w="30" x="462" y="92" h="37" row="1" col="1"/>
+  <cut w="35" x="506" y="104" h="25" row="1" col="1"/>
+  <cut w="31" x="559" y="117" h="12" row="1" col="1"/>
+  <cut w="30" x="607" y="118" h="11" row="1" col="1"/>
+  <cut w="27" x="658" y="118" h="11" row="1" col="1"/>
+ </animation>
+</sprites>

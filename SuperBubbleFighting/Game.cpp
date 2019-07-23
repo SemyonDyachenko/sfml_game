@@ -6,9 +6,9 @@ void Game::initWindow()
     /* here init and create window */
     this->vertical_sync_enable = false;
     this->FrameRateLimit = 60;
-    this->winSizeX = 1280;
-    this->winSizeY = 720;
-    this->winTitle = "Sfml rpg";
+    this->winSizeX = 1280; // GetSystemMetrics(SM_CXSCREEN)
+    this->winSizeY = 720; // GetSystemMetrics(SM_CYSCREEN)
+    this->winTitle = "Super Bubble Fighting";
     this->window = new sf::RenderWindow(sf::VideoMode(winSizeX, winSizeY), winTitle,sf::Style::Titlebar);
     this->window->setVerticalSyncEnabled(this->vertical_sync_enable);
     this->window->setFramerateLimit(this->FrameRateLimit);

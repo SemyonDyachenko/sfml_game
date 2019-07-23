@@ -2,48 +2,51 @@
 
 
 
+
+
 void GameState::initTextures()
 {
-	if (!this->backTexture.loadFromFile("../res/images/backgroud.png")) { std::cout << "error load img background!" << std::endl; }
-	this->background.setTexture(&this->backTexture);
-
 	if (!this->groundTexture.loadFromFile("../res/images/ground.png")) { std::cout << "error load img for ground ..!!" << "\n"; }
 	this->ground.setTexture(&this->groundTexture);
 
-	if (!this->cloudsTexture.loadFromFile("../res/images/clouds.png")) { std::cout << "error load img for ground ..!!" << "\n"; }
-	this->clouds.setTexture(&this->cloudsTexture);
+	if (!this->enemyTexture.loadFromFile("../res/images/skeleton.png")) std::cout << "error load texture from file for enemy" << "\n";
 
 }
 
-GameState::GameState(sf::RenderWindow * window, std::stack<State*>*states) : State(window, states)
+GameState::GameState(sf::RenderWindow * window, std::stack<State*>*states)
+	: State(window, states)
 {
     this->window = window;
-	this->viewSizeX = this->window->getSize().x*1.2;
-	this->viewSizeY = this->window->getSize().y*1.2;
     this->window->setMouseCursorVisible(false);
     this->initTextures();
-	this->background.setPosition(0, 0);
-	this->clouds.setPosition(0, 0);
-	this->clouds.setSize(sf::Vector2f(this->cloudsTexture.getSize().x, this->cloudsTexture.getSize().y));
-	this->background.setSize(sf::Vector2f(viewSizeX, viewSizeY));
+	//this->initAnimations();
 	this->ground.setSize(sf::Vector2f(groundTexture.getSize().x, groundTexture.getSize().y));
-	this->ground.setPosition((viewSizeX - groundTexture.getSize().x)/2, viewSizeY/2+200);
-    this->player = new Player(this->window,"../res/images/hero.png",viewSizeX/2,100);
+	this->ground.setPosition((viewSizeX - groundTexture.getSize().x)/2,800);
+    this->player = new Player(this->window,"../res/images/heroes/hero.png",window->getSize().x/2,100);
     this->player->view.reset(sf::FloatRect(0,0, window->getSize().x, window->getSize().y));
-    this->musicpath = "../res/music/backMusic1.ogg";
-    if(!this->music.openFromFile(this->musicpath)) {std::cout << "error open music "<< "\n";}
-    this->music.setLoop(true);
-    this->music.setVolume(15);
-    this->music.play();
+	this->player->view.zoom(0.5);
 }
 
 
 GameState::~GameState()
 {
-
     delete this->player;
+
+	/*if (skeletons.size() != 0)
+	{
+
+		for (size_t i = 0; i < skeletons.size(); i++)
+		{
+			if (this->skeletons[i]->checkLife()==true)
+			{
+				delete this->skeletons[i];
+			}
+		}
+	}
+	
+	*/
     this->window->setView(window->getDefaultView());
-    this->window->setMouseCursorVisible(true);
+  //  this->window->setMouseCursorVisible(true);
 }
 
 void GameState::endState()
@@ -58,32 +61,52 @@ void GameState::updateInput(const float & time)
 
 }
 
-void GameState::update(const float& time)
+void GameState::update(float time)
 {
-    this->pixelPos = sf::Mouse::getPosition(*window);
-    this->pos = window->mapPixelToCoords(pixelPos);
     this->updateMousePosition();
     this->updateInput(time);
-    this->player->update(time,&ground);
+    this->player->update(time,&ground,this->skeletons);
     this->window->setView(this->player->view);
-	this->cloudsPosX += 0.04*time;
-	this->cloudsPosY = clouds.getPosition().y;
-	this->clouds.setPosition(cloudsPosX, 0);
 
-	if (this->cloudsPosX+100 > this->window->getSize().x) {
-		this->cloudsPosX = -clouds.getSize().x;
+	this->player->view.setCenter(this->player->getPositionX()+20,this->player->getPositionY());
+
+/*
+	if (skeletons.size() != 0)
+	{
+		for (size_t i = 0; i < skeletons.size(); i++)
+		{
+			if (this->skeletons[i]->checkLife() == false)
+			{
+				delete skeletons[i];
+			}
+			else if(this->skeletons[i]->checkLife() == true)
+			{
+				skeletons[i]->update(time, &ground);
+			}
+		}
+		
 	}
-	
+	*/
 }
 
 void GameState::render(sf::RenderWindow * window)
 {
-    if (!window)
-        window = this->window;
+	if (!window)
+		window = this->window;
 
-	window->draw(this->background);
-	window->draw(this->clouds);
+
+	this->player->render(window);
 	window->draw(this->ground);
-    this->player->render(window);
 
+	/*if (this->skeletons.size() != 0)
+	{
+		for (size_t i = 0; i < skeletons.size(); i++)
+		{
+			if (skeletons[i]->checkLife() == true)
+			{
+				skeletons[i]->render(window);
+			}
+		}
+	}
+	*/
 }

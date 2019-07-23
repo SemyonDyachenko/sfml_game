@@ -2,7 +2,9 @@
 #define MAINMENUSTATE_H
 
 #include "GameState.h"
-#include "../UI/Button.h"
+#include "../GUI/Button.h"
+#include "EditorState.h"
+#include "SettingsState.h"
 
 
 class MainMenuState : public State
@@ -13,8 +15,11 @@ private:
     sf::RectangleShape background;
     std::map<std::string, Button*> buttons;
 
+	sf::RectangleShape cursor;
+	sf::Texture textureCursor;
 
     //funcs
+	void initCursor();
     void initVariables();
     void initBackground();
     void initFonts();
@@ -30,7 +35,7 @@ public:
     void updateInput(const float& time);
     void updateButtons();
     void renderButtons(sf::RenderWindow * window);
-    void update(const float& time);
+    void update(float time);
     void render(sf::RenderWindow * window);
 };
 

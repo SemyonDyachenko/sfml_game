@@ -14,7 +14,7 @@ Bubble::Bubble(sf::RenderWindow * window, int state, float x, float y)
 	this->posX = x;
 	this->posY = y;
 	this->sprite.setPosition(x, y);
-	this->isAlive = false;
+	this->isAlive = true;
 }
 
 bool Bubble::getAlive()

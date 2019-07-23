@@ -1,9 +1,26 @@
 #ifndef BUTTON_H
 #define BUTTON_H
 
-#include "../entities/Player.h"
+#include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+#include <SFML/Network.hpp>
+#include <SFML/Window.hpp>
+#include <SFML/System.hpp>
+#include <thread>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <map>
+#include <stack>
+#include <glut.h>
+#include <Windows.h>
+#include <fstream>
+#include <sstream>
+#include <list>
 
-enum buttonStates{
+
+enum buttonStates
+{
 	BUTTON_IDLE = 0,
 	BUTTON_HOVER,
 	BUTTON_ACTIVE

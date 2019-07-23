@@ -16,11 +16,13 @@ protected:
     //std::map<std::string, int> keybinds;
     bool quit; // ïåðåìåíàÿ îòâå÷àþùàÿ çà íàõîæäåíèè â òåêóùåì ñòîñòîÿíèè (state)
 
+	float gridSize;
+
+
     //res
     sf::Vector2i mousePosScreen;
     sf::Vector2i mousePosWindow;
     sf::Vector2f mousePosView;
-
 
 
     std::vector<sf::Texture> textures;
@@ -40,7 +42,7 @@ public:
     virtual void endState() = 0; //çàâåðøåíèå òåêóùåãî ñîñòîÿíèÿ
     virtual void updateMousePosition();
     virtual void updateInput(const float& time) = 0; // ôóíêöèÿ êîòîðàÿ îòâå÷àåò çà îáíîâëåíèå âõîäÿùåé èíôîðìàöèè
-    virtual void update(const float& time) = 0; // àïäåéò ïðèíèìàåò âðåìÿ delta time (Dt)
+    virtual void update(float time) = 0; // àïäåéò ïðèíèìàåò âðåìÿ delta time (Dt)
     virtual void render(sf::RenderWindow * window) = 0; // ôóíêöèÿ ðåíäåðà
 };
 

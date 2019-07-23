@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -76,7 +76,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\superbubble\SuperBubbleFighting\GLUT;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\superbubble\SuperBubbleFighting\lib;C:\superbubble\SuperBubbleFighting\GLUT;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>C:\superbubble\SuperBubbleFighting\GLUT;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -89,7 +89,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\superbubble\SuperBubbleFighting\GLUT;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\superbubble\SuperBubbleFighting\lib;C:\superbubble\SuperBubbleFighting\GLUT;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>C:\superbubble\SuperBubbleFighting\GLUT;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -104,7 +104,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\superbubble\SuperBubbleFighting\GLUT;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\superbubble\SuperBubbleFighting\lib;C:\superbubble\SuperBubbleFighting\GLUT;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -121,7 +121,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\superbubble\SuperBubbleFighting\GLUT;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\superbubble\SuperBubbleFighting\lib;C:\superbubble\SuperBubbleFighting\GLUT;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -132,12 +132,27 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="resource\light\lightAttenuationShader.frag" />
+    <None Include="resource\light\lightOverShapeShader.frag" />
+    <None Include="resource\light\lightOverShapeShader.vert" />
+    <None Include="resource\light\unshadowShader.frag" />
+    <None Include="resource\light\unshadowShader.vert" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="animation\Animation.h" />
+    <ClInclude Include="animation\AnimationManager.h" />
     <ClInclude Include="Collision.h" />
+    <ClInclude Include="states\SettingsState.h" />
+    <ClInclude Include="states\EditorState.h" />
     <ClInclude Include="entities\Bubble.h" />
     <ClInclude Include="entities\Bullet.h" />
-    <ClInclude Include="UI\Button.h" />
+    <ClInclude Include="entities\Level.h" />
+    <ClInclude Include="entities\Tile.h" />
+    <ClInclude Include="entities\MapEditor.h" />
+    <ClInclude Include="GUI\TextureSelector.h" />
+    <ClInclude Include="TinyXML\tinystr.h" />
+    <ClInclude Include="TinyXML\tinyxml.h" />
+    <ClInclude Include="GUI\Button.h" />
     <ClInclude Include="entities\Enemy.h" />
     <ClInclude Include="entities\Entity.h" />
     <ClInclude Include="Game.h" />
@@ -147,9 +162,21 @@
     <ClInclude Include="states\State.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="animation\Animation.cpp" />
+    <ClCompile Include="animation\AnimationManager.cpp" />
+    <ClCompile Include="states\SettingsState.cpp" />
+    <ClCompile Include="states\EditorState.cpp" />
     <ClCompile Include="entities\Bubble.cpp" />
     <ClCompile Include="entities\Bullet.cpp" />
-    <ClCompile Include="UI\Button.cpp" />
+    <ClCompile Include="entities\Level.cpp" />
+    <ClCompile Include="entities\Tile.cpp" />
+    <ClCompile Include="entities\MapEditor.cpp" />
+    <ClCompile Include="GUI\TextureSelector.cpp" />
+    <ClCompile Include="TinyXML\tinystr.cpp" />
+    <ClCompile Include="TinyXML\tinyxml.cpp" />
+    <ClCompile Include="TinyXML\tinyxmlerror.cpp" />
+    <ClCompile Include="TinyXML\tinyxmlparser.cpp" />
+    <ClCompile Include="GUI\Button.cpp" />
     <ClCompile Include="entities\Enemy.cpp" />
     <ClCompile Include="entities\Entity.cpp" />
     <ClCompile Include="Game.cpp" />

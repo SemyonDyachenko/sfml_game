@@ -14,8 +14,9 @@ Button::Button(float x, float y, float w, float h, sf::Font * font, std::string 
     this->font = font;
     this->text.setFont(*this->font);
     this->text.setString(text);
-    this->text.setFillColor(sf::Color::White);
-    this->text.setCharacterSize(45);
+    this->text.setFillColor(idleColor);
+    this->text.setCharacterSize(24);
+	this->text.setStyle(sf::Text::Bold);
     this->text.setPosition(
             this->button.getPosition().x + (this->button.getGlobalBounds().width / 2.f) - this->text.getGlobalBounds().width / 2.f,
             this->button.getPosition().y + (this->button.getGlobalBounds().height / 2.f) - this->text.getGlobalBounds().height / 2.f
@@ -25,7 +26,7 @@ Button::Button(float x, float y, float w, float h, sf::Font * font, std::string 
     this->hoverColor = hoverColor;
     this->activeColor = activeColor;
 
-    this->button.setFillColor(this->idleColor);
+    this->button.setFillColor(sf::Color::Transparent);
 }
 
 Button::~Button()
@@ -46,7 +47,7 @@ const bool Button::isPressed() const
 
 void Button::update(const sf::Vector2f mousePos)
 {
-    /*Îáíîâëåíèå  äëÿ ýôôåêòà êîäà íàæèìàåì êíîïêó è íàâîäèìñÿ */
+   
 
     this->buttonState = BUTTON_IDLE;
 
@@ -65,17 +66,17 @@ void Button::update(const sf::Vector2f mousePos)
     switch (this->buttonState)
     {
         case BUTTON_IDLE:
-            this->button.setFillColor(this->idleColor);
+            this->text.setFillColor(this->idleColor);
             break;
         case BUTTON_HOVER:
-            this->button.setFillColor(this->hoverColor);
+            this->text.setFillColor(this->hoverColor);
             break;
         case BUTTON_ACTIVE:
-            this->button.setFillColor(this->activeColor);
+            this->text.setFillColor(this->activeColor);
             break;
 
         default:
-            this->button.setFillColor(sf::Color::Red);
+            this->button.setFillColor(sf::Color::Transparent);
             break;
     }
 
