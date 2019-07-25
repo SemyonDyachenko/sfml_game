@@ -56,6 +56,16 @@ MapEditor::MapEditor(sf::RenderWindow * window,std::string textureFile)
 
 	if (!this->textureSheet.loadFromFile(textureFile)) std::cout << "error: don't load texture grass from file , MapEditor.cpp,line 7" << "\n";
 	
+	//collision
+
+	this->collisionBox.setSize(sf::Vector2f(
+		this->gridSizeF,
+		this->gridSizeF
+	));
+
+	this->collisionBox.setFillColor(sf::Color(255, 0, 0, 50));
+	this->collisionBox.setOutlineColor(sf::Color::Red);
+	this->collisionBox.setOutlineThickness(1.f);
 }
 
 
@@ -199,15 +209,13 @@ sf::Texture & MapEditor::getTextureSheet()
 	return this->textureSheet;
 }
 
+void MapEditor::checkCollision(Player * player)
+{
+
+}
+
 void MapEditor::update(float time)
 {
-	this->pixelPos = sf::Mouse::getPosition(*this->window);
-	this->pos = window->mapPixelToCoords(pixelPos);
-
-
-
-	
-		
 }
 
 void MapEditor::render(sf::RenderWindow & window)
@@ -218,13 +226,18 @@ void MapEditor::render(sf::RenderWindow & window)
 		{
 			for (auto *z : y)
 			{
-				if(z!=NULL)
-				z->render(window);
+				if (z != NULL)
+				{
+					z->render(window);
+					if (z->getCollision())
+					{
+						this->collisionBox.setPosition(z->getPosition());
+						window.draw(this->collisionBox);
+					}
+				}
 			}
 		}
 	}
-		
-	
 }
 
 

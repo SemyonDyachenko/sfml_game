@@ -26,7 +26,6 @@ private:
 
  
     //funcs
-	void initRender();
 	void initView();
 	void initTileMap();
     void initTextures();

@@ -25,10 +25,11 @@ public:
 	virtual ~Tile();
 
 
+	const bool& getCollision() const;
+
 	const sf::IntRect& getRect() const;
 
-	float getPositionX();
-	float getPositionY();
+	const sf::Vector2f& getPosition() const;
 
 	const std::string getAssString() const;
 	

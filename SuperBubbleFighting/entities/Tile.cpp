@@ -29,20 +29,22 @@ Tile::~Tile()
 {
 }
 
+const bool & Tile::getCollision() const
+{
+	return this->collision;
+}
+
 const sf::IntRect & Tile::getRect() const
 {
 	return this->rect;
 }
 
-float Tile::getPositionX()
+const sf::Vector2f & Tile::getPosition() const
 {
-	return this->posX;
+	return this->shape.getPosition();
 }
 
-float Tile::getPositionY()
-{
-	return this->posY;
-}
+
 
 const std::string Tile::getAssString() const
 {

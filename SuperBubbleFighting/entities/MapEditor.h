@@ -4,7 +4,7 @@
 
 
 #include "Tile.h"
-
+#include "Player.h"
 
 class MapEditor
 {
@@ -19,8 +19,7 @@ private:
 	std::vector < std::vector < std::vector < Tile*> > > map;
 
 	sf::RectangleShape TileSet;
-	Tile * ground;
-	Tile * trees;
+	sf::RectangleShape collisionBox;
 
 	sf::Texture textureSheet;
 	std::string textureFile;
@@ -41,6 +40,9 @@ public:
 
 	void saveToFile(const std::string filename);
 	void loadFromFile(const std::string filename);
+
+
+	void checkCollision(Player*player);
 
 	void update(float time);
 	void render(sf::RenderWindow& window);
