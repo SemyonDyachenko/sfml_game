@@ -4,9 +4,9 @@
 
 void MapEditor::clear()
 {
-	for (size_t x = 0; x < this->maxSize.x; x++)
+	for (size_t x = 0; x < this->maxSizeWorldGrid.x; x++)
 	{
-		for (size_t y = 0; y < this->maxSize.y; y++)
+		for (size_t y = 0; y < this->maxSizeWorldGrid.y; y++)
 		{
 			for (size_t z = 0; z < this->layers; z++)
 			{
@@ -32,18 +32,20 @@ MapEditor::MapEditor(sf::RenderWindow * window,std::string textureFile)
 	this->window = window;
 	this->gridSizeF = 16.f;
 	this->gridSizeU = static_cast<unsigned>(this->gridSizeF);
-	this->maxSize.x = 100;
-	this->maxSize.y = 100;
+	this->maxSizeWorldGrid.x = 100;
+	this->maxSizeWorldGrid.y = 100;
+	this->maxSizeF.x = 100 * this->gridSizeF;
+	this->maxSizeF.y = 100 * this->gridSizeF;
 	this->layers = 1;
 	this->textureFile = textureFile;
 	
-	this->map.resize(this->maxSize.x,std::vector<std::vector<Tile*>>());
+	this->map.resize(this->maxSizeWorldGrid.x,std::vector<std::vector<Tile*>>());
 
-	for (size_t x = 0; x < this->maxSize.x; x++) 
+	for (size_t x = 0; x < this->maxSizeWorldGrid.x; x++)
 	{
-		for (size_t y = 0; y < this->maxSize.y; y++)
+		for (size_t y = 0; y < this->maxSizeWorldGrid.y; y++)
 		{
-			this->map[x].resize(this->maxSize.y,std::vector<Tile*>());
+			this->map[x].resize(this->maxSizeWorldGrid.y,std::vector<Tile*>());
 
 			for (size_t z = 0; z < this->layers; z++)
 			{
@@ -92,14 +94,14 @@ void MapEditor::saveToFile(const std::string filename)
 
 	if (out_file.is_open())
 	{
-		out_file << this->maxSize.x << " " << this->maxSize.y << "\n"
+		out_file << this->maxSizeWorldGrid.x << " " << this->maxSizeWorldGrid.y << "\n"
 			<< this->gridSizeU << "\n"
 			<< this->layers << "\n"
 			<< this->textureFile << "\n";
 
-		for (size_t x = 0; x < this->maxSize.x; x++)
+		for (size_t x = 0; x < this->maxSizeWorldGrid.x; x++)
 		{
-			for (size_t y = 0; y < this->maxSize.y; y++)
+			for (size_t y = 0; y < this->maxSizeWorldGrid.y; y++)
 			{
 				for (size_t z = 0; z < this->layers; z++)
 				{
@@ -141,20 +143,20 @@ void MapEditor::loadFromFile(const std::string filename)
 
 		this->gridSizeF = static_cast<float>(gridSize);
 		this->gridSizeU = gridSize;
-		this->maxSize.x = size.x;
-		this->maxSize.y = size.y;
+		this->maxSizeWorldGrid.x = size.x;
+		this->maxSizeWorldGrid.y = size.y;
 		this->layers = layers;
 		this->textureFile = texture_file;
 
 		this->clear();
 
-		this->map.resize(this->maxSize.x,std::vector<std::vector<Tile*>>());
+		this->map.resize(this->maxSizeWorldGrid.x,std::vector<std::vector<Tile*>>());
 
-		for (size_t x = 0; x < this->maxSize.x; x++)
+		for (size_t x = 0; x < this->maxSizeWorldGrid.x; x++)
 		{
-			for (size_t y = 0; y < this->maxSize.y; y++)
+			for (size_t y = 0; y < this->maxSizeWorldGrid.y; y++)
 			{
-				this->map[x].resize(this->maxSize.y,std::vector<Tile*>());
+				this->map[x].resize(this->maxSizeWorldGrid.y,std::vector<Tile*>());
 
 				for (size_t z = 0; z < this->layers; z++)
 				{
@@ -183,7 +185,7 @@ void MapEditor::loadFromFile(const std::string filename)
 
 void MapEditor::addTile(const unsigned  x,const unsigned y,const unsigned z,sf::IntRect& textureRect, const bool collision, const short type)
 {
-	if (x < this->maxSize.x && x >= 0 && y < this->maxSize.y && y > 0 && z < this->layers && z>= 0) 
+	if (x < this->maxSizeWorldGrid.x && x >= 0 && y < this->maxSizeWorldGrid.y && y > 0 && z < this->layers && z>= 0)
 	{
 		if (this->map[x][y][z] == NULL || (this->map[x][y][z]->getRect() != textureRect))
 		{
@@ -194,7 +196,7 @@ void MapEditor::addTile(const unsigned  x,const unsigned y,const unsigned z,sf::
 
 void MapEditor::removeTile(const unsigned  x, const unsigned y, const unsigned z)
 {
-	if (x < this->maxSize.x && x >= 0 && y < this->maxSize.y && y > 0 && z < this->layers && z >= 0)
+	if (x < this->maxSizeWorldGrid.x && x >= 0 && y < this->maxSizeWorldGrid.y && y > 0 && z < this->layers && z >= 0)
 	{
 		if (this->map[x][y][z] != NULL)
 		{
@@ -211,7 +213,14 @@ sf::Texture & MapEditor::getTextureSheet()
 
 void MapEditor::checkCollision(Player * player)
 {
-
+	if (player->getPosition().x < 0.f)
+	{
+		player->setPosition(0.f, player->getPosition().y);
+	}
+	else if (player->getPosition().x > (this->maxSizeWorldGrid.x*this->gridSizeF))
+	{
+		player->setPosition(this->maxSizeWorldGrid.x, player->getPosition().y);
+	}
 }
 
 void MapEditor::update(float time)

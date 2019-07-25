@@ -92,6 +92,11 @@ const sf::Vector2f & Player::getPosition() const
 	return this->sprite.getPosition();
 }
 
+void Player::setPosition(float x,float y)
+{
+	sprite.setPosition(x,y);
+}
+
 void Player::update(float time)
 {
 	if (this->life)

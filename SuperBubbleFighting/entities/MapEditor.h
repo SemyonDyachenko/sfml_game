@@ -13,7 +13,8 @@ private:
 
 	float gridSizeF;
 	unsigned gridSizeU;
-	sf::Vector2u maxSize;
+	sf::Vector2f maxSizeWorldGrid;
+	sf::Vector2f maxSizeF;
 	sf::RenderWindow * window;
 	unsigned layers;
 	std::vector < std::vector < std::vector < Tile*> > > map;

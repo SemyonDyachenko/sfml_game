@@ -56,6 +56,7 @@ public:
     void checkCollision(float Dy, float Dx, sf::RectangleShape *object);
 
 	virtual const sf::Vector2f& getPosition() const;
+	virtual void setPosition(float x, float y);
 
 	void update(float time);
 

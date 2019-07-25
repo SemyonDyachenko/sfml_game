@@ -121,7 +121,7 @@ void EditorState::updateView(float time)
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
-		this->editorView.move(0, this->cameraSpeed*time);
+		this->editorView.move(0,this->cameraSpeed*time);
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{

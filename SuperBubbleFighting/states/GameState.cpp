@@ -57,7 +57,7 @@ void GameState::updateInput(const float & time)
 
 void GameState::updateView(float time)
 {
-	this->view.setCenter(this->player->getPosition());
+	this->view.setCenter(std::floor(this->player->getPosition().x),std::floor(this->player->getPosition().y));
 }
 
 void GameState::update(float time)
@@ -67,6 +67,7 @@ void GameState::update(float time)
 	this->updateView(time);
     this->player->update(time);
 	this->tilemap->update(time);
+	this->tilemap->checkCollision(this->player);
 }
 
 void GameState::render(sf::RenderWindow * window)
