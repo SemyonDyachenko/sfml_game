@@ -1,6 +1,13 @@
 #include "GameState.h"
 
 
+void GameState::initRender()
+{
+	this->renderTexture.create(this->window->getSize().x, this->window->getSize().y);
+	this->renderSprite.setTexture(this->renderTexture.getTexture());
+	this->renderSprite.setTextureRect(sf::IntRect(0, 0, this->window->getSize().x, this->window->getSize().y));
+}
+
 void GameState::initView()
 {
 	this->view.setSize(sf::Vector2f(

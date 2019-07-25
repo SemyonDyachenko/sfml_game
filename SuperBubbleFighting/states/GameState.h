@@ -12,7 +12,8 @@ class GameState : public State
 {
 private:
 	sf::View view;
-
+	sf::RenderTexture renderTexture;
+	sf::Sprite renderSprite;
 
     Player *  player;
 
@@ -25,6 +26,7 @@ private:
 
  
     //funcs
+	void initRender();
 	void initView();
 	void initTileMap();
     void initTextures();

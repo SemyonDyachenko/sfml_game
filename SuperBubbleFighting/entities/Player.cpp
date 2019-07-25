@@ -109,7 +109,7 @@ void Player::update(float time)
 		this->posY += dy * time;
 		this->speed = 0;
 		this->sprite.setPosition(posX, posY);
-		this->dy = dy + 0.0014*time;
+	//	this->dy = dy + 0.0014*time;
 
 		this->timerValue = 500;
 	
@@ -223,10 +223,10 @@ void Player::update(float time)
 
 	}
 
-	if (this->posY > 650)
-	{
-		this->posY = 650 - 45;
-	}
+	//if (this->posY > 650)
+	//{
+	//	this->posY = 650 - 45;
+//	}
 
 
 	// life---------------------------------
