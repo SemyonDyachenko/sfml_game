@@ -4,43 +4,29 @@
 
 #include "State.h"
 #include "../entities/Enemy.h"
+#include "../entities/MapEditor.h"
 
 
 
 class GameState : public State
 {
 private:
+	sf::View view;
+
+
     Player *  player;
-	std::vector<Enemy*> skeletons;
+
 	//Enemy * enemy;
     sf::RenderWindow * window;
-    sf::RectangleShape backgroundShape;    
-	sf::Texture backTexture;
-	sf::Texture groundTexture;
-	 
-	sf::RectangleShape ground;
-	sf::RectangleShape  background;
 
-	std::vector < std::vector < std::vector < Tile*> > > map;
 
-	sf::Texture enemyTexture;
-	
 
-	
-	sf::RectangleShape clouds;
-	sf::Texture cloudsTexture;
-	float cloudsPosX, cloudsPosY;
+	MapEditor * tilemap;
 
-    sf::Music music;
-    std::string musicpath;
-
-	float viewSizeX,viewSizeY;
-
-    //mouse
-    sf::Vector2i pixelPos;
-    sf::Vector2f pos;
+ 
     //funcs
-	//void initAnimations();
+	void initView();
+	void initTileMap();
     void initTextures();
 public:
     GameState(sf::RenderWindow * window, std::stack<State*>*states);
@@ -50,6 +36,7 @@ public:
     //funcs
     void endState();
     void updateInput(const float& time);
+	void updateView(float time);
     void update(float time);
     void render(sf::RenderWindow *window);
 };

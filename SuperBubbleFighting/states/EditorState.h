@@ -14,12 +14,16 @@ private:
 	std::string string;
 	sf::Text text;
 
+
 	std::map<std::string, Button*> buttons;
 
 	sf::RenderWindow * window;
 
 	MapEditor * map;
 	
+	sf::View editorView;
+	float cameraSpeed;
+
 	sf::RectangleShape selectorRect;
 	
 	sf::RectangleShape mouseSelector;
@@ -27,7 +31,10 @@ private:
 
 	sf::Vector2i pixelPos;
 	sf::Vector2f pos;
-	sf::Vector2u mousePosGrid;
+
+	bool collision;
+	short type;
+
 
 	TextureSelector *textureSelector;
 	
@@ -36,11 +43,10 @@ private:
 
 	sf::IntRect textureRect;
 
+	void initView();
 	void initTextures();
 	void initGui();
 	void initVariables();
-	void initBackground();
-	void initFonts();
 	void initSelector();
 
 public:
@@ -49,6 +55,7 @@ public:
 
 	void endState();
 	void updateInput(const float& time);
+	void updateView(float time);
 	void update(float time);
 	void render(sf::RenderWindow * window);
 };

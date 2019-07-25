@@ -30,10 +30,10 @@ void MapEditor::initTextures()
 MapEditor::MapEditor(sf::RenderWindow * window,std::string textureFile)
 {
 	this->window = window;
-	this->gridSizeF = 32.f;
+	this->gridSizeF = 16.f;
 	this->gridSizeU = static_cast<unsigned>(this->gridSizeF);
-	this->maxSize.x = window->getSize().x / this->gridSizeF;
-	this->maxSize.y = window->getSize().y / this->gridSizeF;
+	this->maxSize.x = 100;
+	this->maxSize.y = 100;
 	this->layers = 1;
 	this->textureFile = textureFile;
 	
@@ -171,13 +171,13 @@ void MapEditor::loadFromFile(const std::string filename)
 
 
 
-void MapEditor::addTile(const unsigned  x,const unsigned y,const unsigned z,sf::IntRect& textureRect)
+void MapEditor::addTile(const unsigned  x,const unsigned y,const unsigned z,sf::IntRect& textureRect, const bool collision, const short type)
 {
 	if (x < this->maxSize.x && x >= 0 && y < this->maxSize.y && y > 0 && z < this->layers && z>= 0) 
 	{
-		if (this->map[x][y][z] == NULL)
+		if (this->map[x][y][z] == NULL || (this->map[x][y][z]->getRect() != textureRect))
 		{
-			this->map[x][y][z] = new Tile(x, y, this->gridSizeF,this->textureSheet,textureRect);
+			this->map[x][y][z] = new Tile(x, y, this->gridSizeF,this->textureSheet,textureRect,collision,type);
 		}
 	}
 }

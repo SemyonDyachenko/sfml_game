@@ -47,20 +47,17 @@ protected:
 	void initText();
 
 public:
-    sf::View view;
     Player(sf::RenderWindow *window,std::string path,float x,float y);
     virtual ~Player();
 
 	const bool& checkLife() const;
-    void setView(float x,float y);
 
     void movement(float time);
     void checkCollision(float Dy, float Dx, sf::RectangleShape *object);
 
-	void update(float time, sf::RectangleShape *object,std::vector<Enemy*>& enemy);
+	virtual const sf::Vector2f& getPosition() const;
 
-	float getPositionX();
-	float getPositionY();
+	void update(float time);
 
     void render(sf::RenderWindow * window);
 };

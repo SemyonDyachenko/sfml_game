@@ -32,6 +32,9 @@ public:
 	virtual ~TextureSelector();
 
 
+	void setHide(bool hide);
+	const bool& getHide() const;
+
 	const bool& getActive() const;
 	const sf::IntRect & getTextureRect() const;
 

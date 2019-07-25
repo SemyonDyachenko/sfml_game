@@ -20,13 +20,13 @@ void MainMenuState::initBackground()
 
 
 
-    if (!this->backgroundTexture.loadFromFile("../res/images/background.jpg"))
+    if (!this->backgroundTexture.loadFromFile("../res/images/background.png"))
     {
         std::cout << "ERROR in GAMEMENUSTATE (initBackground):: ERROR LOAD TEXTURE FROM FILE";
     }
 
-  //  this->background.setTexture(&this->backgroundTexture);
-  this->background.setFillColor(sf::Color(0,0,0));
+    this->background.setTexture(&this->backgroundTexture);
+
 }
 
 void MainMenuState::initFonts()
@@ -42,7 +42,7 @@ void MainMenuState::initButtons()
 {
     this->buttons["GAME_STATE"] = new Button(this->window->getSize().x/2- 100, window->getSize().y/3, 150, 45, &this->font, "SINGLE GAME", sf::Color(255, 255, 255, 255), sf::Color(150, 150, 150, 255), sf::Color(255, 255, 255, 255));
     this->buttons["SETTINGS_STATE"] = new Button(this->window->getSize().x / 2 - 100, window->getSize().y / 3+100, 150, 45, &this->font, "SETTINGS", sf::Color(255, 255, 255, 255), sf::Color(150, 150, 150, 255), sf::Color(255, 255, 255, 255));
-    this->buttons["ONLINE_STATE"] = new Button(this->window->getSize().x / 2 - 100, window->getSize().y / 3 + 200, 150, 45, &this->font, "ONLINE", sf::Color(255, 255, 255, 255), sf::Color(150, 150, 150, 255), sf::Color(255, 255, 255, 255));
+    this->buttons["CREDITS_STATE"] = new Button(this->window->getSize().x / 2 - 100, window->getSize().y / 3 + 200, 150, 45, &this->font, "CREDITS", sf::Color(255, 255, 255, 255), sf::Color(150, 150, 150, 255), sf::Color(255, 255, 255, 255));
 	this->buttons["EDITOR_STATE"] = new Button(this->window->getSize().x / 2 - 100, window->getSize().y / 3 + 300, 150, 45, &this->font, "MAP EDITOR", sf::Color(255, 255, 255, 255), sf::Color(150, 150, 150, 255), sf::Color(255, 255, 255, 255));
     this->buttons["EXIT_STATE"] = new Button(this->window->getSize().x / 2 - 100, window->getSize().y / 3 + 400, 150, 45, &this->font, "QUIT", sf::Color(255, 255, 255, 255), sf::Color(150, 150, 150, 255), sf::Color(255, 255, 255, 255));
 }

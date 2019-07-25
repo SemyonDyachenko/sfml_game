@@ -17,12 +17,15 @@ private:
 	float posX, posY;
 	bool collision;
 	short type;
-	
+	sf::IntRect rect;
+
 public:
 	Tile();
 	Tile(unsigned x, unsigned y,float gridSizeF,sf::Texture& texture,const sf::IntRect& rect, bool collision = false, short type = TileTypes::DEFAULT);
 	virtual ~Tile();
 
+
+	const sf::IntRect& getRect() const;
 
 	float getPositionX();
 	float getPositionY();

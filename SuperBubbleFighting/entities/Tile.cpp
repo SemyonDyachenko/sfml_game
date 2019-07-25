@@ -10,6 +10,7 @@ Tile::Tile()
 
 Tile::Tile(unsigned x, unsigned y, float gridSizeF, sf::Texture& texture, const sf::IntRect& rect,bool collision,short type)
 {
+	this->rect = rect;
 	this->shape.setSize(sf::Vector2f(gridSizeF, gridSizeF));
 	//this->shape.setFillColor(sf::Color::White);
 	this->posX = x; this->posY = y;
@@ -26,6 +27,11 @@ Tile::Tile(unsigned x, unsigned y, float gridSizeF, sf::Texture& texture, const 
 
 Tile::~Tile()
 {
+}
+
+const sf::IntRect & Tile::getRect() const
+{
+	return this->rect;
 }
 
 float Tile::getPositionX()

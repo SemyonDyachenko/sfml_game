@@ -44,15 +44,22 @@ TextureSelector::TextureSelector(float x, float y, float width, float height,flo
 	this->textureRect.width = static_cast<int>(gridSize);
 	this->textureRect.height = static_cast<int>(gridSize);
 
-
-	//hide button
-	//this->hider = new Button(10, 350, 100, 45, &this->font,text, sf::Color(221, 59, 59, 200), sf::Color(150, 150, 150, 255), sf::Color(20, 20, 20, 200));
 }
 
 
 TextureSelector::~TextureSelector()
 {
 	delete this->hider;
+}
+
+void TextureSelector::setHide(bool hide)
+{
+	this->isHide = hide;
+}
+
+const bool & TextureSelector::getHide() const
+{
+	return this->isHide;
 }
 
 const bool & TextureSelector::getActive() const
@@ -67,17 +74,6 @@ const sf::IntRect & TextureSelector::getTextureRect() const
 
 void TextureSelector::update(const sf::Vector2i& mousePosWindow)
 {
-	//this->hider->update(static_cast<sf::Vector2f>(mousePosWindow));
-
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Tab))
-	{
-		if (this->isHide)
-			this->isHide = false;
-		else
-			this->isHide = true;
-	}
-	
 	if (!this->isHide)
 	{
 
@@ -116,5 +112,5 @@ void TextureSelector::render(sf::RenderWindow & window)
 			window.draw(this->selector);
 	}
 
-	//this->hider->render(&window);
+	
 }

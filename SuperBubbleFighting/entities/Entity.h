@@ -21,6 +21,9 @@ public:
 	Entity(std::string name,float x,float y,sf::Texture& texture);
 	virtual ~Entity();
 
+	
+
+
 	virtual void update(float time) = 0;
 	virtual void render(sf::RenderWindow *window) = 0;
 };

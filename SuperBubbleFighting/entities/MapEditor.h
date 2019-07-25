@@ -34,7 +34,7 @@ public:
 	MapEditor(sf::RenderWindow * window,std::string textureFile);
 	virtual ~MapEditor();
 
-	void addTile(const unsigned  x, const unsigned y, const unsigned z, sf::IntRect& textureRect);
+	void addTile(const unsigned  x, const unsigned y, const unsigned z, sf::IntRect& textureRect,const bool collision,const short type);
 	void removeTile(const unsigned  x, const unsigned y, const unsigned z);
 	
 	sf::Texture &getTextureSheet();

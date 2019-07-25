@@ -8,23 +8,9 @@
 
 
 
-//shootMode
-// 1- bubble
-// 0 - bullet
-
-void Player::initText()
-{
-	if (!this->font.loadFromFile("../res/fonts/font.ttf")) std::cout << "error load font in player\n";
-	this->text.setFont(font);
-	this->text.setCharacterSize(12);
-	this->text.setFillColor(sf::Color::Black);
-	
-}
-
 Player::Player(sf::RenderWindow *window,std::string path,float x,float y)
 {
 this->window = window;
-this->initText();
 this->width = 32;
 this->height = 1;
 this->rectX = 0;
@@ -59,11 +45,6 @@ const bool & Player::checkLife() const
 	return this->life;
 }
 
-void Player::setView(float x, float y) 
-{
-this->view.setCenter(x+20,y);
-}
-
 
 
 void Player::movement(float time) 
@@ -84,47 +65,36 @@ void Player::movement(float time)
 			anim.set("stayright");
 		}
 	}
-if(sf::Keyboard::isKeyPressed(sf::Keyboard::D) || (sf::Joystick::getAxisPosition(0,sf::Joystick::Axis::X)) > 1) {
-	this->rectX = 150;
-	this->rectY = 0;
-    this->state = RIGHT; this->speed = 0.1f;
-	anim.set("walkright");
-  //  this->setView(posX,posY);
-}
-else if(sf::Keyboard::isKeyPressed(sf::Keyboard::A) || (sf::Joystick::getAxisPosition(0, sf::Joystick::Axis::X)) < 0) {
-	this->rectX = 150;
-	this->rectY = 153;
-    this->state = LEFT; this->speed = 0.1f;
-   // this->setView(posX,posY);
-	anim.set("walkleft");
-}
-if (this->playerOnGround == true) {
-	if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) || (sf::Joystick::isButtonPressed(0,1))) {
-		this->state = JUMP;
-			this->dy = -0.4f;
-			this->playerOnGround = false;
-	}
-
-}
-
-}
-
-
-
-
-void Player::checkCollision(float Dy,float Dx, sf::RectangleShape*object) {
-	if (sf::FloatRect(posX, posY, width, height).intersects(sf::FloatRect(object->getPosition().x,object->getPosition().y,object->getSize().x,object->getSize().y)))
-	{
-		if (Dy > 0) { this->posY = object->getPosition().y - height; this->dy = 0; this->playerOnGround = true; }
-   }
-    //
-}
-
-
-
-void Player::update(float time, sf::RectangleShape*object, std::vector<Enemy*>& enemy) 
+if(sf::Keyboard::isKeyPressed(sf::Keyboard::D) || (sf::Joystick::getAxisPosition(0,sf::Joystick::Axis::X)) > 1) 
 {
-	if (this->life == true)
+		this->state = RIGHT; this->speed = 0.1f;
+		anim.set("walkright");
+}
+else if(sf::Keyboard::isKeyPressed(sf::Keyboard::A) || (sf::Joystick::getAxisPosition(0, sf::Joystick::Axis::X)) < 0) 
+{
+		this->state = LEFT; this->speed = 0.1f;
+		anim.set("walkleft");
+}
+if (this->playerOnGround == true)
+{
+		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) || (sf::Joystick::isButtonPressed(0, 1)))
+		{
+		this->state = JUMP;
+		this->dy = -0.4f;
+		this->playerOnGround = false;
+		}
+	}	
+}
+
+
+const sf::Vector2f & Player::getPosition() const 
+{
+	return this->sprite.getPosition();
+}
+
+void Player::update(float time)
+{
+	if (this->life)
 	{
 		movement(time);
 		switch (state) {
@@ -136,46 +106,13 @@ void Player::update(float time, sf::RectangleShape*object, std::vector<Enemy*>& 
 		}
 
 		this->posX += dx * time;
-		checkCollision(dy, dx, object);
 		this->posY += dy * time;
-		checkCollision(dy, 0, object);
 		this->speed = 0;
 		this->sprite.setPosition(posX, posY);
 		this->dy = dy + 0.0014*time;
-		checkCollision(dx, dy, object);
 
-
-
-		if (enemy.size() != 0)
-		{
-			for (size_t i = 0; i < enemy.size(); i++)
-			{
-				if (sf::FloatRect(this->posX, this->posY, 32, 32).intersects(enemy[i]->getRect()))
-				{
-					if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
-					{
-						this->posX = (enemy[i]->getRect().left + enemy[i]->getRect().width) - height;
-						enemy[i]->hp -= 20;
-					}
-				}
-			}
-		}
-
-		if (this->ShootMode == 1) {
-			this->timerValue = 800;
-		}
-		else {
-			this->timerValue = 500;
-		}
-
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)) {
-			if (this->ShootMode == 1) {
-				this->ShootMode = 0;
-			}
-			else if (this->ShootMode == 0) {
-				this->ShootMode = 1;
-			}
-		}
+		this->timerValue = 500;
+	
 
 		if (playerOnGround)
 		{
@@ -196,70 +133,56 @@ void Player::update(float time, sf::RectangleShape*object, std::vector<Enemy*>& 
 					/*	this->bulletState = 3;
 
 
-						if (timer.getElapsedTime().asMilliseconds() > 500) {
+						if (timer.getElapsedTime().asMilliseconds() > 500) 
+						{
 							timer.restart();
-							if (this->ShootMode == 0) {
-								this->bullets.push_back(new Bullet(this->window, bulletState, posX + this->width / 2, this->posY));
-							}
-							else {
-								this->bubbles.push_back(new Bubble(this->window, bulletState, posX + this->width / 2, this->posY));
-							}
+							this->bullets.push_back(new Bullet(this->window, bulletState, posX + this->width / 2, this->posY));
 						}
 
 
 					}
-					else {
-						if (this->state == LEFT) {
+					else 
+					{
+						if (this->state == LEFT) 
+						{
 							this->bulletState = 1;
 
-							if (timer.getElapsedTime().asMilliseconds() > 500) {
+							if (timer.getElapsedTime().asMilliseconds() > 500) 
+							{
+
 								timer.restart();
-								if (this->ShootMode == 0) {
 								this->bullets.push_back(new Bullet(this->window, bulletState, this->posX, posY + this->height / 2));
-								}
-								else {
-									this->bubbles.push_back(new Bubble(this->window, bulletState, this->posX, posY + this->height / 2));
-								}
 							}
-							anim.set("fightleft");
+							
 						}
 
-						if (this->state == RIGHT) {
+						if (this->state == RIGHT)
+						{
 							this->bulletState = 2;
-							if (timer.getElapsedTime().asMilliseconds() > 500) {
+							if (timer.getElapsedTime().asMilliseconds() > 500) 
+							{
 								timer.restart();
-								if (this->ShootMode == 0) {
 								this->bullets.push_back(new Bullet(this->window, bulletState, this->posX + width, posY + this->height / 2));
-								}
-								else {
-									this->bubbles.push_back(new Bubble(this->window, bulletState, this->posX + width, posY + this->height / 2));
-								}
 							}
-							anim.set("fightright");
 						}
 
 
-						if (this->state == JUMP) {
+						if (this->state == JUMP) 
+						{
 							if (this->rectY == 0) {
-								if (timer.getElapsedTime().asMilliseconds() > 500) {
+								if (timer.getElapsedTime().asMilliseconds() > 500) 
+								{
 									timer.restart();
-									if (this->ShootMode == 0) {
 										this->bullets.push_back(new Bullet(this->window, bulletState, this->posX + width, posY + this->height / 2));
-									}
-									else {
-										this->bubbles.push_back(new Bubble(this->window, bulletState, this->posX + width, posY + this->height / 2));
-									}
+
 								}
 							}
-							if (this->rectY >= 153) {
-								if (timer.getElapsedTime().asMilliseconds() > 500) {
+							if (this->rectY >= 153) 
+							{
+								if (timer.getElapsedTime().asMilliseconds() > 500) 
+								{
 									timer.restart();
-									if (this->ShootMode == 0) {
-										this->bullets.push_back(new Bullet(this->window, bulletState, this->posX, posY + this->height / 2));
-									}
-									else {
-										this->bubbles.push_back(new Bubble(this->window, bulletState, this->posX, posY + this->height / 2));
-									}
+									this->bullets.push_back(new Bullet(this->window, bulletState, this->posX, posY + this->height / 2));
 								}
 							}
 						}
@@ -285,29 +208,8 @@ void Player::update(float time, sf::RectangleShape*object, std::vector<Enemy*>& 
 			}
 		}
 
-		if (bubbles.size() != 0)
-		{
-			for (size_t i = 0; i < bubbles.size(); i++)
-			{
-				if (bubbles[i]->getAlive())
-				{
-					bubbles[i]->update(time);
-				}
-			}
-		}
 
-		if (this->posX + width > this->window->getSize().x)
-		{
-			this->posX += -0.5*time;
-			this->posY += -0.5 *time;
-		}
-
-		if (this->posX < 0)
-		{
-			this->posX += 0.5  * time;
-			this->posY += -0.5  * time;
-
-		}
+	
 
 		for (size_t i = 0; i < bullets.size(); i++)
 		{
@@ -318,34 +220,26 @@ void Player::update(float time, sf::RectangleShape*object, std::vector<Enemy*>& 
 		}
 
 
-		for (size_t i = 0; i < bubbles.size(); i++)
-		{
-			if (bubbles[i]->getAlive() == false)
-			{
-				bubbles.erase(bubbles.begin() + i);
-			}
-		}
-
 
 	}
 
+	if (this->posY > 650)
+	{
+		this->posY = 650 - 45;
+	}
+
+
 	// life---------------------------------
-	this->str = std::to_string(this->hp);
-	this->text.setString(str);
-	this->text.setPosition(this->posX, this->posY-50);
 
 	if (this->hp <= 0)
 	{
 		this->life = false;
-		this->anim.set("death");
 	}
 	else
 	{
 		this->life = true;
 		
 	}
-
-
 
 	//-------------------------------w-------
 
@@ -355,40 +249,21 @@ void Player::update(float time, sf::RectangleShape*object, std::vector<Enemy*>& 
 }
 
 
-float Player::getPositionX()
-{
-	return this->posX;
-}
-
-float Player::getPositionY()
-{
-	return this->posY;
-}
-
 void Player::render(sf::RenderWindow * window) 
 {
-	window->draw(this->text);
 	anim.draw(*window,this->posX,this->posY);
 
-if (bullets.size() != 0) 
-{
-	for (size_t i = 0; i < bullets.size(); i++) 
+	if (bullets.size() != 0) 
 	{
-		if (bullets[i]->getAlive()== true) 
+		for (size_t i = 0; i < bullets.size(); i++) 
 		{
-		bullets[i]->render(window);
+			if (bullets[i]->getAlive()== true) 
+			{
+				bullets[i]->render(window);
+			}
 		}
 	}
-}
 
-if (bubbles.size() != 0) 
-{
-
-	for (size_t i = 0; i < bubbles.size(); i++)
-		{
-		bubbles[i]->render(window);
-		}
-	}
 }
 
 
