@@ -211,17 +211,7 @@ sf::Texture & MapEditor::getTextureSheet()
 	return this->textureSheet;
 }
 
-void MapEditor::checkCollision(Player * player)
-{
-	if (player->getPosition().x < 0.f)
-	{
-		player->setPosition(0.f, player->getPosition().y);
-	}
-	else if (player->getPosition().x > (this->maxSizeWorldGrid.x*this->gridSizeF))
-	{
-		player->setPosition(this->maxSizeWorldGrid.x, player->getPosition().y);
-	}
-}
+
 
 void MapEditor::update(float time)
 {

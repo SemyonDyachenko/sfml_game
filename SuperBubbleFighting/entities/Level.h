@@ -4,7 +4,7 @@
 class Level
 {
 public:
-	Level();
+	Level(sf::RenderWindow & window);
 	~Level();
 };
 

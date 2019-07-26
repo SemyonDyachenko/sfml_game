@@ -3,39 +3,20 @@
 //
 
 #include "Player.h"
-#include "../Collision.h"
 
 
 
 
-Player::Player(sf::RenderWindow *window,std::string path,float x,float y)
+
+
+
+Player::Player(float x, float y, sf::Texture & texture, MapEditor & level)
+	: Entity(x, y, texture, level)
 {
-this->window = window;
-this->width = 32;
-this->height = 1;
-this->rectX = 0;
-this->rectY = 0;
-this->path = path;
-this->speed= 0;
-if(!this->image.loadFromFile(path)) std::cout << "error:not load image file" << path << std::endl;
-//this->shape.setSize(sf::Vector2f(texture.getSize().x,texture.getSize().y));
-this->texture.loadFromImage(this->image);
-anim.loadFromXML("../res/animation/anim.xml", this->texture);
-this->posX = x;
-this->posY = y-this->height;
-this->state = STAY;
-currentFrameTime = 0;
-this->playerOnGround = false;
-this->bulletState = 0;
-this->sleep = 0;
-this->ShootMode = 1;
-this->timerValue = 500;
-this->hp = 100;
-this->life = true;
-
+	this->setPosition(x, y);
 }
 
-Player::~Player() 
+Player::~Player()
 {
 	
 }
@@ -51,50 +32,28 @@ void Player::movement(float time)
 {
 	if (!sf::Keyboard::isKeyPressed(sf::Keyboard::A) && !sf::Keyboard::isKeyPressed(sf::Keyboard::D) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 	{
-		if (state == STAY)
-		{
-
-		}
-
-		if (this->state == LEFT) 
-		{
-			anim.set("stayleft");
-		}
-		else if(this->state == RIGHT) 
-		{
-			anim.set("stayright");
-		}
 	}
 if(sf::Keyboard::isKeyPressed(sf::Keyboard::D) || (sf::Joystick::getAxisPosition(0,sf::Joystick::Axis::X)) > 1) 
 {
-		this->state = RIGHT; this->speed = 0.1f;
-		anim.set("walkright");
+		
 }
 else if(sf::Keyboard::isKeyPressed(sf::Keyboard::A) || (sf::Joystick::getAxisPosition(0, sf::Joystick::Axis::X)) < 0) 
 {
-		this->state = LEFT; this->speed = 0.1f;
-		anim.set("walkleft");
-}
-if (this->playerOnGround == true)
-{
-		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) || (sf::Joystick::isButtonPressed(0, 1)))
-		{
-		this->state = JUMP;
-		this->dy = -0.4f;
-		this->playerOnGround = false;
-		}
-	}	
+		
 }
 
-
-const sf::Vector2f & Player::getPosition() const 
+if (((sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) || (sf::Joystick::isButtonPressed(0, 1))) && (onGround))
 {
-	return this->sprite.getPosition();
+
 }
+	
 
-void Player::setPosition(float x,float y)
+
+
+
+const sf::Vector2f & Player::getPosition() const
 {
-	sprite.setPosition(x,y);
+	return this->sprite.get
 }
 
 void Player::update(float time)

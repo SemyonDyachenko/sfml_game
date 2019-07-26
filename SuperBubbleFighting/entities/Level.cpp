@@ -2,7 +2,7 @@
 
 
 
-Level::Level()
+Level::Level(sf::RenderWindow & window)
 {
 }
 

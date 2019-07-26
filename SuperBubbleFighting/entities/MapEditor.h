@@ -4,7 +4,7 @@
 
 
 #include "Tile.h"
-#include "Player.h"
+
 
 class MapEditor
 {
@@ -43,7 +43,7 @@ public:
 	void loadFromFile(const std::string filename);
 
 
-	void checkCollision(Player*player);
+	
 
 	void update(float time);
 	void render(sf::RenderWindow& window);

@@ -65,7 +65,6 @@ EditorState::EditorState(sf::RenderWindow * window, std::stack<State*>* states) 
 
 EditorState::~EditorState()
 {
-	//this->window->setMouseCursorVisible(true);
 	delete this->map;
 	delete this->textureSelector;
 	this->window->setView(this->window->getDefaultView());
@@ -73,7 +72,7 @@ EditorState::~EditorState()
 
 void EditorState::endState()
 {
-	std::cout << "end EditorState .." << "\n";
+	std::cout << "end editor state" << "\n";
 }
 
 void EditorState::updateInput(const float & time)

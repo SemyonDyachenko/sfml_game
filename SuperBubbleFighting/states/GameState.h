@@ -3,12 +3,12 @@
 
 
 #include "State.h"
-#include "../entities/Enemy.h"
 #include "../entities/MapEditor.h"
 
 
 
-class GameState : public State
+class GameState 
+	: 	public State
 {
 private:
 	sf::View view;
@@ -16,6 +16,7 @@ private:
 	sf::Sprite renderSprite;
 
     Player *  player;
+	sf::Texture playerTexture;
 
 	//Enemy * enemy;
     sf::RenderWindow * window;

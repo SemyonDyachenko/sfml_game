@@ -34,8 +34,7 @@ GameState::GameState(sf::RenderWindow * window, std::stack<State*>*states)
 	this->initView();
 	this->initTileMap();
     this->initTextures();
-    this->player = new Player(this->window,"../res/images/heroes/hero.png",window->getSize().x/2,100);
-}
+	this->player = new Player(200, 300,playerTexture,this->tilemap);
 
 
 GameState::~GameState()
@@ -57,7 +56,7 @@ void GameState::updateInput(const float & time)
 
 void GameState::updateView(float time)
 {
-	this->view.setCenter(std::floor(this->player->getPosition().x),std::floor(this->player->getPosition().y));
+	this->view.setCenter(std::floor(this->player->getPosition().x,this->player->getPosition().y);
 }
 
 void GameState::update(float time)
@@ -67,7 +66,6 @@ void GameState::update(float time)
 	this->updateView(time);
     this->player->update(time);
 	this->tilemap->update(time);
-	this->tilemap->checkCollision(this->player);
 }
 
 void GameState::render(sf::RenderWindow * window)
