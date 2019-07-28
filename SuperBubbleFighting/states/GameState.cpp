@@ -13,6 +13,8 @@ void GameState::initView()
 		this->window->getSize().x / 2.f,
 		this->window->getSize().y / 2.f
 	));
+
+	this->view.zoom(0.5);
 }
 
 void GameState::initTileMap()
@@ -23,20 +25,22 @@ void GameState::initTileMap()
 
 void GameState::initTextures()
 {
-
+	if (!this->playerTexture.loadFromFile("../res/images/heroes/hero.png")) 
+		std::cout << "ERROR: don't load image from file in GameState.cpp , line 26\n";
 }
 
 GameState::GameState(sf::RenderWindow * window, std::stack<State*>*states)
 	: State(window, states)
 {
-    this->window = window;
+	this->window = window;
 	this->window->setMouseCursorVisible(false);
 	this->initView();
 	this->initTileMap();
-    this->initTextures();
-	this->player = new Player(200, 300,playerTexture,this->tilemap);
+	this->initTextures();
+	this->player = new Player(250, 500, playerTexture,*this->tilemap, "../res/animation/anim.xml");
 
-
+}
+	
 GameState::~GameState()
 {
     delete this->player;
@@ -56,7 +60,7 @@ void GameState::updateInput(const float & time)
 
 void GameState::updateView(float time)
 {
-	this->view.setCenter(std::floor(this->player->getPosition().x,this->player->getPosition().y);
+	this->view.setCenter(this->player->getPosition().x,this->player->getPosition().y);
 }
 
 void GameState::update(float time)

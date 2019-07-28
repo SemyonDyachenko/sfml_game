@@ -2,35 +2,48 @@
 // Created by semyon on 19.06.19.
 //
 
-#ifndef CATCHONBUBBLE_PLAYER_H
-#define CATCHONBUBBLE_PLAYER_H
+#ifndef PLAYER_H
+#define PLAYER_H
 
 #include "Entity.h"
 
+class Player {
+protected:
+	AnimationManager anim;
+	float posX, posY, dx, dy;
+	float speed;
+	enum MovementDirection {
+		STAY,
+		LEFT,
+		RIGHT,
+		JUMP,
+		TOP
+	};
+	sf::Sprite sprite;
+	MovementDirection state;
 
+	bool playerOnGround;
 
-class Player 
-	: Entity
-{
-private:
-	bool attack;
+	MapEditor* level;
+
+	bool life;
+	unsigned hp;
+
 
 public:
-    Player(float x,float y,sf::Texture& texture,MapEditor& level);
-    virtual ~Player();
+	Player(float x, float y, sf::Texture & texture, MapEditor & level, std::string anim_file);
+	virtual ~Player();
 
 	const bool& checkLife() const;
 
-    void movement(float time);
-    void checkCollision(float Dx,float Dy);
+	void movement(float time);
+	void checkCollision(float Dx,float Dy);
 
-	const sf::Vector2f& getPosition() const;
-
-
+	virtual const sf::Vector2f& getPosition() const;
 
 	void update(float time);
 
-    void render(sf::RenderWindow * window);
+	void render(sf::RenderWindow * window);
 };
 
 

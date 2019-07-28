@@ -42,8 +42,10 @@ public:
 	void saveToFile(const std::string filename);
 	void loadFromFile(const std::string filename);
 
+	const sf::Vector2f & getMapSize() const;
+	const unsigned & getLayerCount() const;
 
-	
+	const std::vector<std::vector<std::vector<Tile*> > >& getTiles() const;
 
 	void update(float time);
 	void render(sf::RenderWindow& window);

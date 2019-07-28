@@ -1,24 +1,26 @@
-//
-// Created by semyon on 19.06.19.
-//
-
 #include "Player.h"
 
 
 
 
 
-
-
-Player::Player(float x, float y, sf::Texture & texture, MapEditor & level)
-	: Entity(x, y, texture, level)
+Player::Player(float x, float y, sf::Texture& texture, MapEditor& level, std::string anim_file)
 {
-	this->setPosition(x, y);
+	this->level = &level;
+	this->speed = 0;
+	anim.loadFromXML("../res/animation/anim.xml", texture);
+	this->posX = x;
+	this->posY = y;
+	this->state = STAY;
+	this->playerOnGround = false;
+	this->hp = 100;
+	this->life = true;
+
 }
 
 Player::~Player()
 {
-	
+
 }
 
 const bool & Player::checkLife() const
@@ -28,169 +30,79 @@ const bool & Player::checkLife() const
 
 
 
-void Player::movement(float time) 
+void Player::movement(float time)
 {
 	if (!sf::Keyboard::isKeyPressed(sf::Keyboard::A) && !sf::Keyboard::isKeyPressed(sf::Keyboard::D) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 	{
+		if (state == STAY)
+		{
+
+		}
+
+		if (this->state == LEFT)
+		{
+			anim.set("stayleft");
+		}
+		else if (this->state == RIGHT)
+		{
+			anim.set("stayright");
+		}
 	}
-if(sf::Keyboard::isKeyPressed(sf::Keyboard::D) || (sf::Joystick::getAxisPosition(0,sf::Joystick::Axis::X)) > 1) 
-{
-		
-}
-else if(sf::Keyboard::isKeyPressed(sf::Keyboard::A) || (sf::Joystick::getAxisPosition(0, sf::Joystick::Axis::X)) < 0) 
-{
-		
-}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || (sf::Joystick::getAxisPosition(0, sf::Joystick::Axis::X)) > 1)
+	{
+		this->state = RIGHT; this->speed = 0.1f;
+		anim.set("walkright");
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || (sf::Joystick::getAxisPosition(0, sf::Joystick::Axis::X)) < 0)
+	{
+		this->state = LEFT; this->speed = 0.1f;
+		anim.set("walkleft");
+	}
+	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+	{
+		this->state = TOP; this->speed = 0.1f;
+	}
 
-if (((sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) || (sf::Joystick::isButtonPressed(0, 1))) && (onGround))
+//	if (this->playerOnGround == true)
+//	{
+//		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) || (sf::Joystick::isButtonPressed(0, 1)))
+//		{
+//			this->state = JUMP;
+//			this->dy = -0.4f;
+//			this->playerOnGround = false;
+	//	}
+	}
+void Player::checkCollision(float Dx, float Dy)
 {
-
-}
 	
-
-
+}
+//}
 
 
 const sf::Vector2f & Player::getPosition() const
 {
-	return this->sprite.get
+	return sf::Vector2f(this->posX, this->posY);
 }
 
 void Player::update(float time)
 {
-	if (this->life)
-	{
 		movement(time);
 		switch (state) {
 
 		case STAY:break;
 		case LEFT:this->dx = -speed; break;
 		case RIGHT:this->dx = speed; break;
+		case TOP: this->dy = -speed; break;
 		case JUMP: break;
 		}
 
 		this->posX += dx * time;
+		this->checkCollision(dx, 0);
 		this->posY += dy * time;
+		this->checkCollision(0, dy);
 		this->speed = 0;
 		this->sprite.setPosition(posX, posY);
-	//	this->dy = dy + 0.0014*time;
-
-		this->timerValue = 500;
-	
-
-		if (playerOnGround)
-		{
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
-
-			{
-
-				if (this->state == LEFT) {
-					anim.set("attackleft");
-				}
-				else if (this->state == RIGHT)
-				{
-					anim.set("attackright");
-				}
-
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || (sf::Joystick::getAxisPosition(0, sf::Joystick::Axis::Y) < 0))
-				{
-					/*	this->bulletState = 3;
-
-
-						if (timer.getElapsedTime().asMilliseconds() > 500) 
-						{
-							timer.restart();
-							this->bullets.push_back(new Bullet(this->window, bulletState, posX + this->width / 2, this->posY));
-						}
-
-
-					}
-					else 
-					{
-						if (this->state == LEFT) 
-						{
-							this->bulletState = 1;
-
-							if (timer.getElapsedTime().asMilliseconds() > 500) 
-							{
-
-								timer.restart();
-								this->bullets.push_back(new Bullet(this->window, bulletState, this->posX, posY + this->height / 2));
-							}
-							
-						}
-
-						if (this->state == RIGHT)
-						{
-							this->bulletState = 2;
-							if (timer.getElapsedTime().asMilliseconds() > 500) 
-							{
-								timer.restart();
-								this->bullets.push_back(new Bullet(this->window, bulletState, this->posX + width, posY + this->height / 2));
-							}
-						}
-
-
-						if (this->state == JUMP) 
-						{
-							if (this->rectY == 0) {
-								if (timer.getElapsedTime().asMilliseconds() > 500) 
-								{
-									timer.restart();
-										this->bullets.push_back(new Bullet(this->window, bulletState, this->posX + width, posY + this->height / 2));
-
-								}
-							}
-							if (this->rectY >= 153) 
-							{
-								if (timer.getElapsedTime().asMilliseconds() > 500) 
-								{
-									timer.restart();
-									this->bullets.push_back(new Bullet(this->window, bulletState, this->posX, posY + this->height / 2));
-								}
-							}
-						}
-					}
-				}*/
-
-
-
-				}
-			}
-		}
-
-
-		if (bullets.size() != 0)
-		{
-
-			for (size_t i = 0; i < bullets.size(); i++)
-			{
-				if (bullets[i]->getAlive())
-				{
-					bullets[i]->update(time);
-				}
-			}
-		}
-
-
-	
-
-		for (size_t i = 0; i < bullets.size(); i++)
-		{
-			if (bullets[i]->getAlive() == false)
-			{
-				bullets.erase(bullets.begin() + i);
-			}
-		}
-
-
-
-	}
-
-	//if (this->posY > 650)
-	//{
-	//	this->posY = 650 - 45;
-//	}
+		//this->dy = dy + 0.0014*time;
 
 
 	// life---------------------------------
@@ -202,32 +114,19 @@ void Player::update(float time)
 	else
 	{
 		this->life = true;
-		
+
 	}
 
 	//-------------------------------w-------
 
 	anim.tick(time);
+
 	
 
 }
 
 
-void Player::render(sf::RenderWindow * window) 
+void Player::render(sf::RenderWindow * window)
 {
-	anim.draw(*window,this->posX,this->posY);
-
-	if (bullets.size() != 0) 
-	{
-		for (size_t i = 0; i < bullets.size(); i++) 
-		{
-			if (bullets[i]->getAlive()== true) 
-			{
-				bullets[i]->render(window);
-			}
-		}
-	}
-
+	anim.draw(*window, this->posX, this->posY);
 }
-
-

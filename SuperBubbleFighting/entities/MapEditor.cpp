@@ -181,6 +181,21 @@ void MapEditor::loadFromFile(const std::string filename)
 	in_file.close();
 }
 
+const sf::Vector2f & MapEditor::getMapSize() const
+{
+	return sf::Vector2f(this->maxSizeWorldGrid);
+}
+
+const unsigned & MapEditor::getLayerCount() const
+{
+	return this->layers;
+}
+
+const std::vector<std::vector<std::vector<Tile*>>>& MapEditor::getTiles() const
+{
+	return this->map;
+}
+
 
 
 void MapEditor::addTile(const unsigned  x,const unsigned y,const unsigned z,sf::IntRect& textureRect, const bool collision, const short type)

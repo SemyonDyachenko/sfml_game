@@ -3,21 +3,23 @@
 
 
 #include "MapEditor.h"
+#include "../animation/AnimationManager.h"
 
 class Entity
 {
 protected:
-	float posX, posY, dx, dy,speed;
+	float posX, posY,speed;
 	bool life;
 	unsigned hp;
 	bool onGround;
 	sf::Sprite sprite;
+	AnimationManager animation;
 public:
-	Entity(float x, float y, sf::Texture& texture,MapEditor& level);
+	Entity(float x, float y, sf::Texture& texture, MapEditor& level, std::string anim_file);
 	virtual ~Entity();
 
 	
-	virtual const sf::Vector2f& getPosition() const = 0;
+	virtual const sf::Vector2f& getPosition() const;
 
 	virtual void setPosition(const float x,const float y);
 

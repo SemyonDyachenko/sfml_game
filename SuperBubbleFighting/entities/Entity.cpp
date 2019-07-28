@@ -2,15 +2,19 @@
 
 
 
-Entity::Entity(float x, float y, sf::Texture & texture, MapEditor & level)
+Entity::Entity(float x, float y, sf::Texture & texture, MapEditor & level,std::string anim_file)
 {
-	this->sprite.setTexture(texture);
-	this->speed = 0;
+	this->animation.loadFromXML(anim_file, texture);
 }
 
 Entity::~Entity()
 {
 
+}
+
+const sf::Vector2f & Entity::getPosition() const
+{
+	return this->sprite.getPosition();
 }
 
 void Entity::setPosition(const float x, const float y)
