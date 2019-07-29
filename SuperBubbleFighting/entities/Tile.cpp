@@ -34,14 +34,19 @@ const bool & Tile::getCollision() const
 	return this->collision;
 }
 
-const sf::IntRect & Tile::getRect() const
+const sf::FloatRect & Tile::getRect() const
 {
-	return this->rect;
+	return sf::FloatRect(this->rect);
 }
 
 const sf::Vector2f & Tile::getPosition() const
 {
 	return this->shape.getPosition();
+}
+
+const bool Tile::intersects(const sf::FloatRect rect) const
+{
+	return this->shape.getGlobalBounds().intersects(rect);
 }
 
 

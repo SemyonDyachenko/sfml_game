@@ -29,12 +29,15 @@ public:
 
 	const bool& getCollision() const;
 
-	const sf::IntRect& getRect() const;
+	const sf::FloatRect& getRect() const;
 
 	const sf::Vector2f& getPosition() const;
 
+	const bool intersects(const sf::FloatRect rect) const;
+
 	const std::string getAssString() const;
 	
+
 
 	void update();
 	void render(sf::RenderWindow& window);

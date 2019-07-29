@@ -7,8 +7,12 @@
 
 #include "Entity.h"
 
-class Player {
-protected:
+class MapEditor;
+
+class Player
+ {
+
+private:
 	AnimationManager anim;
 	float posX, posY, dx, dy;
 	float speed;
@@ -17,21 +21,22 @@ protected:
 		LEFT,
 		RIGHT,
 		JUMP,
-		TOP
+		TOP,
+		DOWN
 	};
 	sf::Sprite sprite;
 	MovementDirection state;
 
 	bool playerOnGround;
 
-	MapEditor* level;
+	
 
 	bool life;
 	unsigned hp;
 
 
 public:
-	Player(float x, float y, sf::Texture & texture, MapEditor & level, std::string anim_file);
+	Player(float x, float y, sf::Texture & texture,  std::string anim_file);
 	virtual ~Player();
 
 	const bool& checkLife() const;
@@ -39,7 +44,17 @@ public:
 	void movement(float time);
 	void checkCollision(float Dx,float Dy);
 
+	const sf::FloatRect& getRect() const;
+
 	virtual const sf::Vector2f& getPosition() const;
+
+	const float & getDirectionX() const;
+	const float & getDirectionY() const;
+
+	void setPosition(const float x,const float y);
+
+	void setCollisionX(bool collis);
+	void setCollisionY(bool collis);
 
 	void update(float time);
 

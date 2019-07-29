@@ -2,7 +2,7 @@
 
 
 
-Entity::Entity(float x, float y, sf::Texture & texture, MapEditor & level,std::string anim_file)
+Entity::Entity(float x, float y, sf::Texture & texture,std::string anim_file)
 {
 	this->animation.loadFromXML(anim_file, texture);
 }

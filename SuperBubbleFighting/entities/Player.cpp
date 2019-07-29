@@ -4,9 +4,9 @@
 
 
 
-Player::Player(float x, float y, sf::Texture& texture, MapEditor& level, std::string anim_file)
+Player::Player(float x, float y, sf::Texture& texture, std::string anim_file)
 {
-	this->level = &level;
+	
 	this->speed = 0;
 	anim.loadFromXML("../res/animation/anim.xml", texture);
 	this->posX = x;
@@ -36,45 +36,46 @@ void Player::movement(float time)
 	{
 		if (state == STAY)
 		{
-
+			
 		}
 
 		if (this->state == LEFT)
 		{
-			anim.set("stayleft");
+			anim.flip("stay");
 		}
 		else if (this->state == RIGHT)
 		{
-			anim.set("stayright");
+			anim.set("stay");
 		}
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || (sf::Joystick::getAxisPosition(0, sf::Joystick::Axis::X)) > 1)
 	{
 		this->state = RIGHT; this->speed = 0.1f;
-		anim.set("walkright");
+		anim.set("walk");
 	}
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || (sf::Joystick::getAxisPosition(0, sf::Joystick::Axis::X)) < 0)
 	{
 		this->state = LEFT; this->speed = 0.1f;
-		anim.set("walkleft");
-	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-	{
-		this->state = TOP; this->speed = 0.1f;
+		anim.flip("walk");
 	}
 
-//	if (this->playerOnGround == true)
-//	{
-//		if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) || (sf::Joystick::isButtonPressed(0, 1)))
-//		{
-//			this->state = JUMP;
-//			this->dy = -0.4f;
-//			this->playerOnGround = false;
-	//	}
-	}
+		if (((sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) || (sf::Joystick::isButtonPressed(0, 1))) && this->playerOnGround)
+		{
+			this->state = JUMP;
+			this->dy = -0.4f;
+			this->playerOnGround = false;
+		}
+}
+
 void Player::checkCollision(float Dx, float Dy)
 {
 	
+}
+
+
+const sf::FloatRect & Player::getRect() const
+{
+	return sf::FloatRect(this->posX, this->posY, 35, 35);
 }
 //}
 
@@ -82,6 +83,52 @@ void Player::checkCollision(float Dx, float Dy)
 const sf::Vector2f & Player::getPosition() const
 {
 	return sf::Vector2f(this->posX, this->posY);
+}
+
+const float & Player::getDirectionX() const
+{
+	if (this->dx == 0)
+	{
+		return false;
+	}
+	else
+	{
+		return this->dx;
+	}
+}
+
+const float & Player::getDirectionY() const
+{
+	if (this->dy == 0)
+	{
+		return false;
+	}
+	else
+	{
+		return this->dy;
+	}
+
+}
+
+void Player::setPosition(const float x, const float y)
+{
+	this->posX = x;
+	this->posY = y;
+}
+
+void Player::setCollisionX(bool collis)
+{
+	if (collis)
+		this->dx = 0;
+}
+
+void Player::setCollisionY(bool collis)
+{
+	if (collis)
+	{
+		this->dy = 0;
+		this->playerOnGround = true;
+	}
 }
 
 void Player::update(float time)
@@ -92,7 +139,6 @@ void Player::update(float time)
 		case STAY:break;
 		case LEFT:this->dx = -speed; break;
 		case RIGHT:this->dx = speed; break;
-		case TOP: this->dy = -speed; break;
 		case JUMP: break;
 		}
 
@@ -102,7 +148,7 @@ void Player::update(float time)
 		this->checkCollision(0, dy);
 		this->speed = 0;
 		this->sprite.setPosition(posX, posY);
-		//this->dy = dy + 0.0014*time;
+		this->dy = dy + 0.0014*time;
 
 
 	// life---------------------------------

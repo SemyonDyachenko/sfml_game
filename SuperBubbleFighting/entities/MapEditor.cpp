@@ -30,7 +30,7 @@ void MapEditor::initTextures()
 MapEditor::MapEditor(sf::RenderWindow * window,std::string textureFile)
 {
 	this->window = window;
-	this->gridSizeF = 16.f;
+	this->gridSizeF = 32.f;
 	this->gridSizeU = static_cast<unsigned>(this->gridSizeF);
 	this->maxSizeWorldGrid.x = 100;
 	this->maxSizeWorldGrid.y = 100;
@@ -181,6 +181,34 @@ void MapEditor::loadFromFile(const std::string filename)
 	in_file.close();
 }
 
+void MapEditor::checkCollision(Player * player)
+{
+	for (size_t x = 0; x < this->maxSizeWorldGrid.x; x++)
+	{
+		for (size_t y = 0; y < this->maxSizeWorldGrid.y; y++)
+		{
+
+			for (size_t z = 0; z < this->layers; z++)
+			{
+				if (map[x][y][z] != NULL)
+				{
+					if (this->map[x][y][z]->intersects(player->getRect()))
+					{
+						if (map[x][y][z]->getCollision())
+						{
+							if (player->getDirectionY() > 0)
+							{
+								player->setPosition(player->getPosition().x,player->getPosition().y-1);
+								player->setCollisionY(true);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 const sf::Vector2f & MapEditor::getMapSize() const
 {
 	return sf::Vector2f(this->maxSizeWorldGrid);
@@ -202,7 +230,7 @@ void MapEditor::addTile(const unsigned  x,const unsigned y,const unsigned z,sf::
 {
 	if (x < this->maxSizeWorldGrid.x && x >= 0 && y < this->maxSizeWorldGrid.y && y > 0 && z < this->layers && z>= 0)
 	{
-		if (this->map[x][y][z] == NULL || (this->map[x][y][z]->getRect() != textureRect))
+		if (this->map[x][y][z] == NULL || (this->map[x][y][z]->getRect() != sf::FloatRect(textureRect)))
 		{
 			this->map[x][y][z] = new Tile(x, y, this->gridSizeF,this->textureSheet,textureRect,collision,type);
 		}

@@ -2,8 +2,12 @@
 #define ENTITY_H
 
 
-#include "MapEditor.h"
+#include "Bullet.h"
 #include "../animation/AnimationManager.h"
+#include "MapEditor.h"
+
+
+class MapEditor;
 
 class Entity
 {
@@ -15,7 +19,7 @@ protected:
 	sf::Sprite sprite;
 	AnimationManager animation;
 public:
-	Entity(float x, float y, sf::Texture& texture, MapEditor& level, std::string anim_file);
+	Entity(float x, float y, sf::Texture& texture, std::string anim_file);
 	virtual ~Entity();
 
 	
