@@ -21,11 +21,8 @@ private:
 	//Enemy * enemy;
     sf::RenderWindow * window;
 
-
-
 	MapEditor * tilemap;
 
- 
     //funcs
 	void initView();
 	void initTileMap();

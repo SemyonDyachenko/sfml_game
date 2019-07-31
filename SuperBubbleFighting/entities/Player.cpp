@@ -9,12 +9,19 @@ Player::Player(float x, float y, sf::Texture& texture, std::string anim_file)
 	
 	this->speed = 0;
 	anim.loadFromXML("../res/animation/anim.xml", texture);
+	anim.set("stay");
 	this->posX = x;
 	this->posY = y;
+	this->dx = 0; this->dy = 0;
 	this->state = STAY;
 	this->playerOnGround = false;
 	this->hp = 100;
 	this->life = true;
+	this->collider2D.setPosition(posX, posY);
+	this->collider2D.setSize(sf::Vector2f(static_cast<float>(anim.getW()),static_cast<float>(anim.getH())));
+	this->collider2D.setFillColor(sf::Color::Transparent);
+	this->collider2D.setOutlineThickness(1.f);
+	this->collider2D.setOutlineColor(sf::Color::Green);
 
 }
 
@@ -27,8 +34,6 @@ const bool & Player::checkLife() const
 {
 	return this->life;
 }
-
-
 
 void Player::movement(float time)
 {
@@ -69,16 +74,17 @@ void Player::movement(float time)
 
 void Player::checkCollision(float Dx, float Dy)
 {
-	
 }
-
 
 const sf::FloatRect & Player::getRect() const
 {
 	return sf::FloatRect(this->posX, this->posY, 35, 35);
 }
-//}
 
+const sf::FloatRect & Player::getGlobalBounds() const
+{
+	return this->collider2D.getGlobalBounds();
+}
 
 const sf::Vector2f & Player::getPosition() const
 {
@@ -131,6 +137,12 @@ void Player::setCollisionY(bool collis)
 	}
 }
 
+void Player::updateCollider(float time)
+{
+	this->collider2D.setPosition(this->posX, this->posY);
+	this->collider2D.setSize(sf::Vector2f(static_cast<float>(anim.getW()), static_cast<float>(anim.getH())));
+}
+
 void Player::update(float time)
 {
 		movement(time);
@@ -143,13 +155,13 @@ void Player::update(float time)
 		}
 
 		this->posX += dx * time;
-		this->checkCollision(dx, 0);
+		this->updateCollider(time);
 		this->posY += dy * time;
 		this->checkCollision(0, dy);
 		this->speed = 0;
 		this->sprite.setPosition(posX, posY);
 		this->dy = dy + 0.0014*time;
-
+		this->updateCollider(time);
 
 	// life---------------------------------
 
@@ -172,7 +184,13 @@ void Player::update(float time)
 }
 
 
+void Player::renderCollider(sf::RenderWindow * window)
+{
+	window->draw(this->collider2D);
+}
+
 void Player::render(sf::RenderWindow * window)
 {
+	this->renderCollider(window);
 	anim.draw(*window, this->posX, this->posY);
 }

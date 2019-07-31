@@ -142,6 +142,7 @@
     <ClInclude Include="animation\Animation.h" />
     <ClInclude Include="animation\AnimationManager.h" />
     <ClInclude Include="Collision.h" />
+    <ClInclude Include="entities\objects\MapObject.h" />
     <ClInclude Include="states\SettingsState.h" />
     <ClInclude Include="states\EditorState.h" />
     <ClInclude Include="entities\Bubble.h" />
@@ -150,6 +151,7 @@
     <ClInclude Include="entities\Tile.h" />
     <ClInclude Include="entities\MapEditor.h" />
     <ClInclude Include="GUI\TextureSelector.h" />
+    <ClInclude Include="states\TestState.h" />
     <ClInclude Include="TinyXML\tinystr.h" />
     <ClInclude Include="TinyXML\tinyxml.h" />
     <ClInclude Include="GUI\Button.h" />
@@ -164,6 +166,7 @@
   <ItemGroup>
     <ClCompile Include="animation\Animation.cpp" />
     <ClCompile Include="animation\AnimationManager.cpp" />
+    <ClCompile Include="entities\objects\MapObject.cpp" />
     <ClCompile Include="states\SettingsState.cpp" />
     <ClCompile Include="states\EditorState.cpp" />
     <ClCompile Include="entities\Bubble.cpp" />
@@ -172,6 +175,7 @@
     <ClCompile Include="entities\Tile.cpp" />
     <ClCompile Include="entities\MapEditor.cpp" />
     <ClCompile Include="GUI\TextureSelector.cpp" />
+    <ClCompile Include="states\TestState.cpp" />
     <ClCompile Include="TinyXML\tinystr.cpp" />
     <ClCompile Include="TinyXML\tinyxml.cpp" />
     <ClCompile Include="TinyXML\tinyxmlerror.cpp" />

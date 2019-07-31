@@ -86,6 +86,12 @@
     <ClInclude Include="GUI\Button.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="entities\objects\MapObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="states\TestState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -155,6 +161,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GUI\Button.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="entities\objects\MapObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="states\TestState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

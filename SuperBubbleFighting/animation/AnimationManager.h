@@ -45,6 +45,9 @@ public:
 
 	float getW();
 
+	float getPositionX();
+	float getPositionY();
+
 };
 
 

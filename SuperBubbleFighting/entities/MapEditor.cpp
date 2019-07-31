@@ -49,9 +49,7 @@ MapEditor::MapEditor(sf::RenderWindow * window,std::string textureFile)
 
 			for (size_t z = 0; z < this->layers; z++)
 			{
-				this->map[x][y].resize(this->layers,NULL);
-
-				
+				this->map[x][y].resize(this->layers,NULL);	
 			}
 		}
 	}
@@ -192,7 +190,7 @@ void MapEditor::checkCollision(Player * player)
 			{
 				if (map[x][y][z] != NULL)
 				{
-					if (this->map[x][y][z]->intersects(player->getRect()))
+					if (this->map[x][y][z]->intersects(player->getGlobalBounds()))
 					{
 						if (map[x][y][z]->getCollision())
 						{

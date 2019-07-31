@@ -5,8 +5,10 @@
 
 #include "Tile.h"
 #include "Player.h"
+#include "objects/MapObject.h"
 
 class Player;
+class MapObject;
 
 class MapEditor
 {
@@ -20,6 +22,7 @@ private:
 	sf::RenderWindow * window;
 	unsigned layers;
 	std::vector < std::vector < std::vector < Tile*> > > map;
+
 
 	sf::RectangleShape TileSet;
 	sf::RectangleShape collisionBox;
@@ -38,6 +41,8 @@ public:
 
 	void addTile(const unsigned  x, const unsigned y, const unsigned z, sf::IntRect& textureRect,const bool collision,const short type);
 	void removeTile(const unsigned  x, const unsigned y, const unsigned z);
+
+	
 	
 	sf::Texture &getTextureSheet();
 
@@ -48,6 +53,7 @@ public:
 
 	const sf::Vector2f & getMapSize() const;
 	const unsigned & getLayerCount() const;
+
 
 	const std::vector<std::vector<std::vector<Tile*> > >& getTiles() const;
 

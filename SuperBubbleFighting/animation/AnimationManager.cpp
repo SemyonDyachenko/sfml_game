@@ -121,3 +121,14 @@ float AnimationManager::getW()
 {
 	return animList[currentAnim].frames[0].width;
 }
+
+float AnimationManager::getPositionX()
+{
+	return animList[currentAnim].frames[0].left;
+}
+
+float AnimationManager::getPositionY()
+{
+	return animList[currentAnim].frames[0].top;
+}
+

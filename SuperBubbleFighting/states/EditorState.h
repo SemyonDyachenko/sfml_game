@@ -36,6 +36,7 @@ private:
 	short type;
 
 
+
 	TextureSelector *textureSelector;
 	
 	sf::Texture tileset;
