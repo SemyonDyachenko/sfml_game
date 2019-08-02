@@ -77,6 +77,9 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\superbubble\SuperBubbleFighting\lib;C:\superbubble\SuperBubbleFighting\GLUT;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <ForcedIncludeFiles>stdafx.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>C:\superbubble\SuperBubbleFighting\GLUT;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -90,6 +93,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\superbubble\SuperBubbleFighting\lib;C:\superbubble\SuperBubbleFighting\GLUT;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>C:\superbubble\SuperBubbleFighting\GLUT;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -105,6 +109,9 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\superbubble\SuperBubbleFighting\lib;C:\superbubble\SuperBubbleFighting\GLUT;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <ForcedIncludeFiles>stdafx.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -122,6 +129,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\superbubble\SuperBubbleFighting\lib;C:\superbubble\SuperBubbleFighting\GLUT;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -137,6 +145,8 @@
     <None Include="resource\light\lightOverShapeShader.vert" />
     <None Include="resource\light\unshadowShader.frag" />
     <None Include="resource\light\unshadowShader.vert" />
+    <None Include="resource\shaders\fragmentShader.frag" />
+    <None Include="resource\shaders\vertexShader.vert" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="animation\Animation.h" />
@@ -153,6 +163,7 @@
     <ClInclude Include="entities\MapEditor.h" />
     <ClInclude Include="GUI\TextureSelector.h" />
     <ClInclude Include="states\TestState.h" />
+    <ClInclude Include="stdafx.h" />
     <ClInclude Include="TinyXML\tinystr.h" />
     <ClInclude Include="TinyXML\tinyxml.h" />
     <ClInclude Include="GUI\Button.h" />
@@ -178,6 +189,10 @@
     <ClCompile Include="entities\MapEditor.cpp" />
     <ClCompile Include="GUI\TextureSelector.cpp" />
     <ClCompile Include="states\TestState.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="TinyXML\tinystr.cpp" />
     <ClCompile Include="TinyXML\tinyxml.cpp" />
     <ClCompile Include="TinyXML\tinyxmlerror.cpp" />

@@ -21,6 +21,8 @@
     <None Include="resource\light\lightOverShapeShader.frag" />
     <None Include="resource\light\lightOverShapeShader.vert" />
     <None Include="resource\light\unshadowShader.frag" />
+    <None Include="resource\shaders\vertexShader.vert" />
+    <None Include="resource\shaders\fragmentShader.frag" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -93,6 +95,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="entities\objects\SFMLObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -173,6 +178,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="entities\objects\SFMLObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -14,7 +14,11 @@ class GameState
 private:
     sf::RenderWindow * window;
 
-	std::list<Level*> levels;
+	unsigned level_count;
+
+	sf::Shader core_shader;
+
+	std::vector<Level*> levels;
 
     //funcs
 	void initLevels();

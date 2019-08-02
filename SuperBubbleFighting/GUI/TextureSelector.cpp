@@ -1,5 +1,5 @@
+#include "../stdafx.h"
 #include "TextureSelector.h"
-
 
 
 void TextureSelector::initFonts()

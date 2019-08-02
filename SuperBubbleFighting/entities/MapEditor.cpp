@@ -1,6 +1,5 @@
+#include "../stdafx.h"
 #include "MapEditor.h"
-
-
 
 void MapEditor::clear()
 {

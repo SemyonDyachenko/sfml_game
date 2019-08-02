@@ -1,7 +1,7 @@
 //
 // Created by semyon on 22.06.19.
 //
-
+#include "../stdafx.h"
 #include "Bullet.h"
 
 Bullet::Bullet(sf::RenderWindow *window,int state,float x,float y) {

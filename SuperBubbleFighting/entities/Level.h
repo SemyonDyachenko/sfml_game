@@ -23,6 +23,8 @@ protected:
 	sf::Texture backgroundTexture;
 	sf::Sprite background;
 
+	sf::Texture playerTexture;
+
 	sf::View levelView;
 
 	MapEditor * tilemap;
@@ -32,14 +34,17 @@ protected:
 	void initTextures();
 	void initVariables();
 	void initView();
+	void initPlayer();
+	void initEnemyes();
+	void initObject();
 	void init();
 public:
 	Level(sf::RenderWindow & window,std::string map_filename,std::string back_filename);
 	
 	virtual ~Level();
 
-	virtual void start();
-	virtual void end();
+	//void start();
+	//void end();
 
 	const bool & checkEnd() const;
 

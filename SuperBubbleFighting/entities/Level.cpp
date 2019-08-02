@@ -1,9 +1,12 @@
+#include "../stdafx.h"
 #include "Level.h"
 
 
 
 void Level::initTextures()
 {
+	if (!this->playerTexture.loadFromFile("../res/images/heroes/ork.png"))
+		std::cout << "ERROR: don't load playerTexture in level \n";
 }
 
 void Level::initVariables()
@@ -25,11 +28,27 @@ void Level::initView()
 
 }
 
+void Level::initPlayer()
+{
+	this->player = new Player(200, 300, playerTexture, "../res/animation/anim.xml");
+}
+
+void Level::initEnemyes()
+{
+}
+
+void Level::initObject()
+{
+}
+
 void Level::init()
 {
 	this->initTextures();
 	this->initVariables();
 	this->initView();
+	this->initPlayer();
+	this->initEnemyes();
+	this->initObject();
 }
 
 Level::Level(sf::RenderWindow & window, std::string map_filename, std::string back_filename)
@@ -56,15 +75,15 @@ Level::~Level()
 
 }
 
-void Level::start()
-{
-	this->start = true;
-}
+//void Level::start()
+//{
+//	this->start = true;
+//}
 
-void Level::end()
-{
-	this->end = true;
-}
+//void Level::end()
+//{
+//	this->end = true;
+//}
 
 const bool & Level::checkEnd() const
 {
@@ -91,7 +110,7 @@ void Level::updateObjects(float time)
 {
 	for (size_t i = 0; i < objects.size(); i++)
 	{
-		this->objects[i].update(time);
+		this->objects[i]->update(time);
 	}
 }
 

@@ -1,5 +1,6 @@
+#include "stdafx.h"
 #include "Game.h"
-
+#include <Windows.h>
 
 void Game::initWindow()
 {
@@ -21,7 +22,6 @@ void Game::initWindow()
 	glLoadIdentity();
 	gluPerspective(90.f, 1.f, 1.f, 2000.f);
 	glEnable(GL_TEXTURE_2D);
-
 }
 
 void Game::initStates()
