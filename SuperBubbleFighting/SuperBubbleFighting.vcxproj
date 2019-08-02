@@ -143,6 +143,7 @@
     <ClInclude Include="animation\AnimationManager.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="entities\objects\MapObject.h" />
+    <ClInclude Include="entities\objects\SFMLObject.h" />
     <ClInclude Include="states\SettingsState.h" />
     <ClInclude Include="states\EditorState.h" />
     <ClInclude Include="entities\Bubble.h" />
@@ -167,6 +168,7 @@
     <ClCompile Include="animation\Animation.cpp" />
     <ClCompile Include="animation\AnimationManager.cpp" />
     <ClCompile Include="entities\objects\MapObject.cpp" />
+    <ClCompile Include="entities\objects\SFMLObject.cpp" />
     <ClCompile Include="states\SettingsState.cpp" />
     <ClCompile Include="states\EditorState.cpp" />
     <ClCompile Include="entities\Bubble.cpp" />

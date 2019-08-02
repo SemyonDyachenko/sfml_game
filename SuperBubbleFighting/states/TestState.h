@@ -4,14 +4,22 @@
 
 
 #include "State.h"
+
+
 class TestState :
 	public State
 {
 protected:
+	std::map<std::string, Button*> buttons;
+	sf::RectangleShape workingScene;
 
+	sf::Font font;
 
+	//funcs
+	void initFonts();
+	void initButtons();
 public:
-	TestState();
+	TestState(sf::RenderWindow * window, std::stack<State*>* states);
 	virtual ~TestState();
 
 	void endState();

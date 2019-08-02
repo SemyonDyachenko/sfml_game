@@ -194,11 +194,7 @@ void MapEditor::checkCollision(Player * player)
 					{
 						if (map[x][y][z]->getCollision())
 						{
-							if (player->getDirectionY() > 0)
-							{
-								player->setPosition(player->getPosition().x,player->getPosition().y-1);
-								player->setCollisionY(true);
-							}
+							
 						}
 					}
 				}

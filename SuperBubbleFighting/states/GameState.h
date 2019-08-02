@@ -3,30 +3,21 @@
 
 
 #include "State.h"
-#include "../entities/MapEditor.h"
+#include "../entities/Level.h"
 
 
+class Level;
 
 class GameState 
-	: 	public State
+	: public State
 {
 private:
-	sf::View view;
-	sf::RenderTexture renderTexture;
-	sf::Sprite renderSprite;
-
-    Player *  player;
-	sf::Texture playerTexture;
-
-	//Enemy * enemy;
     sf::RenderWindow * window;
 
-	MapEditor * tilemap;
+	std::list<Level*> levels;
 
     //funcs
-	void initView();
-	void initTileMap();
-    void initTextures();
+	void initLevels();
 public:
     GameState(sf::RenderWindow * window, std::stack<State*>*states);
     virtual ~GameState();
@@ -35,7 +26,6 @@ public:
     //funcs
     void endState();
     void updateInput(const float& time);
-	void updateView(float time);
     void update(float time);
     void render(sf::RenderWindow *window);
 };

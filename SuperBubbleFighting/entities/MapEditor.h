@@ -9,6 +9,7 @@
 
 class Player;
 class MapObject;
+class Tile;
 
 class MapEditor
 {
@@ -26,6 +27,7 @@ private:
 
 	sf::RectangleShape TileSet;
 	sf::RectangleShape collisionBox;
+
 
 	sf::Texture textureSheet;
 	std::string textureFile;

@@ -1,6 +1,12 @@
 #include "Player.h"
 
 
+#define KeyA  sf::Keyboard::isKeyPressed(sf::Keyboard::A) 
+#define KeyD  sf::Keyboard::isKeyPressed(sf::Keyboard::D) 
+#define AxisD sf::Joystick::getAxisPosition(0, sf::Joystick::Axis::X) > 1
+#define AxisA  (sf::Joystick::getAxisPosition(0, sf::Joystick::Axis::X)) < 0
+#define JostickSpace (sf::Joystick::isButtonPressed(0, 1))
+#define KeySpace  sf::Keyboard::isKeyPressed(sf::Keyboard::Space)
 
 
 
@@ -8,8 +14,8 @@ Player::Player(float x, float y, sf::Texture& texture, std::string anim_file)
 {
 	
 	this->speed = 0;
-	anim.loadFromXML("../res/animation/anim.xml", texture);
-	anim.set("stay");
+//	anim.loadFromXML("../res/animation/anim.xml", texture);
+	//anim.set("run");
 	this->posX = x;
 	this->posY = y;
 	this->dx = 0; this->dy = 0;
@@ -18,10 +24,12 @@ Player::Player(float x, float y, sf::Texture& texture, std::string anim_file)
 	this->hp = 100;
 	this->life = true;
 	this->collider2D.setPosition(posX, posY);
-	this->collider2D.setSize(sf::Vector2f(static_cast<float>(anim.getW()),static_cast<float>(anim.getH())));
+	this->collider2D.setSize(sf::Vector2f(60,60));
 	this->collider2D.setFillColor(sf::Color::Transparent);
 	this->collider2D.setOutlineThickness(1.f);
 	this->collider2D.setOutlineColor(sf::Color::Green);
+
+	
 
 }
 
@@ -37,39 +45,28 @@ const bool & Player::checkLife() const
 
 void Player::movement(float time)
 {
-	if (!sf::Keyboard::isKeyPressed(sf::Keyboard::A) && !sf::Keyboard::isKeyPressed(sf::Keyboard::D) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+	if (!sf::Keyboard::isKeyPressed)
 	{
-		if (state == STAY)
-		{
-			
-		}
-
-		if (this->state == LEFT)
-		{
-			anim.flip("stay");
-		}
-		else if (this->state == RIGHT)
-		{
-			anim.set("stay");
-		}
+		this->state = STAY;
+		
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || (sf::Joystick::getAxisPosition(0, sf::Joystick::Axis::X)) > 1)
+	if (KeyD || AxisD)
 	{
 		this->state = RIGHT; this->speed = 0.1f;
-		anim.set("walk");
+		//anim.set("run");
 	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || (sf::Joystick::getAxisPosition(0, sf::Joystick::Axis::X)) < 0)
+	else if (KeyA || AxisA)
 	{
 		this->state = LEFT; this->speed = 0.1f;
-		anim.flip("walk");
+		//anim.flip("run");
 	}
 
-		if (((sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) || (sf::Joystick::isButtonPressed(0, 1))) && this->playerOnGround)
-		{
-			this->state = JUMP;
-			this->dy = -0.4f;
-			this->playerOnGround = false;
-		}
+	if ((KeySpace || JostickSpace) && this->playerOnGround)
+	{
+		this->state = JUMP;
+		this->dy = -0.4f;
+		this->playerOnGround = false;
+	}
 }
 
 void Player::checkCollision(float Dx, float Dy)
@@ -91,30 +88,6 @@ const sf::Vector2f & Player::getPosition() const
 	return sf::Vector2f(this->posX, this->posY);
 }
 
-const float & Player::getDirectionX() const
-{
-	if (this->dx == 0)
-	{
-		return false;
-	}
-	else
-	{
-		return this->dx;
-	}
-}
-
-const float & Player::getDirectionY() const
-{
-	if (this->dy == 0)
-	{
-		return false;
-	}
-	else
-	{
-		return this->dy;
-	}
-
-}
 
 void Player::setPosition(const float x, const float y)
 {
@@ -122,25 +95,25 @@ void Player::setPosition(const float x, const float y)
 	this->posY = y;
 }
 
-void Player::setCollisionX(bool collis)
+void Player::updateLife()
 {
-	if (collis)
-		this->dx = 0;
-}
 
-void Player::setCollisionY(bool collis)
-{
-	if (collis)
+	if (this->hp <= 0)
 	{
-		this->dy = 0;
-		this->playerOnGround = true;
+		this->life = false;
+	}
+	else
+	{
+		this->life = true;
+
 	}
 }
+
 
 void Player::updateCollider(float time)
 {
 	this->collider2D.setPosition(this->posX, this->posY);
-	this->collider2D.setSize(sf::Vector2f(static_cast<float>(anim.getW()), static_cast<float>(anim.getH())));
+	this->collider2D.setSize(sf::Vector2f(60, 60));
 }
 
 void Player::update(float time)
@@ -157,27 +130,14 @@ void Player::update(float time)
 		this->posX += dx * time;
 		this->updateCollider(time);
 		this->posY += dy * time;
-		this->checkCollision(0, dy);
 		this->speed = 0;
 		this->sprite.setPosition(posX, posY);
-		this->dy = dy + 0.0014*time;
-		this->updateCollider(time);
+		//this->dy = dy + 0.0014*time;
 
-	// life---------------------------------
 
-	if (this->hp <= 0)
-	{
-		this->life = false;
-	}
-	else
-	{
-		this->life = true;
+		this->updateLife();
 
-	}
-
-	//-------------------------------w-------
-
-	anim.tick(time);
+	//anim.tick(time);
 
 	
 
@@ -192,5 +152,5 @@ void Player::renderCollider(sf::RenderWindow * window)
 void Player::render(sf::RenderWindow * window)
 {
 	this->renderCollider(window);
-	anim.draw(*window, this->posX, this->posY);
+//	anim.draw(*window, this->posX, this->posY);
 }

@@ -108,6 +108,8 @@ void EditorState::updateInput(const float & time)
 		else
 			this->textureSelector->setHide(true);
 	}
+
+
 }
 
 void EditorState::updateView(float time)
@@ -128,6 +130,7 @@ void EditorState::updateView(float time)
 	{
 		this->editorView.move(0, -this->cameraSpeed*time);
 	}
+
 }
 
 void EditorState::update(float time)
@@ -140,18 +143,41 @@ void EditorState::update(float time)
 	//updateGui
 	this->textureSelector->update(this->mousePosWindow);
 
-	this->mouseSelector.setTextureRect(this->textureRect);
+	this->mouseSelector.setTextureRect(this->textureRect);	
 	this->mouseSelector.setPosition(this->mousePosGrid.x*this->gridSize, this->mousePosGrid.y*this->gridSize);
 
 	
 
-	this->pixelPos = sf::Mouse::getPosition(*this->window);
-	this->pos = window->mapPixelToCoords(pixelPos);
+	
 	this->string = "x:" + std::to_string(this->mousePosWindow.x) + "\n" + "y:" + std::to_string(this->mousePosWindow.y) + "\n" + "collision: " + std::to_string(this->collision) + "\n";
 	this->text.setString(this->string);
 	this->text.setPosition(this->mousePosView.x + 20, this->mousePosView.y);
 	this->map->update(time);
+				
 
+
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+	{
+		if (!this->textureSelector->getActive())
+		{
+			this->map->addTile(this->mousePosGrid.x, this->mousePosGrid.y, 0, this->textureRect, this->collision, this->type);
+		}
+		else
+		{
+			this->textureRect = this->textureSelector->getTextureRect();
+			this->mouseSelector.setTextureRect(textureRect);
+		}
+
+	}
+
+
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Right))
+	{
+		if (!this->textureSelector->getActive())
+		{
+			this->map->removeTile(this->mousePosGrid.x, this->mousePosGrid.y, 0);
+		}
+	}
 }
 
 void EditorState::render(sf::RenderWindow * window)

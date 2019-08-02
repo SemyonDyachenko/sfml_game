@@ -44,8 +44,8 @@ public:
 
 	sf::FloatRect getRect();
 
-	void  checkCollision(float Dy, float Dxá ,sf::RectangleShape*object);
-	void  update(float time, sf::RectangleShape*object);
+	void  checkCollision(float Dy, float Dxá ,sf::RectangleShape*object=0);
+	void  update(float time, sf::RectangleShape*object=0);
 	float getPositionX();
 	float getPositionY();
 	void  render(sf::RenderWindow * window);

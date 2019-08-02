@@ -7,12 +7,11 @@
 
 #include "Tile.h"
 #include "../animation/AnimationManager.h"
-#include "MapEditor.h"
 
-class Entity;
+
+
 class MapEditor;
 class AnimationManager;
-
 
 class Player
  {
@@ -52,13 +51,9 @@ public:
 
 	virtual const sf::Vector2f& getPosition() const;
 
-	const float & getDirectionX() const;
-	const float & getDirectionY() const;
-
 	void setPosition(const float x,const float y);
 
-	void setCollisionX(bool collis);
-	void setCollisionY(bool collis);
+	void updateLife();
 
 	void updateCollider(float time);
 	void update(float time);

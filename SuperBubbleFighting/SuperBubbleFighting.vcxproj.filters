@@ -92,6 +92,9 @@
     <ClInclude Include="states\TestState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="entities\objects\SFMLObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -167,6 +170,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="states\TestState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="entities\objects\SFMLObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
