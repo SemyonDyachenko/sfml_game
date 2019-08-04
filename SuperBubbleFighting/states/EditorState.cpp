@@ -23,6 +23,8 @@ void EditorState::initTextures()
 void EditorState::initGui()
 {
 	this->textureSelector = new TextureSelector(0.f, 0.f, 600.f, 600.f,this->gridSize,&this->tileset,"TS");
+
+	this->objCreator = new ObjectCreator(this->window);
 }
 
 void EditorState::initVariables()
@@ -50,7 +52,8 @@ void EditorState::initSelector()
 }
 
 
-EditorState::EditorState(sf::RenderWindow * window, std::stack<State*>* states) : State(window,states)
+EditorState::EditorState(sf::RenderWindow * window, std::stack<State*>* states)
+	: State(window,states)
 {
 	this->window = window;
 	this->initView();
@@ -110,6 +113,17 @@ void EditorState::updateInput(const float & time)
 			this->textureSelector->setHide(true);
 	}
 
+	if ((sf::Keyboard::isKeyPressed(sf::Keyboard::LControl) && sf::Keyboard::isKeyPressed(sf::Keyboard::O)) && this->getKeyTime())
+	{
+		if (this->objCreator->getHide())
+		{
+			this->objCreator->setHide(false);
+		}
+		else
+		{
+			this->objCreator->setHide(true);
+		}
+	}
 
 }
 
@@ -147,7 +161,7 @@ void EditorState::update(float time)
 	this->mouseSelector.setPosition(this->mousePosGrid.x*this->gridSize, this->mousePosGrid.y*this->gridSize);
 
 	
-
+	this->objCreator->update(this->mousePosView);
 	
 	this->string = "x:" + std::to_string(this->mousePosWindow.x) + "\n" + "y:" + std::to_string(this->mousePosWindow.y) + "\n" + "collision: " + std::to_string(this->collision) + "\n";
 	this->text.setString(this->string);
@@ -200,6 +214,7 @@ void EditorState::render(sf::RenderWindow * window)
 	//render GUI
 	window->setView(this->window->getDefaultView());
 	this->textureSelector->render(*window);
+	this->objCreator->render(window);
 
 	window->setView(this->editorView);
 	window->draw(text);
