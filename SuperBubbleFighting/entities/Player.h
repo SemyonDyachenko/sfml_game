@@ -27,14 +27,16 @@ private:
 	
 	bool playerOnGround;
 
+
 	sf::RectangleShape collider2D;
 
 	bool life;
 	unsigned hp;
 
+	void initDefaultVariables();
 
 public:
-	Player(float x, float y, sf::Texture & texture,  std::string anim_file);
+	Player(float x, float y,sf::Texture & texture, std::string anim_file);
 	virtual ~Player();
 
 	const bool& checkLife() const;

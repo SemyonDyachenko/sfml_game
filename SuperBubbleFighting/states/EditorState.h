@@ -5,6 +5,7 @@
 #include "../GUI/Button.h"
 #include "../entities/MapEditor.h"
 #include "../GUI/TextureSelector.h"
+#include "../GUI/TopBar.h"
 
 class EditorState :
 	public State
@@ -14,6 +15,8 @@ private:
 	std::string string;
 	sf::Text text;
 
+
+	
 
 	std::map<std::string, Button*> buttons;
 

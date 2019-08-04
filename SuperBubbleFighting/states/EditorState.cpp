@@ -22,7 +22,7 @@ void EditorState::initTextures()
 
 void EditorState::initGui()
 {
-	this->textureSelector = new TextureSelector(0.f, 0.f, 600.f, 300.f,this->gridSize,&this->tileset,"TS");
+	this->textureSelector = new TextureSelector(0.f, 0.f, 600.f, 600.f,this->gridSize,&this->tileset,"TS");
 }
 
 void EditorState::initVariables()
@@ -34,7 +34,7 @@ void EditorState::initVariables()
 
 	this->collision = false;
 	this->type = TileTypes::DEFAULT;
-	this->cameraSpeed = 0.1f;
+	this->cameraSpeed = 0.3f;
 
 
 }
@@ -143,7 +143,6 @@ void EditorState::update(float time)
 	this->updateView(time);
 	//updateGui
 	this->textureSelector->update(this->mousePosWindow);
-
 	this->mouseSelector.setTextureRect(this->textureRect);	
 	this->mouseSelector.setPosition(this->mousePosGrid.x*this->gridSize, this->mousePosGrid.y*this->gridSize);
 

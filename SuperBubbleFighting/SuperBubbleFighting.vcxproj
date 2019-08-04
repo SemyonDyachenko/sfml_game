@@ -152,8 +152,10 @@
     <ClInclude Include="animation\Animation.h" />
     <ClInclude Include="animation\AnimationManager.h" />
     <ClInclude Include="Collision.h" />
+    <ClInclude Include="GUI\DropDown.h" />
     <ClInclude Include="entities\objects\MapObject.h" />
     <ClInclude Include="entities\objects\SFMLObject.h" />
+    <ClInclude Include="GUI\ObjectCreator.h" />
     <ClInclude Include="states\SettingsState.h" />
     <ClInclude Include="states\EditorState.h" />
     <ClInclude Include="entities\Bubble.h" />
@@ -174,12 +176,15 @@
     <ClInclude Include="states\MainMenuState.h" />
     <ClInclude Include="entities\Player.h" />
     <ClInclude Include="states\State.h" />
+    <ClInclude Include="GUI\TopBar.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="animation\Animation.cpp" />
     <ClCompile Include="animation\AnimationManager.cpp" />
+    <ClCompile Include="GUI\DropDown.cpp" />
     <ClCompile Include="entities\objects\MapObject.cpp" />
     <ClCompile Include="entities\objects\SFMLObject.cpp" />
+    <ClCompile Include="GUI\ObjectCreator.cpp" />
     <ClCompile Include="states\SettingsState.cpp" />
     <ClCompile Include="states\EditorState.cpp" />
     <ClCompile Include="entities\Bubble.cpp" />
@@ -206,6 +211,7 @@
     <ClCompile Include="states\MainMenuState.cpp" />
     <ClCompile Include="entities\Player.cpp" />
     <ClCompile Include="states\State.cpp" />
+    <ClCompile Include="GUI\TopBar.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

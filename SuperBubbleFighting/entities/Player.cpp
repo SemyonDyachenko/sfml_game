@@ -11,19 +11,23 @@
 
 
 
-Player::Player(float x, float y, sf::Texture& texture, std::string anim_file)
+
+
+void Player::initDefaultVariables()
 {
-	
 	this->speed = 0;
-//	anim.loadFromXML("../res/animation/anim.xml", texture);
-	//anim.set("run");
-	this->posX = x;
-	this->posY = y;
 	this->dx = 0; this->dy = 0;
 	this->state = STAY;
 	this->playerOnGround = false;
 	this->hp = 100;
 	this->life = true;
+}
+
+Player::Player(float x, float y, sf::Texture & texture,std::string anim_file)
+{
+	this->posX = x;
+	this->posY = y;
+	
 	this->collider2D.setPosition(posX, posY);
 	this->collider2D.setSize(sf::Vector2f(60,60));
 	this->collider2D.setFillColor(sf::Color::Transparent);

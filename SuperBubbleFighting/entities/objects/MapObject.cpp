@@ -30,6 +30,16 @@ void MapObject::setSize(const float width, const float height)
 	this->height = height;
 }
 
+const sf::FloatRect & MapObject::getGlobalBounds() const
+{
+	return this->shape.getGlobalBounds();
+}
+
+const std::string & MapObject::getName() const
+{
+	return this->name;
+}
+
 void MapObject::update()
 {
 }
