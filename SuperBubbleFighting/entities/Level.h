@@ -29,8 +29,11 @@ protected:
 
 	MapEditor * tilemap;
 
-	bool start, end;
+	bool start, end, pause;
 	
+	sf::Shader core_shader;
+
+	void initShaders();
 	void initTextures();
 	void initVariables();
 	void initView();

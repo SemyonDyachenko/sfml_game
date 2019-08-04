@@ -3,6 +3,12 @@
 
 
 
+void Level::initShaders()
+{
+	//if (!this->core_shader.loadFromFile("../resource/shaders/vertexShader.vert", "../resource/shaders/fragmentShader.frag"))
+	//	std::cout << "ERROR: don't load vertexShader or fragmentShader in Level.cpp \n";
+}
+
 void Level::initTextures()
 {
 	if (!this->playerTexture.loadFromFile("../res/images/heroes/ork.png"))
@@ -11,7 +17,7 @@ void Level::initTextures()
 
 void Level::initVariables()
 {
-	this->end = false;
+	this->end = true;
 }
 
 void Level::initView()
@@ -43,6 +49,7 @@ void Level::initObject()
 
 void Level::init()
 {
+	this->initShaders();
 	this->initTextures();
 	this->initVariables();
 	this->initView();
@@ -55,7 +62,7 @@ Level::Level(sf::RenderWindow & window, std::string map_filename, std::string ba
 {
 	this->window = &window;
 	this->init();
-	this->tilemap = new MapEditor(&window,"..res/images/tilset1.png");
+	this->tilemap = new MapEditor(&window,"../res/images/tilset1.png");
 	this->tilemap->loadFromFile(map_filename);
 }
 
@@ -100,18 +107,18 @@ void Level::updatePlayer(float time)
 
 void Level::updateEnemy(float time)
 {
-	for (size_t i = 0; i < enemyes.size(); i++)
-	{
-		this->enemyes[i]->update(time);
-	}
+		//for (size_t i = 0; i < enemyes.size(); i++)
+		//{
+		//this->enemyes[i]->update(time);
+	//	}
 }
 
 void Level::updateObjects(float time)
 {
-	for (size_t i = 0; i < objects.size(); i++)
-	{
-		this->objects[i]->update(time);
-	}
+	//for (size_t i = 0; i < objects.size(); i++)
+//	{
+//		this->objects[i]->update(time);
+//	}
 }
 
 void Level::update(float time)
@@ -130,18 +137,18 @@ void Level::renderPlayer(sf::RenderWindow * window)
 
 void Level::renderEnemy(sf::RenderWindow * window)
 {
-	for (size_t i = 0; i < enemyes.size(); i++)
-	{
-		this->enemyes[i]->render(window);
-	}
+	//for (size_t i = 0; i < enemyes.size(); i++)
+//	{
+	//	this->enemyes[i]->render(window);
+//	}
 }
 
 void Level::renderObjects(sf::RenderWindow * window)
 {
-	for (size_t i = 0; i < objects.size(); i++)
-	{
-		this->objects[i]->render(window);
-	}
+	//for (size_t i = 0; i < objects.size(); i++)
+	//{
+	//	this->objects[i]->render(window);
+	//}
 }
 
 void Level::render(sf::RenderWindow * window)
@@ -152,4 +159,5 @@ void Level::render(sf::RenderWindow * window)
 	this->renderObjects(window);
 	this->renderEnemy(window);
 	this->renderPlayer(window);
+	this->tilemap->render(*window);
 }

@@ -1,7 +1,3 @@
-//
-// Created by semyon on 19.06.19.
-//
-
 #ifndef PLAYER_H
 #define PLAYER_H
 

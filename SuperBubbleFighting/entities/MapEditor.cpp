@@ -53,7 +53,7 @@ MapEditor::MapEditor(sf::RenderWindow * window,std::string textureFile)
 		}
 	}
 
-	if (!this->textureSheet.loadFromFile(textureFile)) std::cout << "error: don't load texture grass from file , MapEditor.cpp,line 7" << "\n";
+	if (!this->textureSheet.loadFromFile(textureFile)) std::cout << "error: don't load texture tiles from file , MapEditor.cpp,line 7" << "\n";
 	
 	//collision
 

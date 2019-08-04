@@ -16,7 +16,7 @@ private:
 
 	unsigned level_count;
 
-	sf::Shader core_shader;
+	
 
 	std::vector<Level*> levels;
 
