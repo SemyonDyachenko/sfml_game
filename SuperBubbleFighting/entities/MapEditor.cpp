@@ -250,7 +250,7 @@ void MapEditor::addObjct(const unsigned x, const unsigned y, std::string name)
 	{
 		if (this->objects[x][y] != NULL)
 		{
-			this->objects[x][y] = new MapObject();
+			this->objects[x][y] = new MapObject(x,y,name);
 
 		}
 	}
@@ -296,6 +296,17 @@ void MapEditor::render(sf::RenderWindow & window)
 						window.draw(this->collisionBox);
 					}
 				}
+			}
+		}
+	}
+
+	for (auto &x : this->objects)
+	{
+		for (auto &y : x)
+		{
+			if (y != NULL)
+			{
+				y->render(&window);
 			}
 		}
 	}

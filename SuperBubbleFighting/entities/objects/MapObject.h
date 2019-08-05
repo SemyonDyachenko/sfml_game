@@ -15,7 +15,7 @@ private:
 
 
 public:
-	MapObject();
+	MapObject(float x,float y,std::string name);
 
 	~MapObject();
 

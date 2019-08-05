@@ -70,8 +70,11 @@ EditorState::EditorState(sf::RenderWindow * window, std::stack<State*>* states)
 	this->text.setCharacterSize(14);
 	this->text.setFillColor(sf::Color(119, 119, 119));
 	this->map = new MapEditor(window,"../res/images/tileset.png");
-	this->mouseSelector.setTexture(&this->map->getTextureSheet());
-	this->mouseSelector.setTextureRect(this->textureRect);
+	if (!this->objectMode)
+	{
+		this->mouseSelector.setTexture(&this->map->getTextureSheet());
+		this->mouseSelector.setTextureRect(this->textureRect);
+	}
 	this->initGui();
 	this->initButtons();
 }
@@ -174,8 +177,10 @@ void EditorState::update(float time)
 	//updateGui
 	this->textureSelector->update(this->mousePosWindow);
 
-	if(!this->objectMode)
-	this->mouseSelector.setTextureRect(this->textureRect);	
+	if (!this->objectMode)
+	{
+		this->mouseSelector.setTextureRect(this->textureRect);
+	}
 
 	this->mouseSelector.setPosition(this->mousePosGrid.x*this->gridSize, this->mousePosGrid.y*this->gridSize);
 
@@ -228,7 +233,7 @@ void EditorState::update(float time)
 				
 	if (this->objCreator->getHide())
 	{
-		if (!this->objCreator)
+		if (!this->objectMode)
 		{
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
 			{
