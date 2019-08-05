@@ -2,6 +2,9 @@
 #define OBJECTCREATOR_H
 
 #include "Button.h"
+#include "../entities/MapEditor.h"
+
+class MapEditor;
 
 class ObjectCreator
 {
@@ -16,18 +19,21 @@ private:
 
 	bool isHide;
 
-	
+	MapEditor * map;
 
 	std::map<std::string, Button*> buttons;
 
 public:
-	ObjectCreator(sf::RenderWindow * window);
+	ObjectCreator(sf::RenderWindow * window, MapEditor& map);
 	virtual ~ObjectCreator();
 
 	void setHide(bool hide);
 
 	const bool & getHide() const;
 
+	const std::string& getName() const;
+
+	const sf::Vector2f& getPosition() const;
 
 	void update(sf::Vector2f mousePos);
 

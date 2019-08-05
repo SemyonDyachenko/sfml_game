@@ -39,12 +39,14 @@ MapEditor::MapEditor(sf::RenderWindow * window,std::string textureFile)
 	this->textureFile = textureFile;
 	
 	this->map.resize(this->maxSizeWorldGrid.x,std::vector<std::vector<Tile*>>());
+	this->objects.resize(this->maxSizeWorldGrid.x, std::vector<MapObject*>());
 
 	for (size_t x = 0; x < this->maxSizeWorldGrid.x; x++)
 	{
 		for (size_t y = 0; y < this->maxSizeWorldGrid.y; y++)
 		{
 			this->map[x].resize(this->maxSizeWorldGrid.y,std::vector<Tile*>());
+			this->map[x][y].resize(this->maxSizeWorldGrid.y, NULL);
 
 			for (size_t z = 0; z < this->layers; z++)
 			{
@@ -238,6 +240,30 @@ void MapEditor::removeTile(const unsigned  x, const unsigned y, const unsigned z
 		{
 			delete this->map[x][y][z];
 			this->map[x][y][z] = NULL;
+		}
+	}
+}
+
+void MapEditor::addObjct(const unsigned x, const unsigned y, std::string name)
+{
+	if (x < this->maxSizeWorldGrid.x && x >= 0 && y < this->maxSizeWorldGrid.y && y > 0)
+	{
+		if (this->objects[x][y] != NULL)
+		{
+			this->objects[x][y] = new MapObject();
+
+		}
+	}
+}
+
+void MapEditor::removeObject(const unsigned x, const unsigned y)
+{
+	if (x < this->maxSizeWorldGrid.x && x >= 0 && y < this->maxSizeWorldGrid.y && y > 0)
+	{
+		if (this->objects[x][y] != NULL)
+		{
+			delete this->objects[x][y];
+
 		}
 	}
 }

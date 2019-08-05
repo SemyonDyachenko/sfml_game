@@ -16,7 +16,7 @@ private:
 	sf::Text text;
 
 	ObjectCreator * objCreator;
-	
+
 
 	std::map<std::string, Button*> buttons;
 
@@ -47,6 +47,7 @@ private:
 
 	sf::IntRect textureRect;
 
+	void initButtons();
 	void initView();
 	void initTextures();
 	void initGui();

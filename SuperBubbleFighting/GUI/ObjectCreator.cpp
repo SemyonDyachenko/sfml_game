@@ -2,9 +2,10 @@
 #include "ObjectCreator.h"
 
 
-ObjectCreator::ObjectCreator(sf::RenderWindow * window)
+ObjectCreator::ObjectCreator(sf::RenderWindow * window,MapEditor& map)
 {
 	this->window = window;
+	this->map = &map;
 	this->creationWindow.setSize(sf::Vector2f(400, 400));
 	this->creationWindow.setPosition(window->getSize().x/2-400/2, window->getSize().y / 2-400/2);
 	this->enterField.setSize(sf::Vector2f(140, 40));
@@ -25,8 +26,8 @@ ObjectCreator::ObjectCreator(sf::RenderWindow * window)
 
 	this->isHide = true;
 
-	this->buttons["CREATE"] = new Button(creationWindow.getSize().x / 4, enterField.getPosition().y + 50, 80, 40, &this->font,"CREATE", sf::Color(255, 255, 255), sf::Color(255, 255, 255), sf::Color(255, 255, 255));
-	this->buttons["EXIT"] = new Button(creationWindow.getSize().x / 4+100, enterField.getPosition().y + 50, 80, 40, &this->font,"EXIT", sf::Color(255, 255, 255), sf::Color(255, 255, 255), sf::Color(255, 255, 255));
+	/*this->buttons["CREATE"] = new Button(creationWindow.getSize().x / 4, enterField.getPosition().y + 50, 80, 40, &this->font,"CREATE", sf::Color(255, 255, 255), sf::Color(255, 255, 255), sf::Color(255, 255, 255));
+	this->buttons["EXIT"] = new Button(creationWindow.getSize().x / 4+100, enterField.getPosition().y + 50, 80, 40, &this->font,"EXIT", sf::Color(255, 255, 255), sf::Color(255, 255, 255), sf::Color(255, 255, 255));*/
 }
 
 
@@ -47,6 +48,16 @@ void ObjectCreator::setHide(bool hide)
 const bool & ObjectCreator::getHide() const
 {
 	return this->isHide;
+}
+
+const std::string & ObjectCreator::getName() const
+{
+	return this->name;
+}
+
+const sf::Vector2f & ObjectCreator::getPosition() const
+{
+	return this->creationWindow.getPosition();
 }
 
 void ObjectCreator::update(sf::Vector2f mousePos)
@@ -98,16 +109,16 @@ void ObjectCreator::update(sf::Vector2f mousePos)
 		}
 
 		
+		
+		//if (this->buttons["CREATE"]->isPressed())
+		//{
+		////	this->map->addObjct()
+		//}
 
-		if (this->buttons["CREATE"]->isPressed())
-		{
-
-		}
-
-		if (this->buttons["EXIT"]->isPressed())
-		{
-
-		}
+		//if (this->buttons["EXIT"]->isPressed())
+		//{
+		//	this->isHide = true;
+		//}
 	}
 }
 

@@ -2,6 +2,12 @@
 #include "EditorState.h"
 
 
+void EditorState::initButtons()
+{
+	this->buttons["NEW_OBJECT"] = new Button(this->objCreator->getPosition().x + 10, this->objCreator->getPosition().y + 300, 80, 30, &this->font, "NEW", sf::Color(255, 255, 255), sf::Color(255, 255, 255), sf::Color(255, 255, 255));
+	this->buttons["EXIT_OBJECT"] = new Button(this->objCreator->getPosition().x + 100, this->objCreator->getPosition().y + 300, 80, 30, &this->font, "EXIT", sf::Color(255, 255, 255), sf::Color(255, 255, 255), sf::Color(255, 255, 255));
+}
+
 void EditorState::initView()
 {
 	this->editorView.setSize(sf::Vector2f(
@@ -24,7 +30,7 @@ void EditorState::initGui()
 {
 	this->textureSelector = new TextureSelector(0.f, 0.f, 600.f, 600.f,this->gridSize,&this->tileset,"TS");
 
-	this->objCreator = new ObjectCreator(this->window);
+	this->objCreator = new ObjectCreator(this->window,*this->map);
 }
 
 void EditorState::initVariables()
@@ -67,6 +73,7 @@ EditorState::EditorState(sf::RenderWindow * window, std::stack<State*>* states)
 	this->mouseSelector.setTexture(&this->map->getTextureSheet());
 	this->mouseSelector.setTextureRect(this->textureRect);
 	this->initGui();
+	this->initButtons();
 }
 
 EditorState::~EditorState()
@@ -74,6 +81,13 @@ EditorState::~EditorState()
 	delete this->map;
 	delete this->textureSelector;
 	this->window->setView(this->window->getDefaultView());
+	this->window->setMouseCursorVisible(false);
+
+	auto it = this->buttons.begin();
+	for (auto it = this->buttons.begin(); it != this->buttons.end(); it++)
+	{
+		delete it->second;
+	}
 }
 
 void EditorState::endState()
@@ -164,6 +178,43 @@ void EditorState::update(float time)
 
 	
 	this->objCreator->update(this->mousePosView);
+
+	if (!this->objCreator->getHide())
+	{
+		for (auto &it : this->buttons)
+		{
+			it.second->update(this->mousePosView);
+
+		}
+
+		if (this->buttons["NEW_OBJECT"]->isPressed())
+		{
+			this->map->addObjct(this->mousePosGrid.x*this->gridSize, this->mousePosGrid.y*this->gridSize,this->objCreator->getName());
+		}
+
+		if (this->buttons["EXIT_OBJECT"]->isPressed())
+		{
+			this->map->removeObject(this->mousePosGrid.x, this->mousePosGrid.y);
+		}
+	}
+
+	if (!objCreator->getHide())
+	{
+		if (this->mousePosWindow.x > this->objCreator->getPosition().x && this->mousePosWindow.y > this->objCreator->getPosition().y && this->mousePosWindow.x < this->objCreator->getPosition().x + 400 && this->mousePosWindow.y < this->objCreator->getPosition().y + 400)
+		{
+			this->window->setMouseCursorVisible(true);
+		
+		}
+		else
+		{
+			this->window->setMouseCursorVisible(false);
+		}
+	}
+
+	else
+	{
+		this->window->setMouseCursorVisible(false);
+	}
 	
 	this->string = "x:" + std::to_string(this->mousePosWindow.x) + "\n" + "y:" + std::to_string(this->mousePosWindow.y) + "\n" + "collision: " + std::to_string(this->collision) + "\n";
 	this->text.setString(this->string);
@@ -202,7 +253,7 @@ void EditorState::render(sf::RenderWindow * window)
 {
 	if (!window)
 		window = this->window;
-
+	
 
 	window->setView(this->editorView);
 	this->map->render(*window);
@@ -219,6 +270,14 @@ void EditorState::render(sf::RenderWindow * window)
 	window->setView(this->window->getDefaultView());
 	this->textureSelector->render(*window);
 	this->objCreator->render(window);
+	if (!this->objCreator->getHide())
+	{
+		for (auto &it : this->buttons)
+		{
+			it.second->render(window);
+
+		}
+	}
 
 	window->setView(this->editorView);
 	window->draw(text);
