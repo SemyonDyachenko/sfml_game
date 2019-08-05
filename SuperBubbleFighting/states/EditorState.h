@@ -38,7 +38,7 @@ private:
 	bool collision;
 	short type;
 
-
+	bool objectMode;
 
 	TextureSelector *textureSelector;
 	

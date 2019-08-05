@@ -43,7 +43,7 @@ void EditorState::initVariables()
 	this->collision = false;
 	this->type = TileTypes::DEFAULT;
 	this->cameraSpeed = 0.3f;
-
+	this->objectMode = false;
 
 }
 
@@ -173,7 +173,10 @@ void EditorState::update(float time)
 	this->updateView(time);
 	//updateGui
 	this->textureSelector->update(this->mousePosWindow);
+
+	if(!this->objectMode)
 	this->mouseSelector.setTextureRect(this->textureRect);	
+
 	this->mouseSelector.setPosition(this->mousePosGrid.x*this->gridSize, this->mousePosGrid.y*this->gridSize);
 
 	
@@ -190,11 +193,13 @@ void EditorState::update(float time)
 		if (this->buttons["NEW_OBJECT"]->isPressed())
 		{
 			this->map->addObjct(this->mousePosGrid.x*this->gridSize, this->mousePosGrid.y*this->gridSize,this->objCreator->getName());
+			this->objCreator->setHide(true);
+			this->objectMode = true;
 		}
 
 		if (this->buttons["EXIT_OBJECT"]->isPressed())
 		{
-			this->map->removeObject(this->mousePosGrid.x, this->mousePosGrid.y);
+			this->objCreator->setHide(true);
 		}
 	}
 
@@ -223,27 +228,29 @@ void EditorState::update(float time)
 				
 	if (this->objCreator->getHide())
 	{
-
-		if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+		if (!this->objCreator)
 		{
-			if (!this->textureSelector->getActive())
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
 			{
-				this->map->addTile(this->mousePosGrid.x, this->mousePosGrid.y, 0, this->textureRect, this->collision, this->type);
+				if (!this->textureSelector->getActive())
+				{
+					this->map->addTile(this->mousePosGrid.x, this->mousePosGrid.y, 0, this->textureRect, this->collision, this->type);
+				}
+				else
+				{
+					this->textureRect = this->textureSelector->getTextureRect();
+					this->mouseSelector.setTextureRect(textureRect);
+				}
+
 			}
-			else
+
+
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Right))
 			{
-				this->textureRect = this->textureSelector->getTextureRect();
-				this->mouseSelector.setTextureRect(textureRect);
-			}
-
-		}
-
-
-		if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Right))
-		{
-			if (!this->textureSelector->getActive())
-			{
-				this->map->removeTile(this->mousePosGrid.x, this->mousePosGrid.y, 0);
+				if (!this->textureSelector->getActive())
+				{
+					this->map->removeTile(this->mousePosGrid.x, this->mousePosGrid.y, 0);
+				}
 			}
 		}
 	}
