@@ -13,9 +13,12 @@ ObjectCreator::ObjectCreator(sf::RenderWindow * window)
 	this->creationWindow.setFillColor(sf::Color(50, 50, 50, 100));
 	this->creationWindow.setOutlineThickness(1.f);
 	this->creationWindow.setOutlineColor(sf::Color(255, 255, 255, 200));
+	this->text.setPosition(enterField.getPosition().x + 10, enterField.getPosition().y + 5);
 
 	this->font.loadFromFile("../res/fonts/font.ttf");
 	this->text.setFont(font);
+	this->text.setCharacterSize(18);
+	this->text.setFillColor(sf::Color::Black);
 
 	this->name = "default";
 	this->text.setString(name);
@@ -59,7 +62,42 @@ void ObjectCreator::update(sf::Vector2f mousePos)
 			}
 		}
 		
-	
+		sf::Event event;
+
+		while (this->window->pollEvent(event))
+		{
+			if (event.type == sf::Event::TextEntered)
+			{
+				if (event.text.unicode < 128)
+
+				{
+
+					if (event.text.unicode == 13) // return key
+
+					{
+
+						// finished entering name
+
+					}
+					else if (event.text.unicode == 8) { // backspace
+
+						if (name.size() > 0) name.resize(name.size() - 1);
+
+					}
+					else {
+
+						name += static_cast<char>(event.text.unicode);
+
+					}
+
+					text.setString(name);
+
+				}
+
+			}
+		}
+
+		
 
 		if (this->buttons["CREATE"]->isPressed())
 		{
@@ -88,6 +126,8 @@ void ObjectCreator::render(sf::RenderWindow * window)
 
 			}
 		}
+		window->draw(text);
+		
 	}
-	window->draw(this->text);
+	
 }

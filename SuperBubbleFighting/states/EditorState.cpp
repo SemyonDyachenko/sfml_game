@@ -129,23 +129,25 @@ void EditorState::updateInput(const float & time)
 
 void EditorState::updateView(float time)
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+	if (this->objCreator->getHide())
 	{
-		this->editorView.move(this->cameraSpeed*time, 0);
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+		{
+			this->editorView.move(this->cameraSpeed*time, 0);
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+		{
+			this->editorView.move(-this->cameraSpeed*time, 0);
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+		{
+			this->editorView.move(0, this->cameraSpeed*time);
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+		{
+			this->editorView.move(0, -this->cameraSpeed*time);
+		}
 	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-	{
-		this->editorView.move(-this->cameraSpeed*time, 0);
-	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-	{
-		this->editorView.move(0,this->cameraSpeed*time);
-	}
-	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-	{
-		this->editorView.move(0, -this->cameraSpeed*time);
-	}
-
 }
 
 void EditorState::update(float time)
@@ -168,28 +170,30 @@ void EditorState::update(float time)
 	this->text.setPosition(this->mousePosView.x + 20, this->mousePosView.y);
 	this->map->update(time);
 				
-
-
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+	if (this->objCreator->getHide())
 	{
-		if (!this->textureSelector->getActive())
+
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
 		{
-			this->map->addTile(this->mousePosGrid.x, this->mousePosGrid.y, 0, this->textureRect, this->collision, this->type);
+			if (!this->textureSelector->getActive())
+			{
+				this->map->addTile(this->mousePosGrid.x, this->mousePosGrid.y, 0, this->textureRect, this->collision, this->type);
+			}
+			else
+			{
+				this->textureRect = this->textureSelector->getTextureRect();
+				this->mouseSelector.setTextureRect(textureRect);
+			}
+
 		}
-		else
+
+
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Right))
 		{
-			this->textureRect = this->textureSelector->getTextureRect();
-			this->mouseSelector.setTextureRect(textureRect);
-		}
-
-	}
-
-
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Right))
-	{
-		if (!this->textureSelector->getActive())
-		{
-			this->map->removeTile(this->mousePosGrid.x, this->mousePosGrid.y, 0);
+			if (!this->textureSelector->getActive())
+			{
+				this->map->removeTile(this->mousePosGrid.x, this->mousePosGrid.y, 0);
+			}
 		}
 	}
 }

@@ -16,7 +16,7 @@ private:
 
 	bool isHide;
 
-	sf::Event event;
+	
 
 	std::map<std::string, Button*> buttons;
 
