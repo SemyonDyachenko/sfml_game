@@ -19,6 +19,7 @@ private:
 
 	bool isHide;
 
+
 	MapEditor * map;
 
 	std::map<std::string, Button*> buttons;

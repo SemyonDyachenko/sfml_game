@@ -184,8 +184,12 @@ void EditorState::update(float time)
 
 	this->mouseSelector.setPosition(this->mousePosGrid.x*this->gridSize, this->mousePosGrid.y*this->gridSize);
 
+	if (!this->objCreator->getHide())
+	{
+		this->objCreator->update(this->mousePosView);
+	}
 	
-	this->objCreator->update(this->mousePosView);
+
 
 	if (!this->objCreator->getHide())
 	{
@@ -197,7 +201,7 @@ void EditorState::update(float time)
 
 		if (this->buttons["NEW_OBJECT"]->isPressed())
 		{
-			this->map->addObjct(this->mousePosGrid.x*this->gridSize, this->mousePosGrid.y*this->gridSize,this->objCreator->getName());
+			this->map->addObjct(this->mousePosGrid.x*this->gridSize, this->mousePosGrid.y*this->gridSize,0,this->objCreator->getName());
 			this->objCreator->setHide(true);
 			this->objectMode = true;
 		}
@@ -225,7 +229,7 @@ void EditorState::update(float time)
 	{
 		this->window->setMouseCursorVisible(false);
 	}
-	
+
 	this->string = "x:" + std::to_string(this->mousePosWindow.x) + "\n" + "y:" + std::to_string(this->mousePosWindow.y) + "\n" + "collision: " + std::to_string(this->collision) + "\n";
 	this->text.setString(this->string);
 	this->text.setPosition(this->mousePosView.x + 20, this->mousePosView.y);
@@ -293,7 +297,7 @@ void EditorState::render(sf::RenderWindow * window)
 
 	window->setView(this->editorView);
 	window->draw(text);
-
+	
 	window->setView(this->window->getDefaultView());
 	
 }

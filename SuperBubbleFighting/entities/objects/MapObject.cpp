@@ -9,6 +9,7 @@ MapObject::MapObject(float x, float y,std::string name)
 	this->shape.setOutlineThickness(1.f);
 	this->shape.setOutlineColor(sf::Color(95, 97, 99));
 	this->shape.setPosition(x, y);
+	this->shape.setSize(sf::Vector2f(32.f, 32.f));
 }
 
 

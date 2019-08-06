@@ -39,18 +39,19 @@ MapEditor::MapEditor(sf::RenderWindow * window,std::string textureFile)
 	this->textureFile = textureFile;
 	
 	this->map.resize(this->maxSizeWorldGrid.x,std::vector<std::vector<Tile*>>());
-	this->objects.resize(this->maxSizeWorldGrid.x, std::vector<MapObject*>());
+	this->objects.resize(this->maxSizeWorldGrid.x, std::vector<std::vector<MapObject*>>());
 
 	for (size_t x = 0; x < this->maxSizeWorldGrid.x; x++)
 	{
 		for (size_t y = 0; y < this->maxSizeWorldGrid.y; y++)
 		{
 			this->map[x].resize(this->maxSizeWorldGrid.y,std::vector<Tile*>());
-			this->map[x][y].resize(this->maxSizeWorldGrid.y, NULL);
+			this->objects[x].resize(this->maxSizeWorldGrid.y, std::vector<MapObject* > ());
 
 			for (size_t z = 0; z < this->layers; z++)
 			{
 				this->map[x][y].resize(this->layers,NULL);	
+				this->objects[x][y].resize(this->layers, NULL);
 			}
 		}
 	}
@@ -244,25 +245,26 @@ void MapEditor::removeTile(const unsigned  x, const unsigned y, const unsigned z
 	}
 }
 
-void MapEditor::addObjct(const unsigned x, const unsigned y, std::string name)
+void MapEditor::addObjct(const unsigned x, const unsigned y,const unsigned z, std::string name)
 {
 	if (x < this->maxSizeWorldGrid.x && x >= 0 && y < this->maxSizeWorldGrid.y && y > 0)
 	{
-		if (this->objects[x][y] != NULL)
+		if (this->objects[x][y][z] != NULL)
 		{
-			this->objects[x][y] = new MapObject(x,y,name);
+			this->objects[x][y][z] = new MapObject(x,y,name);
 
 		}
 	}
 }
 
-void MapEditor::removeObject(const unsigned x, const unsigned y)
+void MapEditor::removeObject(const unsigned x, const unsigned y, const unsigned z)
 {
 	if (x < this->maxSizeWorldGrid.x && x >= 0 && y < this->maxSizeWorldGrid.y && y > 0)
 	{
-		if (this->objects[x][y] != NULL)
+		if (this->objects[x][y][z] != NULL)
 		{
-			delete this->objects[x][y];
+			delete this->objects[x][y][z];
+			this->objects[x][y][z] = NULL;
 
 		}
 	}
@@ -304,9 +306,12 @@ void MapEditor::render(sf::RenderWindow & window)
 	{
 		for (auto &y : x)
 		{
-			if (y != NULL)
+			for (auto *z : y)
 			{
-				y->render(&window);
+				if (z != NULL)
+				{
+					z->render(&window);
+				}
 			}
 		}
 	}

@@ -23,7 +23,7 @@ private:
 	sf::RenderWindow * window;
 	unsigned layers;
 	std::vector < std::vector < std::vector < Tile*> > > map;
-	std::vector<std::vector<MapObject*> > objects;
+	std::vector<std::vector<std::vector<MapObject*> > > objects;
 
 	sf::RectangleShape TileSet;
 	sf::RectangleShape collisionBox;
@@ -40,8 +40,8 @@ public:
 	void addTile(const unsigned  x, const unsigned y, const unsigned z, sf::IntRect& textureRect,const bool collision,const short type);
 	void removeTile(const unsigned  x, const unsigned y, const unsigned z);
 
-	void addObjct(const unsigned x, const unsigned y,std::string name);
-	void removeObject(const unsigned x,const unsigned y);
+	void addObjct(const unsigned x, const unsigned y, const unsigned z,std::string name);
+	void removeObject(const unsigned x, const unsigned y, const unsigned z);
 	
 	sf::Texture &getTextureSheet();
 

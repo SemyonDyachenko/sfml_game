@@ -62,7 +62,7 @@ Level::Level(sf::RenderWindow & window, std::string map_filename, std::string ba
 {
 	this->window = &window;
 	this->init();
-	this->tilemap = new MapEditor(&window,"../res/images/tilset1.png");
+	this->tilemap = new MapEditor(&window,"../res/images/tileset.png");
 	this->tilemap->loadFromFile(map_filename);
 }
 
