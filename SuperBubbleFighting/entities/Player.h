@@ -42,16 +42,23 @@ public:
 	const bool& checkLife() const;
 
 	void movement(float time);
+
+	void moveLeft();
+	void moveRight();
+	void jump();
+
 	void checkCollision(float Dx,float Dy);
 
 	const sf::FloatRect& getRect() const;
 	const sf::FloatRect& getGlobalBounds() const;
 
-	virtual const sf::Vector2f& getPosition() const;
+	const sf::Vector2f& getPosition() const;
 
 	void setPosition(const float x,const float y);
 
 	void updateLife();
+
+	void levelUp();
 
 	void updateCollider(float time);
 	void update(float time);

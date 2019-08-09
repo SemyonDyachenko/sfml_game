@@ -15,19 +15,19 @@ private:
 
 
 public:
-	MapObject(float x,float y,std::string name);
+	MapObject();
+	MapObject(float x,float y,float gridSizeF,std::string name);
 
-	~MapObject();
-
-	virtual void setPosition(const float x, const float y);
-	virtual void setSize(const float width, const float height);
+	virtual ~MapObject();
 
 	const sf::FloatRect & getGlobalBounds() const;
 
 	const std::string & getName() const;
 
+	const std::string getAssString() const;
+
 	void update();
-	void render(sf::RenderWindow * window);
+	void render(sf::RenderWindow & window);
 };
 
 
