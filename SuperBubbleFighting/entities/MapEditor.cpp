@@ -117,6 +117,8 @@ void MapEditor::saveToFile(const std::string filename)
 			}
 		}
 
+		out_file << "\n";
+
 		for (size_t x = 0; x < this->maxSizeWorldGrid.x; x++)
 		{
 			for (size_t y = 0; y < this->maxSizeWorldGrid.y; y++)
