@@ -12,8 +12,10 @@ private:
 
 	std::string name;
 
+	sf::Font font;
+	sf::Text text;
 
-
+	void initFonts();
 public:
 	MapObject();
 	MapObject(float x,float y,float gridSizeF,std::string name);

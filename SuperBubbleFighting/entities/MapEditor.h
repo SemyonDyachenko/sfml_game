@@ -6,6 +6,7 @@
 #include "Tile.h"
 #include "Player.h"
 #include "objects/MapObject.h"
+#include "../TinyXML/tinyxml.h"
 
 class Player;
 class MapObject;
@@ -28,6 +29,7 @@ private:
 	sf::RectangleShape TileSet;
 	sf::RectangleShape collisionBox;
 
+	bool inGame;
 
 	sf::Texture textureSheet;
 	std::string textureFile;
@@ -45,6 +47,8 @@ public:
 	
 	sf::Texture &getTextureSheet();
 
+	void setGameMap(bool inGame);
+
 	void saveToFile(const std::string filename);
 	void loadFromFile(const std::string filename);
 
@@ -55,6 +59,9 @@ public:
 
 
 	const std::vector<std::vector<std::vector<Tile*> > >& getTiles() const;
+
+	const std::vector<std::vector<std::vector<MapObject*>>> & getAllObject() const;
+
 
 	void update(float time);
 	void render(sf::RenderWindow& window);

@@ -105,12 +105,12 @@ void EditorState::updateInput(const float & time)
 	// save/load keybinds
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::LControl) && sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
-		this->map->saveToFile("text.slmp");
+		this->map->saveToFile("map1.xml");
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::LControl) && sf::Keyboard::isKeyPressed(sf::Keyboard::L))
 	{
-		this->map->loadFromFile("text.slmp");
+		this->map->loadFromFile("map1.xml");
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::C) && this->getKeyTime())
@@ -141,6 +141,8 @@ void EditorState::updateInput(const float & time)
 
 void EditorState::updateView(float time)
 {
+	if (this->objCreator->getHide())
+	{
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 		{
 			this->editorView.move(this->cameraSpeed*time, 0);
@@ -157,6 +159,7 @@ void EditorState::updateView(float time)
 		{
 			this->editorView.move(0, -this->cameraSpeed*time);
 		}
+	}
 }
 
 void EditorState::update(float time)
@@ -170,10 +173,14 @@ void EditorState::update(float time)
 	this->textureSelector->update(this->mousePosWindow);
 
 	this->mouseSelector.setTextureRect(this->textureRect);
-	
+	this->objCreator->update(this->mousePosView);
 
 	this->mouseSelector.setPosition(this->mousePosGrid.x*this->gridSize, this->mousePosGrid.y*this->gridSize);
 
+	for (auto &it : this->buttons)
+	{
+		it.second->update(this->mousePosView);
+	}
 	
 
 	this->string = "x:" + std::to_string(this->mousePosWindow.x) + "\n" + "y:" + std::to_string(this->mousePosWindow.y) + "\n" + "collision: " + std::to_string(this->collision) + "\n";
@@ -181,14 +188,21 @@ void EditorState::update(float time)
 	this->text.setPosition(this->mousePosView.x + 20, this->mousePosView.y);
 	this->map->update(time);
 				
-
-
+	if (this->buttons["EXIT_OBJECT"]->isPressed())
+	{
+		this->objCreator->hide();
+	}
+	
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
 	{
 		if (this->objectMode)
 		{
-			this->map->addObjct(this->mousePosGrid.x,this->mousePosGrid.y,0,"default");
+			this->objCreator->show();
+
+			this->objCreator->hide();
+			this->map->addObjct(this->mousePosGrid.x, this->mousePosGrid.y, 0, this->objCreator->getName());
 		}
+			
 		else
 		{
 			if (!this->textureSelector->getActive())
@@ -200,7 +214,7 @@ void EditorState::update(float time)
 				this->textureRect = this->textureSelector->getTextureRect();
 				this->mouseSelector.setTextureRect(textureRect);
 		}
-			}
+		}
 
 	}
 
@@ -242,7 +256,12 @@ void EditorState::render(sf::RenderWindow * window)
 	//render GUI
 	window->setView(this->window->getDefaultView());
 	this->textureSelector->render(*window);
-
+	this->objCreator->render(window);
+	for (auto &it : this->buttons)
+	{
+		if(!this->objCreator->getHide())
+		it.second->render(window);
+	}
 	window->setView(this->editorView);
 	window->draw(text);
 	

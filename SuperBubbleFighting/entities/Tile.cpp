@@ -37,7 +37,7 @@ const bool & Tile::getCollision() const
 
 const sf::FloatRect & Tile::getRect() const
 {
-	return sf::FloatRect(this->rect);
+	return sf::FloatRect(this->shape.getTextureRect());
 }
 
 const sf::Vector2f & Tile::getPosition() const

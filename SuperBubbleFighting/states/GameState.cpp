@@ -7,7 +7,7 @@
 void GameState::initLevels()
 {
 	
-	this->levels.push_back(new Level(*this->window, "text.slmp", "../res/images/background.png"));
+	this->levels.push_back(new Level(*this->window, "map1.xml", "../res/images/background.png"));
 	
 }
 

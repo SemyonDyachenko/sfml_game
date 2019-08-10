@@ -30,6 +30,9 @@ public:
 
 	void setHide(bool hide);
 
+	void show();
+	void hide();
+
 	const bool & getHide() const;
 
 	const std::string& getName() const;

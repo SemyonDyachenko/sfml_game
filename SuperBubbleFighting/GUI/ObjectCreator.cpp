@@ -45,6 +45,16 @@ void ObjectCreator::setHide(bool hide)
 	this->isHide = hide;
 }
 
+void ObjectCreator::show()
+{
+	this->isHide = false;
+}
+
+void ObjectCreator::hide()
+{
+	this->isHide = true;
+}
+
 const bool & ObjectCreator::getHide() const
 {
 	return this->isHide;

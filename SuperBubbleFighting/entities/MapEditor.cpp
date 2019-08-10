@@ -40,6 +40,8 @@ MapEditor::MapEditor(sf::RenderWindow * window,std::string textureFile)
 	this->maxSizeF.y = 100 * this->gridSizeF;
 	this->layers = 1;
 	this->textureFile = textureFile;
+	this->inGame = false;
+	
 	
 	this->map.resize(this->maxSizeWorldGrid.x,std::vector<std::vector<Tile*>>());
 	this->objects.resize(this->maxSizeWorldGrid.x, std::vector<std::vector<MapObject*>>());
@@ -95,119 +97,188 @@ void MapEditor::saveToFile(const std::string filename)
 
 	*/
 
-	std::ofstream out_file;
-	out_file.open(filename);
 
-	if (out_file.is_open())
+
+	TiXmlDocument levelFile;
+	TiXmlDeclaration *decl = new TiXmlDeclaration("1.0", "utf-8", "");
+	levelFile.LinkEndChild(decl);
+
+	TiXmlElement * map;
+	map = new TiXmlElement("map");
+	levelFile.LinkEndChild(map);
+
+	map->SetAttribute("width", this->maxSizeWorldGrid.x);
+	map->SetAttribute("height", this->maxSizeWorldGrid.y);
+	map->SetAttribute("gridSize", this->gridSizeU);
+	map->SetAttribute("layers", this->layers);
+	map->SetAttribute("tileset",this->textureFile.c_str());
+
+	TiXmlElement * tiles;
+	tiles = new TiXmlElement("tiles");
+	map->LinkEndChild(tiles);
+
+	for (size_t x = 0; x < this->maxSizeWorldGrid.x; x++)
 	{
-		out_file << this->maxSizeWorldGrid.x << " " << this->maxSizeWorldGrid.y << "\n"
-			<< this->gridSizeU << "\n"
-			<< this->layers << "\n"
-			<< this->textureFile << "\n";
-
-		for (size_t x = 0; x < this->maxSizeWorldGrid.x; x++)
-		{
 			for (size_t y = 0; y < this->maxSizeWorldGrid.y; y++)
 			{
 				for (size_t z = 0; z < this->layers; z++)
 				{
 					if (this->map[x][y][z] != NULL)
-					out_file << x << " " << y << " " << z << " " << this->map[x][y][z]->getAssString() << " ";
+					{
+						TiXmlElement * tile = new TiXmlElement("tile");
+						tile->SetAttribute("x", x);
+						tile->SetAttribute("y", y);
+						tile->SetAttribute("layer", z);
+						tile->SetAttribute("tX", this->map[x][y][z]->getRect().left);
+						tile->SetAttribute("tY", this->map[x][y][z]->getRect().top);
+						tiles->LinkEndChild(tile);
+					}
+						
 				}
 			}
 		}
 
-		out_file << "\n";
+	TiXmlElement * objects;
+	objects = new TiXmlElement("objects");
+	map->LinkEndChild(objects);
 
-		for (size_t x = 0; x < this->maxSizeWorldGrid.x; x++)
-		{
-			for (size_t y = 0; y < this->maxSizeWorldGrid.y; y++)
-			{
-				for (size_t z = 0; z < this->layers; z++)
-				{
-					if (this->objects[x][y][z] != NULL)
-						out_file << x << " " << y << " " << z << " " << this->objects[x][y][z]->getAssString() << " ";
-				}
-			}
-		}
-	}
-	else
+	for (size_t x = 0; x < this->maxSizeWorldGrid.x; x++)
 	{
-		std::cout << "Error open text file tilemap\n";
+		for (size_t y = 0; y < this->maxSizeWorldGrid.y; y++)
+		{
+			for (size_t z = 0; z < this->layers; z++)
+			{
+				if (this->objects[x][y][z] != NULL)
+				{
+					TiXmlElement * object = new TiXmlElement("object");
+					object->SetAttribute("x", x);
+					object->SetAttribute("y", y);
+					object->SetAttribute("layer", z);
+					object->SetAttribute("name", this->objects[x][y][z]->getName().c_str());
+					objects->LinkEndChild(object);
+				}
+			}
+		}
 	}
 
-	out_file.close();
+
+	levelFile.SaveFile(filename.c_str());
+
 }
 
 void MapEditor::loadFromFile(const std::string filename)
 {
-	std::ifstream in_file;
-	in_file.open(filename);
-
-	if (in_file.is_open())
+	TiXmlDocument levelFile(filename.c_str());
+	if (!levelFile.LoadFile())//если не удалось загрузить карту
 	{
-		sf::Vector2u size;
-		unsigned gridSize = 0;
-		unsigned layers = 0;                 
-		std::string texture_file = "";
-		unsigned x = 0;
-		unsigned y = 0;
-		unsigned z = 0;
-		unsigned trX = 0;
-		unsigned trY = 0;
-		bool collision = false;
-		short type = 0;
-		std::string name = "";
+		std::cout << "Loading level \"" << filename << "\" failed." << std::endl;//выдаем ошибку
+	}
+	sf::Vector2u size;
+	unsigned gridSize;
+	std::string texture_file;
+	unsigned layers;
+	unsigned tX, tY;
+	std::string name;
 
-		in_file >> size.x >> size.y >> gridSize >> layers >> texture_file;
+	/*unsigned gridSize = 0;
+unsigned layers = 0;
+std::string texture_file = "";
+unsigned x = 0;
+unsigned y = 0;
+unsigned z = 0;
+unsigned trX = 0;
+unsigned trY = 0;
+bool collision = false;
+short type = 0;
+std::string name = "";*/
 
-		this->gridSizeF = static_cast<float>(gridSize);
-		this->gridSizeU = gridSize;
-		this->maxSizeWorldGrid.x = size.x;
-		this->maxSizeWorldGrid.y = size.y;
-		this->layers = layers;
-		this->textureFile = texture_file;
+	TiXmlElement *map;
+	map = levelFile.FirstChildElement("map");
 
-		this->clear();
+	size.x = atoi(map->Attribute("width"));
+	size.y = atoi(map->Attribute("height"));
+	gridSize = atoi(map->Attribute("gridSize"));
+	layers = atoi(map->Attribute("layers"));
+	texture_file = atoi(map->Attribute("tileset"));
 
-		this->map.resize(this->maxSizeWorldGrid.x,std::vector<std::vector<Tile*>>());
-		this->objects.resize(this->maxSizeWorldGrid.x, std::vector<std::vector<MapObject*>>());
+	TiXmlElement *tiles;
+	tiles = map->FirstChildElement("tiles");
 
-		for (size_t x = 0; x < this->maxSizeWorldGrid.x; x++)
+	TiXmlElement *objects;
+	objects = map->FirstChildElement("objects");
+
+
+	this->gridSizeF = static_cast<float>(gridSize);
+	this->gridSizeU = gridSize;
+	this->maxSizeWorldGrid.x = size.x;
+	this->maxSizeWorldGrid.y = size.y;
+	this->layers = layers;
+	this->textureFile = texture_file;
+
+	this->clear();
+
+	this->map.resize(this->maxSizeWorldGrid.x,std::vector<std::vector<Tile*>>());
+	this->objects.resize(this->maxSizeWorldGrid.x, std::vector<std::vector<MapObject*>>());
+
+	for (size_t x = 0; x < this->maxSizeWorldGrid.x; x++)
+	{
+		for (size_t y = 0; y < this->maxSizeWorldGrid.y; y++)
 		{
-			for (size_t y = 0; y < this->maxSizeWorldGrid.y; y++)
-			{
-				this->map[x].resize(this->maxSizeWorldGrid.y,std::vector<Tile*>());
-				this->objects[x].resize(this->maxSizeWorldGrid.y, std::vector<MapObject*>());
+			this->map[x].resize(this->maxSizeWorldGrid.y,std::vector<Tile*>());
+			this->objects[x].resize(this->maxSizeWorldGrid.y, std::vector<MapObject*>());
 
-				for (size_t z = 0; z < this->layers; z++)
-				{
+			for (size_t z = 0; z < this->layers; z++)
+			{
 					this->map[x][y].resize(this->layers,NULL);
 					this->objects[x][y].resize(this->layers, NULL);
-				}
 			}
 		}
-
-		if (!this->textureSheet.loadFromFile(texture_file)) 
-			std::cout << "error: don't load texture grass from file , MapEditor.cpp,line 7" << "\n";
-
-		while (in_file >> x >> y >> z >> trX >> trY >> collision >> type)
-		{
-			this->map[x][y][z] = new Tile(x, y,this->gridSizeF,this->textureSheet, sf::IntRect(trX, trY,this->gridSizeU,this->gridSizeU),collision,type);
-		
-		}
-
-		while (in_file >> x >> y >> z >> name)
-		{
-			this->objects[x][y][z] = new MapObject(x, y, this->gridSizeF,name);
-		}
-	}
-	else
-	{
-		std::cout << "Error load from file , tilemap\n";
 	}
 
-	in_file.close();
+		if (!this->textureSheet.loadFromFile(textureFile))
+			std::cout << "error: don't load texture  from file , MapEditor.cpp,line 7" << "\n";
+
+		TiXmlElement *tileElement;
+		tileElement = tiles->FirstChildElement("tile");
+
+		TiXmlElement *objectElement;
+		objectElement = objects->FirstChildElement("object");
+
+		if (tileElement == NULL)
+		{
+
+		}
+		else
+		{
+			while (tileElement)
+			{
+				unsigned x = atoi(tileElement->Attribute("x"));
+				unsigned y = atoi(tileElement->Attribute("y"));
+				unsigned z = atoi(tileElement->Attribute("layer"));
+				tX = atoi(tileElement->Attribute("tX"));
+				tY = atoi(tileElement->Attribute("tY"));
+				this->map[x][y][z] = new Tile(x, y, this->gridSizeF, this->textureSheet, sf::IntRect(tX, tY, this->gridSizeU, this->gridSizeU), false, 0);
+				tileElement = tileElement->NextSiblingElement("tile");
+			}
+
+		}
+
+		if (objectElement == NULL)
+		{
+
+		}
+		else
+		{
+			while (objectElement)
+			{
+				unsigned x = atoi(objectElement->Attribute("x"));
+				unsigned y = atoi(objectElement->Attribute("y"));
+				unsigned z = atoi(objectElement->Attribute("layer"));
+				std::string name = objectElement->Attribute("name");
+				this->objects[x][y][z] = new MapObject(x, y, this->gridSizeF, name);
+				objectElement = objectElement->NextSiblingElement("object");
+			}
+		}
 }
 
 void MapEditor::checkCollision(Player * player)
@@ -247,6 +318,11 @@ const unsigned & MapEditor::getLayerCount() const
 const std::vector<std::vector<std::vector<Tile*>>>& MapEditor::getTiles() const
 {
 	return this->map;
+}
+
+const std::vector<std::vector<std::vector<MapObject*>>>& MapEditor::getAllObject() const
+{
+	return this->objects;
 }
 
 
@@ -304,6 +380,11 @@ sf::Texture & MapEditor::getTextureSheet()
 	return this->textureSheet;
 }
 
+void MapEditor::setGameMap(bool inGame)
+{
+	this->inGame = inGame;
+}
+
 
 
 void MapEditor::update(float time)
@@ -339,7 +420,8 @@ void MapEditor::render(sf::RenderWindow & window)
 			{
 				if (z != NULL)
 				{
-					z->render(window);
+					if(!this->inGame)
+						z->render(window);
 				}
 			}
 		}
