@@ -3,7 +3,7 @@
 #include "MapEditor.h"
 #include "Enemy.h"
 #include "objects/SFMLObject.h"
-
+#include "Player.h"
 
 class MapEditor;
 class AnimationManger;

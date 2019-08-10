@@ -3,9 +3,11 @@
 
 #include "Tile.h"
 #include "../animation/AnimationManager.h"
+#include "objects/MapObject.h"
 
+#include "MapEditor.h"
 
-
+class Tile;
 class MapEditor;
 class AnimationManager;
 
@@ -27,6 +29,8 @@ private:
 	
 	bool playerOnGround;
 
+	MapEditor * map;
+	std::vector<std::vector<std::vector<MapObject*>>> objects;
 
 	sf::RectangleShape collider2D;
 
@@ -36,7 +40,7 @@ private:
 	void initDefaultVariables();
 
 public:
-	Player(float x, float y,sf::Texture & texture, std::string anim_file);
+	Player(float x, float y,sf::Texture & texture, std::string anim_file, MapEditor&map);
 	virtual ~Player();
 
 	const bool& checkLife() const;

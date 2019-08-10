@@ -188,19 +188,21 @@ void EditorState::update(float time)
 	this->text.setPosition(this->mousePosView.x + 20, this->mousePosView.y);
 	this->map->update(time);
 				
-	if (this->buttons["EXIT_OBJECT"]->isPressed())
+	
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::H))
 	{
-		this->objCreator->hide();
+		if (this->objCreator->getHide())
+			this->objCreator->show();
+		else
+			this->objCreator->hide();
 	}
 	
 	if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
 	{
 		if (this->objectMode)
 		{
-			this->objCreator->show();
-
-			this->objCreator->hide();
 			this->map->addObjct(this->mousePosGrid.x, this->mousePosGrid.y, 0, this->objCreator->getName());
+			
 		}
 			
 		else
@@ -257,11 +259,11 @@ void EditorState::render(sf::RenderWindow * window)
 	window->setView(this->window->getDefaultView());
 	this->textureSelector->render(*window);
 	this->objCreator->render(window);
-	for (auto &it : this->buttons)
-	{
-		if(!this->objCreator->getHide())
-		it.second->render(window);
-	}
+	//for (auto &it : this->buttons)
+	//{
+	//	if(!this->objCreator->getHide())
+	//	it.second->render(window);
+	//}
 	window->setView(this->editorView);
 	window->draw(text);
 	

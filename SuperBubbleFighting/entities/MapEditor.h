@@ -4,7 +4,7 @@
 
 
 #include "Tile.h"
-#include "Player.h"
+//#include "Player.h"
 #include "objects/MapObject.h"
 #include "../TinyXML/tinyxml.h"
 
@@ -52,7 +52,7 @@ public:
 	void saveToFile(const std::string filename);
 	void loadFromFile(const std::string filename);
 
-	void checkCollision(Player * player);
+	//void checkCollision(Player * player);
 
 	const sf::Vector2f & getMapSize() const;
 	const unsigned & getLayerCount() const;

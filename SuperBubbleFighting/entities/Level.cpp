@@ -36,7 +36,7 @@ void Level::initView()
 
 void Level::initPlayer()
 {
-	this->player = new Player(200, 300, playerTexture, "../res/animation/anim.xml");
+	this->player = new Player(300, 300, playerTexture, "../res/animation/anim.xml",*this->tilemap);
 }
 
 void Level::initEnemyes()

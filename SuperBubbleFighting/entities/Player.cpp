@@ -23,11 +23,11 @@ void Player::initDefaultVariables()
 	this->life = true;
 }
 
-Player::Player(float x, float y, sf::Texture & texture,std::string anim_file)
+Player::Player(float x, float y, sf::Texture & texture,std::string anim_file,MapEditor&map)
 {
 	this->posX = x;
 	this->posY = y;
-	
+	this->objects = map.getAllObject();
 	this->collider2D.setPosition(posX, posY);
 	this->collider2D.setSize(sf::Vector2f(60,60));
 	this->collider2D.setFillColor(sf::Color::Transparent);
@@ -76,6 +76,25 @@ void Player::movement(float time)
 
 void Player::checkCollision(float Dx, float Dy)
 {
+	for (auto &x : this->objects)
+	{
+		for (auto &y : x)
+		{
+			for (auto *z : y)
+			{
+				if (z != NULL)
+				{
+					if (z->getName() == "solid")
+					{
+						if (this->getRect().intersects(z->getGlobalBounds()))
+						{
+							if (Dy > 0) { this->playerOnGround = true; this->posY = z->getGlobalBounds().top - this->collider2D.getSize().y; this->dy = 0; }
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 const sf::FloatRect & Player::getRect() const
@@ -134,11 +153,13 @@ void Player::update(float time)
 
 		this->posX += dx * time;
 		this->updateCollider(time);
+		this->checkCollision(dx,0);
 		this->posY += dy * time;
+		this->checkCollision(0, dy);
 		this->speed = 0;
 		this->sprite.setPosition(posX, posY);
-		//this->dy = dy + 0.0014*time;
-
+		this->dy = dy + 0.0014*time;
+		this->checkCollision(0, dy);
 
 		this->updateLife();
 
