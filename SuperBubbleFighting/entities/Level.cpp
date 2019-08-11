@@ -62,6 +62,8 @@ Level::Level(sf::RenderWindow & window, std::string map_filename, std::string ba
 {
 	this->window = &window;
 	this->init();
+	tree.loadFromFile("../res/images/tree.png");
+	this->treeSprite.setTexture(tree);
 	this->tilemap = new MapEditor(&window,"../res/images/tileset.png");
 	this->tilemap->loadFromFile(map_filename);
 	this->tilemap->setGameMap(true);
@@ -162,4 +164,21 @@ void Level::render(sf::RenderWindow * window)
 	this->renderEnemy(window);
 	this->renderPlayer(window);
 	this->tilemap->render(*window);
+	for (auto &x : this->tilemap->getAllObject())
+	{
+		for (auto &y : x)
+		{
+			for (auto *z : y)
+			{
+				if (z != NULL)
+				{
+					if (z->getName() == "tree")
+					{
+						this->treeSprite.setPosition(z->getGlobalBounds().left, z->getGlobalBounds().top-tree.getSize().y+z->getGlobalBounds().height);
+						window->draw(this->treeSprite);
+					}
+				}
+			}
+		}
+	}
 }

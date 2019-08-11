@@ -1,11 +1,29 @@
 <!DOCTYPE SpriteDecomposer>
-<sprites image="ork.png" transparentColor="">
- <animation title="run" delay="100">
-  <cut w="149" x="192" y="272" h="184" row="1" col="1"/>
-  <cut w="127" x="358" y="273" h="183" row="1" col="1"/>
-  <cut w="119" x="496" y="278" h="177" row="1" col="1"/>
-  <cut w="131" x="621" y="276" h="180" row="1" col="1"/>
-  <cut w="112" x="760" y="269" h="186" row="1" col="1"/>
-  <cut w="124" x="874" y="263" h="195" row="1" col="1"/>
+<sprites image="player.png" transparentColor="">
+ <animation title="stay" delay="120">
+  <cut w="19" x="14" y="7" h="29" row="1" col="1"/>
+  <cut w="17" x="66" y="6" h="30" row="1" col="1"/>
+  <cut w="19" x="115" y="6" h="30" row="1" col="1"/>
+  <cut w="20" x="163" y="7" h="29" row="1" col="1"/>
+ </animation>
+ <animation title="run" delay="120">
+  <cut w="20" x="67" y="45" h="28" row="1" col="1"/>
+  <cut w="20" x="116" y="46" h="27" row="1" col="1"/>
+  <cut w="20" x="166" y="48" h="25" row="1" col="1"/>
+  <cut w="23" x="217" y="45" h="28" row="1" col="1"/>
+  <cut w="20" x="266" y="46" h="27" row="1" col="1"/>
+  <cut w="20" x="316" y="48" h="25" row="1" col="1"/>
+ </animation>
+ <animation title="jump" delay="90">
+  <cut w="20" x="15" y="86" h="24" row="1" col="1"/>
+  <cut w="20" x="65" y="88" h="22" row="1" col="1"/>
+  <cut w="19" x="117" y="81" h="27" row="1" col="1"/>
+  <cut w="21" x="164" y="79" h="23" row="1" col="1"/>
+  <cut w="15" x="218" y="82" h="20" row="1" col="1"/>
+  <cut w="23" x="264" y="84" h="17" row="1" col="1"/>
+  <cut w="18" x="320" y="84" h="20" row="1" col="1"/>
+  <cut w="23" x="14" y="124" h="17" row="1" col="1"/>
+  <cut w="17" x="68" y="112" h="31" row="1" col="1"/>
+  <cut w="17" x="118" y="113" h="30" row="1" col="1"/>
  </animation>
 </sprites>

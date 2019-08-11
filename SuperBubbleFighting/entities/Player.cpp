@@ -33,8 +33,8 @@ Player::Player(float x, float y, sf::Texture & texture,std::string anim_file,Map
 	this->collider2D.setFillColor(sf::Color::Transparent);
 	this->collider2D.setOutlineThickness(1.f);
 	this->collider2D.setOutlineColor(sf::Color::Green);
-
-	
+	if (!this->playerTextureSheet.loadFromFile("../res/images/player.png")) std::cout << "error in playr" << std::endl;
+	this->anim.loadFromXML("../res/animation/anim.xml", this->playerTextureSheet);
 
 }
 
@@ -53,17 +53,17 @@ void Player::movement(float time)
 	if (!sf::Keyboard::isKeyPressed)
 	{
 		this->state = STAY;
-		
+		this->anim.set("stay");
 	}
 	if (KeyD || AxisD)
 	{
 		this->state = RIGHT; this->speed = 0.1f;
-		//anim.set("run");
+		anim.set("run");
 	}
 	else if (KeyA || AxisA)
 	{
 		this->state = LEFT; this->speed = 0.1f;
-		//anim.flip("run");
+		anim.flip("run");
 	}
 
 	if ((KeySpace || JostickSpace) && this->playerOnGround)
@@ -71,6 +71,7 @@ void Player::movement(float time)
 		this->state = JUMP;
 		this->dy = -0.4f;
 		this->playerOnGround = false;
+		this->anim.set("jump");
 	}
 }
 
@@ -153,21 +154,21 @@ void Player::update(float time)
 		}
 
 		this->posX += dx * time;
-		this->updateCollider(time);
 		this->checkCollision(dx,0);
+		this->updateCollider(time);
 		this->posY += dy * time;
 		this->checkCollision(0, dy);
+		this->updateCollider(time);
 		this->speed = 0;
 		this->sprite.setPosition(posX, posY);
 		this->dy = dy + 0.0014*time;
 		this->checkCollision(dx, dy);
-
+		this->updateCollider(time);
 		this->updateLife();
 
-	//anim.tick(time);
+		anim.tick(time);
 
-	
-
+		
 }
 
 
@@ -178,6 +179,6 @@ void Player::renderCollider(sf::RenderWindow * window)
 
 void Player::render(sf::RenderWindow * window)
 {
-	this->renderCollider(window);
-//	anim.draw(*window, this->posX, this->posY);
+	//this->renderCollider(window);
+	anim.draw(*window, this->posX, this->posY+anim.getH());
 }

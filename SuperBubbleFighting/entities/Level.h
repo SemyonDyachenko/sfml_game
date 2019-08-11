@@ -25,6 +25,9 @@ protected:
 
 	sf::Texture playerTexture;
 
+	sf::Texture tree;
+	sf::Sprite treeSprite;
+
 	sf::View levelView;
 
 	MapEditor * tilemap;

@@ -106,20 +106,29 @@
         <object x="5" y="14" layer="0" name="solid" />
         <object x="6" y="14" layer="0" name="solid" />
         <object x="7" y="14" layer="0" name="solid" />
+        <object x="8" y="9" layer="0" name="hel" />
         <object x="8" y="14" layer="0" name="solid" />
         <object x="9" y="14" layer="0" name="solid" />
         <object x="10" y="14" layer="0" name="solid" />
+        <object x="11" y="8" layer="0" name="hel" />
+        <object x="11" y="13" layer="0" name="tree" />
         <object x="11" y="14" layer="0" name="solid" />
+        <object x="12" y="11" layer="0" name="hel" />
         <object x="12" y="14" layer="0" name="solid" />
         <object x="13" y="14" layer="0" name="solid" />
         <object x="14" y="14" layer="0" name="solid" />
         <object x="15" y="9" layer="0" name="player" />
         <object x="15" y="14" layer="0" name="solid" />
+        <object x="16" y="5" layer="0" name="hel" />
+        <object x="16" y="12" layer="0" name="hel" />
         <object x="16" y="14" layer="0" name="solid" />
+        <object x="17" y="5" layer="0" name="hel" />
         <object x="17" y="14" layer="0" name="solid" />
         <object x="18" y="14" layer="0" name="solid" />
         <object x="19" y="14" layer="0" name="solid" />
+        <object x="20" y="13" layer="0" name="tree" />
         <object x="20" y="14" layer="0" name="solid" />
+        <object x="21" y="6" layer="0" name="hel" />
         <object x="21" y="14" layer="0" name="solid" />
         <object x="22" y="14" layer="0" name="solid" />
         <object x="23" y="14" layer="0" name="solid" />
@@ -127,11 +136,13 @@
         <object x="25" y="14" layer="0" name="solid" />
         <object x="26" y="14" layer="0" name="solid" />
         <object x="27" y="14" layer="0" name="solid" />
+        <object x="28" y="13" layer="0" name="tree" />
         <object x="28" y="14" layer="0" name="solid" />
         <object x="29" y="14" layer="0" name="solid" />
         <object x="30" y="14" layer="0" name="solid" />
         <object x="31" y="14" layer="0" name="solid" />
         <object x="32" y="14" layer="0" name="solid" />
+        <object x="33" y="13" layer="0" name="tree" />
         <object x="33" y="14" layer="0" name="solid" />
         <object x="34" y="14" layer="0" name="solid" />
         <object x="34" y="15" layer="0" name="solid" />

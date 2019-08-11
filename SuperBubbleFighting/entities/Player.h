@@ -33,6 +33,8 @@ private:
 
 	sf::RectangleShape collider2D;
 
+	sf::Texture playerTextureSheet;
+
 	bool life;
 	unsigned hp;
 
