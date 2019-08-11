@@ -62,6 +62,7 @@ public:
 
 	const std::vector<std::vector<std::vector<MapObject*>>> & getAllObject() const;
 
+	const MapObject* getObject(std::string name) const;
 
 	void update(float time);
 	void render(sf::RenderWindow& window);

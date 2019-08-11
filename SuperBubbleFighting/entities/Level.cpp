@@ -36,7 +36,7 @@ void Level::initView()
 
 void Level::initPlayer()
 {
-	this->player = new Player(300, 300, playerTexture, "../res/animation/anim.xml",*this->tilemap);
+
 }
 
 void Level::initEnemyes()
@@ -65,6 +65,7 @@ Level::Level(sf::RenderWindow & window, std::string map_filename, std::string ba
 	this->tilemap = new MapEditor(&window,"../res/images/tileset.png");
 	this->tilemap->loadFromFile(map_filename);
 	this->tilemap->setGameMap(true);
+	this->player = new Player(this->tilemap->getObject("player")->getGlobalBounds().left, this->tilemap->getObject("player")->getGlobalBounds().top, playerTexture, "../res/animation/anim.xml", *this->tilemap);
 }
 
 

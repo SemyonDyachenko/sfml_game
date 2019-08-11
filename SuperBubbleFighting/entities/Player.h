@@ -29,8 +29,7 @@ private:
 	
 	bool playerOnGround;
 
-	MapEditor * map;
-	std::vector<std::vector<std::vector<MapObject*>>> objects;
+	MapEditor *map;
 
 	sf::RectangleShape collider2D;
 

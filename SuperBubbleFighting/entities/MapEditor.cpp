@@ -32,7 +32,7 @@ void MapEditor::initTextures()
 MapEditor::MapEditor(sf::RenderWindow * window,std::string textureFile)
 {
 	this->window = window;
-	this->gridSizeF = 96.f;
+	this->gridSizeF = 48.f;
 	this->gridSizeU = static_cast<unsigned>(this->gridSizeF);
 	this->maxSizeWorldGrid.x = 100;
 	this->maxSizeWorldGrid.y = 100;
@@ -323,6 +323,26 @@ const std::vector<std::vector<std::vector<Tile*>>>& MapEditor::getTiles() const
 const std::vector<std::vector<std::vector<MapObject*>>>& MapEditor::getAllObject() const
 {
 	return this->objects;
+}
+
+const MapObject* MapEditor::getObject(std::string name) const
+{
+	for (size_t x = 0; x < this->maxSizeWorldGrid.x; x++)
+	{
+		for (size_t y = 0; y < this->maxSizeWorldGrid.y; y++)
+		{
+			for (size_t z = 0; z < this->layers; z++)
+			{
+				if (objects[x][y][z] != NULL)
+				{
+					if (objects[x][y][z]->getName() == name)
+					{
+						return objects[x][y][z];
+					}
+				}
+			}
+		}
+	}
 }
 
 
