@@ -15,12 +15,15 @@ private:
 	sf::Font font;
 	sf::Text text;
 
+
 	void initFonts();
 public:
 	MapObject();
 	MapObject(float x,float y,float gridSizeF,std::string name);
 
 	virtual ~MapObject();
+
+	sf::FloatRect rect;
 
 	const sf::FloatRect & getGlobalBounds() const;
 

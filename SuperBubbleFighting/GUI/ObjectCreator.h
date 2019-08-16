@@ -19,6 +19,8 @@ private:
 
 	bool isHide;
 
+	float keytime;
+	float keytimeMax;
 
 	MapEditor * map;
 
@@ -37,9 +39,14 @@ public:
 
 	const std::string& getName() const;
 
+	const bool getKeyTime();
+
 	const sf::Vector2f& getPosition() const;
 
-	void update(sf::Vector2f mousePos);
+	virtual void updateKeyTime(float time);
+
+	void update(sf::Vector2f mousePos, float time);
+
 
 	void render(sf::RenderWindow * window);
 };

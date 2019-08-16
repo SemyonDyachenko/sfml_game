@@ -20,7 +20,8 @@ ObjectCreator::ObjectCreator(sf::RenderWindow * window,MapEditor& map)
 	this->text.setFont(font);
 	this->text.setCharacterSize(18);
 	this->text.setFillColor(sf::Color::Black);
-
+	this->keytime = 0.f;
+	this->keytimeMax = 10.f;
 	this->name = "default";
 	this->text.setString(name);
 
@@ -65,13 +66,33 @@ const std::string & ObjectCreator::getName() const
 	return this->name;
 }
 
+const bool ObjectCreator::getKeyTime()
+{
+	if (this->keytime >= this->keytimeMax)
+	{
+		this->keytime = 0.f;
+		return true;
+	}
+
+	return false;
+}
+
 const sf::Vector2f & ObjectCreator::getPosition() const
 {
 	return this->creationWindow.getPosition();
 }
 
-void ObjectCreator::update(sf::Vector2f mousePos)
+void ObjectCreator::updateKeyTime(float time)
 {
+	if (this->keytime < this->keytimeMax)
+	{
+		this->keytime += 100.f*time;
+	}
+}
+
+void ObjectCreator::update(sf::Vector2f mousePos,float time)
+{
+	this->updateKeyTime(time);
 	if (!isHide)
 	{
 		for (auto &it : this->buttons)
@@ -116,6 +137,7 @@ void ObjectCreator::update(sf::Vector2f mousePos)
 				}
 
 			}
+
 		}
 
 		

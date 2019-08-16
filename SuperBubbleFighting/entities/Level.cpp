@@ -27,11 +27,6 @@ void Level::initView()
 		this->window->getSize().y
 	));
 
-	this->levelView.setCenter(sf::Vector2f(
-		this->window->getSize().x / 2.f,
-		this->window->getSize().y / 2.f
-	));
-
 }
 
 void Level::initPlayer()
@@ -64,10 +59,12 @@ Level::Level(sf::RenderWindow & window, std::string map_filename, std::string ba
 	this->init();
 	tree.loadFromFile("../res/images/tree.png");
 	this->treeSprite.setTexture(tree);
-	this->tilemap = new MapEditor(&window,"../res/images/tileset.png");
+	this->tilemap = new MapEditor(&window, "../res/images/tileset.png");
 	this->tilemap->loadFromFile(map_filename);
 	this->tilemap->setGameMap(true);
 	this->player = new Player(this->tilemap->getObject("player")->getGlobalBounds().left, this->tilemap->getObject("player")->getGlobalBounds().top, playerTexture, "../res/animation/anim.xml", *this->tilemap);
+	this->levelView.setCenter(player->getPosition().x, player->getPosition().y);
+		
 }
 
 
@@ -130,6 +127,8 @@ void Level::update(float time)
 	this->updatePlayer(time);
 	this->updateEnemy(time);
 	this->updateObjects(time);
+	this->window->setView(this->levelView);
+	this->levelView.setCenter(player->getPosition().x, player->getPosition().y);
 }
 
 // RENDER

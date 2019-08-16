@@ -33,9 +33,6 @@ Player::Player(float x, float y, sf::Texture & texture,std::string anim_file,Map
 	this->collider2D.setFillColor(sf::Color::Transparent);
 	this->collider2D.setOutlineThickness(1.f);
 	this->collider2D.setOutlineColor(sf::Color::Green);
-	if (!this->playerTextureSheet.loadFromFile("../res/images/player.png")) std::cout << "error in playr" << std::endl;
-	this->anim.loadFromXML("../res/animation/anim.xml", this->playerTextureSheet);
-
 }
 
 Player::~Player()
@@ -53,29 +50,29 @@ void Player::movement(float time)
 	if (!sf::Keyboard::isKeyPressed)
 	{
 		this->state = STAY;
-		this->anim.set("stay");
 	}
 	if (KeyD || AxisD)
 	{
-		this->state = RIGHT; this->speed = 0.1f;
-		anim.set("run");
+		this->state = RIGHT; this->speed = 0.3f;
 	}
 	else if (KeyA || AxisA)
 	{
-		this->state = LEFT; this->speed = 0.1f;
-		anim.flip("run");
+		this->state = LEFT; this->speed = 0.3f;
 	}
 
 	if ((KeySpace || JostickSpace) && this->playerOnGround)
 	{
 		this->state = JUMP;
-		this->dy = -0.4f;
+		this->dy = -0.6f;
 		this->playerOnGround = false;
-		this->anim.set("jump");
 	}
 }
 
-void Player::checkCollision(float Dx, float Dy)
+
+
+
+
+void Player::checkCollision(float Dy, float Dx)
 {
 	for (auto &x : this->map->getAllObject())
 	{
@@ -85,13 +82,19 @@ void Player::checkCollision(float Dx, float Dy)
 			{
 				if (z != NULL)
 				{
+					if (sf::FloatRect(this->posX,this->posY,60,60).intersects(z->rect))
+					{
 					if (z->getName() == "solid")
 					{
-						if (this->getRect().intersects(z->getGlobalBounds()))
-						{
-							if (Dy > 0) { this->dy = 0;  this->playerOnGround = true; this->posY = z->getGlobalBounds().top - this->collider2D.getSize().y; }
-						}
-						
+						if (Dy > 0) { this->posY = z->rect.top - this->collider2D.getSize().y;  this->dy = 0; this->playerOnGround = true;}
+						//if (Dy < 0) { this->posY = z->getGlobalBounds().top + z->getGlobalBounds().height; this->dy = 0; }
+						if (Dx > 0) {this->posX = z->rect.left - this->collider2D.getSize().x; dx = 0; }
+						if (Dx < 0) {this->posX =  z->rect.left + z->rect.width; dx = 0;  }
+					}
+					else 
+					{
+						this->playerOnGround = false;
+					}
 					}
 				}
 			}
@@ -101,7 +104,7 @@ void Player::checkCollision(float Dx, float Dy)
 
 const sf::FloatRect & Player::getRect() const
 {
-	return sf::FloatRect(this->posX, this->posY, 35, 35);
+	return sf::FloatRect(this->posX, this->posY, 60, 60);
 }
 
 const sf::FloatRect & Player::getGlobalBounds() const
@@ -139,13 +142,13 @@ void Player::updateLife()
 void Player::updateCollider(float time)
 {
 	this->collider2D.setPosition(this->posX, this->posY);
-	this->collider2D.setSize(sf::Vector2f(60, 60));
 }
 
 void Player::update(float time)
 {
 		movement(time);
-		switch (state) {
+		switch (state) 
+		{
 
 		case STAY:break;
 		case LEFT:this->dx = -speed; break;
@@ -154,21 +157,14 @@ void Player::update(float time)
 		}
 
 		this->posX += dx * time;
-		this->checkCollision(dx,0);
-		this->updateCollider(time);
+		this->checkCollision(0,dx);
 		this->posY += dy * time;
-		this->checkCollision(0, dy);
-		this->updateCollider(time);
+		this->checkCollision(dy,0);
 		this->speed = 0;
-		this->sprite.setPosition(posX, posY);
+		this->collider2D.setPosition(this->posX, this->posY);
 		this->dy = dy + 0.0014*time;
-		this->checkCollision(dx, dy);
-		this->updateCollider(time);
 		this->updateLife();
 
-		anim.tick(time);
-
-		
 }
 
 
@@ -179,6 +175,5 @@ void Player::renderCollider(sf::RenderWindow * window)
 
 void Player::render(sf::RenderWindow * window)
 {
-	//this->renderCollider(window);
-	anim.draw(*window, this->posX, this->posY+anim.getH());
+	this->renderCollider(window);
 }

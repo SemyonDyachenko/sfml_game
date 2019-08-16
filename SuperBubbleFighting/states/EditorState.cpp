@@ -173,7 +173,7 @@ void EditorState::update(float time)
 	this->textureSelector->update(this->mousePosWindow);
 
 	this->mouseSelector.setTextureRect(this->textureRect);
-	this->objCreator->update(this->mousePosView);
+	this->objCreator->update(this->mousePosView,time);
 
 	this->mouseSelector.setPosition(this->mousePosGrid.x*this->gridSize, this->mousePosGrid.y*this->gridSize);
 

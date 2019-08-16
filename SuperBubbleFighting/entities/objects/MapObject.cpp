@@ -27,7 +27,7 @@ MapObject::MapObject(float x, float y,float gridSizeF,std::string name)
 	this->text.setFillColor(sf::Color(90, 90, 90));
 	this->text.setString(name);
 	this->text.setPosition(this->shape.getPosition().x, this->shape.getPosition().y - 20);
-
+	this->rect = sf::FloatRect(x*gridSizeF, y*gridSizeF, gridSizeF, gridSizeF);
 }
 
 
