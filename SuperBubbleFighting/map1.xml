@@ -1,46 +1,338 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<map width="100" height="100" gridSize="48" layers="1" tileset="">
+<map width="100" height="100" gridSize="64" layers="1" tileset="">
     <tiles>
-        <tile x="7" y="15" layer="0" tX="48" tY="0" />
-        <tile x="8" y="15" layer="0" tX="48" tY="0" />
-        <tile x="9" y="15" layer="0" tX="48" tY="0" />
-        <tile x="10" y="15" layer="0" tX="48" tY="0" />
-        <tile x="11" y="15" layer="0" tX="48" tY="0" />
-        <tile x="12" y="15" layer="0" tX="48" tY="0" />
-        <tile x="13" y="15" layer="0" tX="48" tY="0" />
-        <tile x="14" y="15" layer="0" tX="48" tY="0" />
-        <tile x="15" y="15" layer="0" tX="48" tY="0" />
-        <tile x="16" y="15" layer="0" tX="48" tY="0" />
-        <tile x="17" y="15" layer="0" tX="48" tY="0" />
-        <tile x="18" y="15" layer="0" tX="48" tY="0" />
-        <tile x="19" y="15" layer="0" tX="48" tY="0" />
-        <tile x="20" y="15" layer="0" tX="48" tY="0" />
-        <tile x="21" y="15" layer="0" tX="48" tY="0" />
-        <tile x="22" y="15" layer="0" tX="48" tY="0" />
-        <tile x="23" y="15" layer="0" tX="48" tY="0" />
-        <tile x="24" y="15" layer="0" tX="48" tY="0" />
-        <tile x="25" y="15" layer="0" tX="48" tY="0" />
-        <tile x="26" y="15" layer="0" tX="48" tY="0" />
-        <tile x="27" y="15" layer="0" tX="48" tY="0" />
-        <tile x="28" y="15" layer="0" tX="48" tY="0" />
-        <tile x="29" y="15" layer="0" tX="48" tY="0" />
-        <tile x="30" y="15" layer="0" tX="48" tY="0" />
-        <tile x="31" y="15" layer="0" tX="48" tY="0" />
-        <tile x="32" y="15" layer="0" tX="48" tY="0" />
-        <tile x="33" y="15" layer="0" tX="48" tY="0" />
-        <tile x="34" y="15" layer="0" tX="48" tY="0" />
-        <tile x="35" y="15" layer="0" tX="48" tY="0" />
-        <tile x="36" y="14" layer="0" tX="48" tY="0" />
-        <tile x="36" y="15" layer="0" tX="48" tY="0" />
-        <tile x="37" y="13" layer="0" tX="48" tY="0" />
-        <tile x="37" y="14" layer="0" tX="48" tY="0" />
-        <tile x="38" y="12" layer="0" tX="48" tY="0" />
-        <tile x="38" y="13" layer="0" tX="48" tY="0" />
-        <tile x="39" y="12" layer="0" tX="48" tY="0" />
-        <tile x="40" y="11" layer="0" tX="48" tY="0" />
+        <tile x="1" y="14" layer="0" tX="256" tY="192" />
+        <tile x="1" y="15" layer="0" tX="384" tY="128" />
+        <tile x="1" y="16" layer="0" tX="128" tY="64" />
+        <tile x="1" y="17" layer="0" tX="128" tY="64" />
+        <tile x="1" y="18" layer="0" tX="128" tY="64" />
+        <tile x="1" y="19" layer="0" tX="128" tY="64" />
+        <tile x="1" y="20" layer="0" tX="192" tY="0" />
+        <tile x="1" y="21" layer="0" tX="192" tY="0" />
+        <tile x="1" y="22" layer="0" tX="128" tY="64" />
+        <tile x="2" y="14" layer="0" tX="256" tY="192" />
+        <tile x="2" y="15" layer="0" tX="384" tY="128" />
+        <tile x="2" y="16" layer="0" tX="128" tY="64" />
+        <tile x="2" y="17" layer="0" tX="128" tY="64" />
+        <tile x="2" y="18" layer="0" tX="128" tY="64" />
+        <tile x="2" y="19" layer="0" tX="128" tY="64" />
+        <tile x="2" y="20" layer="0" tX="192" tY="0" />
+        <tile x="2" y="21" layer="0" tX="192" tY="0" />
+        <tile x="2" y="22" layer="0" tX="128" tY="64" />
+        <tile x="3" y="14" layer="0" tX="256" tY="192" />
+        <tile x="3" y="15" layer="0" tX="384" tY="128" />
+        <tile x="3" y="16" layer="0" tX="128" tY="64" />
+        <tile x="3" y="17" layer="0" tX="128" tY="64" />
+        <tile x="3" y="18" layer="0" tX="128" tY="64" />
+        <tile x="3" y="19" layer="0" tX="128" tY="64" />
+        <tile x="3" y="20" layer="0" tX="192" tY="0" />
+        <tile x="3" y="21" layer="0" tX="192" tY="0" />
+        <tile x="3" y="22" layer="0" tX="128" tY="64" />
+        <tile x="4" y="14" layer="0" tX="256" tY="192" />
+        <tile x="4" y="15" layer="0" tX="384" tY="128" />
+        <tile x="4" y="16" layer="0" tX="128" tY="64" />
+        <tile x="4" y="17" layer="0" tX="128" tY="64" />
+        <tile x="4" y="18" layer="0" tX="128" tY="64" />
+        <tile x="4" y="19" layer="0" tX="128" tY="64" />
+        <tile x="4" y="20" layer="0" tX="192" tY="0" />
+        <tile x="4" y="21" layer="0" tX="192" tY="0" />
+        <tile x="4" y="22" layer="0" tX="128" tY="64" />
+        <tile x="5" y="14" layer="0" tX="256" tY="192" />
+        <tile x="5" y="15" layer="0" tX="384" tY="128" />
+        <tile x="5" y="16" layer="0" tX="128" tY="64" />
+        <tile x="5" y="17" layer="0" tX="128" tY="64" />
+        <tile x="5" y="18" layer="0" tX="128" tY="64" />
+        <tile x="5" y="19" layer="0" tX="128" tY="64" />
+        <tile x="5" y="20" layer="0" tX="192" tY="0" />
+        <tile x="5" y="21" layer="0" tX="192" tY="0" />
+        <tile x="5" y="22" layer="0" tX="128" tY="64" />
+        <tile x="6" y="14" layer="0" tX="256" tY="192" />
+        <tile x="6" y="15" layer="0" tX="384" tY="128" />
+        <tile x="6" y="16" layer="0" tX="128" tY="64" />
+        <tile x="6" y="17" layer="0" tX="128" tY="64" />
+        <tile x="6" y="18" layer="0" tX="128" tY="64" />
+        <tile x="6" y="19" layer="0" tX="128" tY="64" />
+        <tile x="6" y="20" layer="0" tX="192" tY="0" />
+        <tile x="6" y="21" layer="0" tX="192" tY="0" />
+        <tile x="6" y="22" layer="0" tX="128" tY="64" />
+        <tile x="7" y="14" layer="0" tX="256" tY="192" />
+        <tile x="7" y="15" layer="0" tX="384" tY="128" />
+        <tile x="7" y="16" layer="0" tX="128" tY="64" />
+        <tile x="7" y="17" layer="0" tX="128" tY="64" />
+        <tile x="7" y="18" layer="0" tX="128" tY="64" />
+        <tile x="7" y="19" layer="0" tX="128" tY="64" />
+        <tile x="7" y="20" layer="0" tX="192" tY="0" />
+        <tile x="7" y="21" layer="0" tX="192" tY="0" />
+        <tile x="7" y="22" layer="0" tX="128" tY="64" />
+        <tile x="8" y="14" layer="0" tX="256" tY="192" />
+        <tile x="8" y="15" layer="0" tX="384" tY="128" />
+        <tile x="8" y="16" layer="0" tX="128" tY="64" />
+        <tile x="8" y="17" layer="0" tX="128" tY="64" />
+        <tile x="8" y="18" layer="0" tX="128" tY="64" />
+        <tile x="8" y="19" layer="0" tX="128" tY="64" />
+        <tile x="8" y="20" layer="0" tX="192" tY="0" />
+        <tile x="8" y="21" layer="0" tX="192" tY="0" />
+        <tile x="8" y="22" layer="0" tX="128" tY="64" />
+        <tile x="9" y="14" layer="0" tX="256" tY="192" />
+        <tile x="9" y="15" layer="0" tX="384" tY="128" />
+        <tile x="9" y="16" layer="0" tX="128" tY="64" />
+        <tile x="9" y="17" layer="0" tX="128" tY="64" />
+        <tile x="9" y="18" layer="0" tX="128" tY="64" />
+        <tile x="9" y="19" layer="0" tX="128" tY="64" />
+        <tile x="9" y="20" layer="0" tX="192" tY="0" />
+        <tile x="9" y="21" layer="0" tX="192" tY="0" />
+        <tile x="9" y="22" layer="0" tX="128" tY="64" />
+        <tile x="10" y="14" layer="0" tX="256" tY="192" />
+        <tile x="10" y="15" layer="0" tX="384" tY="128" />
+        <tile x="10" y="16" layer="0" tX="128" tY="64" />
+        <tile x="10" y="17" layer="0" tX="128" tY="64" />
+        <tile x="10" y="18" layer="0" tX="128" tY="64" />
+        <tile x="10" y="19" layer="0" tX="128" tY="64" />
+        <tile x="10" y="20" layer="0" tX="192" tY="0" />
+        <tile x="10" y="21" layer="0" tX="128" tY="64" />
+        <tile x="10" y="22" layer="0" tX="128" tY="64" />
+        <tile x="11" y="14" layer="0" tX="256" tY="192" />
+        <tile x="11" y="15" layer="0" tX="384" tY="128" />
+        <tile x="11" y="16" layer="0" tX="128" tY="64" />
+        <tile x="11" y="17" layer="0" tX="128" tY="64" />
+        <tile x="11" y="18" layer="0" tX="128" tY="64" />
+        <tile x="11" y="19" layer="0" tX="128" tY="64" />
+        <tile x="11" y="20" layer="0" tX="192" tY="0" />
+        <tile x="11" y="21" layer="0" tX="128" tY="64" />
+        <tile x="11" y="22" layer="0" tX="128" tY="64" />
+        <tile x="12" y="14" layer="0" tX="256" tY="192" />
+        <tile x="12" y="15" layer="0" tX="384" tY="128" />
+        <tile x="12" y="16" layer="0" tX="128" tY="64" />
+        <tile x="12" y="17" layer="0" tX="128" tY="64" />
+        <tile x="12" y="18" layer="0" tX="128" tY="64" />
+        <tile x="12" y="19" layer="0" tX="128" tY="64" />
+        <tile x="12" y="20" layer="0" tX="192" tY="0" />
+        <tile x="12" y="21" layer="0" tX="128" tY="64" />
+        <tile x="12" y="22" layer="0" tX="128" tY="64" />
+        <tile x="13" y="14" layer="0" tX="256" tY="192" />
+        <tile x="13" y="15" layer="0" tX="384" tY="128" />
+        <tile x="13" y="16" layer="0" tX="128" tY="64" />
+        <tile x="13" y="17" layer="0" tX="128" tY="64" />
+        <tile x="13" y="18" layer="0" tX="128" tY="64" />
+        <tile x="13" y="19" layer="0" tX="128" tY="64" />
+        <tile x="13" y="20" layer="0" tX="192" tY="0" />
+        <tile x="13" y="21" layer="0" tX="128" tY="64" />
+        <tile x="13" y="22" layer="0" tX="128" tY="64" />
+        <tile x="14" y="14" layer="0" tX="256" tY="192" />
+        <tile x="14" y="15" layer="0" tX="384" tY="128" />
+        <tile x="14" y="16" layer="0" tX="128" tY="64" />
+        <tile x="14" y="17" layer="0" tX="128" tY="64" />
+        <tile x="14" y="18" layer="0" tX="128" tY="64" />
+        <tile x="14" y="19" layer="0" tX="128" tY="64" />
+        <tile x="14" y="20" layer="0" tX="192" tY="0" />
+        <tile x="14" y="21" layer="0" tX="128" tY="64" />
+        <tile x="14" y="22" layer="0" tX="128" tY="64" />
+        <tile x="15" y="14" layer="0" tX="256" tY="192" />
+        <tile x="15" y="15" layer="0" tX="384" tY="128" />
+        <tile x="15" y="16" layer="0" tX="128" tY="64" />
+        <tile x="15" y="17" layer="0" tX="128" tY="64" />
+        <tile x="15" y="18" layer="0" tX="128" tY="64" />
+        <tile x="15" y="19" layer="0" tX="128" tY="64" />
+        <tile x="15" y="20" layer="0" tX="192" tY="0" />
+        <tile x="15" y="21" layer="0" tX="128" tY="64" />
+        <tile x="15" y="22" layer="0" tX="128" tY="64" />
+        <tile x="16" y="14" layer="0" tX="0" tY="448" />
+        <tile x="16" y="15" layer="0" tX="384" tY="128" />
+        <tile x="16" y="16" layer="0" tX="128" tY="64" />
+        <tile x="16" y="17" layer="0" tX="128" tY="64" />
+        <tile x="16" y="18" layer="0" tX="128" tY="64" />
+        <tile x="16" y="19" layer="0" tX="128" tY="64" />
+        <tile x="16" y="20" layer="0" tX="192" tY="0" />
+        <tile x="16" y="21" layer="0" tX="128" tY="64" />
+        <tile x="16" y="22" layer="0" tX="192" tY="0" />
+        <tile x="17" y="14" layer="0" tX="64" tY="448" />
+        <tile x="17" y="15" layer="0" tX="384" tY="128" />
+        <tile x="17" y="16" layer="0" tX="128" tY="64" />
+        <tile x="17" y="17" layer="0" tX="128" tY="64" />
+        <tile x="17" y="18" layer="0" tX="128" tY="64" />
+        <tile x="17" y="19" layer="0" tX="128" tY="64" />
+        <tile x="17" y="20" layer="0" tX="192" tY="0" />
+        <tile x="17" y="21" layer="0" tX="128" tY="64" />
+        <tile x="17" y="22" layer="0" tX="192" tY="0" />
+        <tile x="18" y="14" layer="0" tX="128" tY="448" />
+        <tile x="18" y="15" layer="0" tX="384" tY="128" />
+        <tile x="18" y="16" layer="0" tX="128" tY="64" />
+        <tile x="18" y="17" layer="0" tX="128" tY="64" />
+        <tile x="18" y="18" layer="0" tX="128" tY="64" />
+        <tile x="18" y="19" layer="0" tX="128" tY="64" />
+        <tile x="18" y="20" layer="0" tX="192" tY="0" />
+        <tile x="18" y="21" layer="0" tX="128" tY="64" />
+        <tile x="18" y="22" layer="0" tX="192" tY="0" />
+        <tile x="19" y="14" layer="0" tX="128" tY="448" />
+        <tile x="19" y="15" layer="0" tX="384" tY="128" />
+        <tile x="19" y="16" layer="0" tX="128" tY="64" />
+        <tile x="19" y="17" layer="0" tX="128" tY="64" />
+        <tile x="19" y="18" layer="0" tX="128" tY="64" />
+        <tile x="19" y="19" layer="0" tX="128" tY="64" />
+        <tile x="19" y="20" layer="0" tX="128" tY="64" />
+        <tile x="19" y="21" layer="0" tX="128" tY="64" />
+        <tile x="19" y="22" layer="0" tX="192" tY="0" />
+        <tile x="20" y="14" layer="0" tX="128" tY="448" />
+        <tile x="20" y="15" layer="0" tX="384" tY="128" />
+        <tile x="20" y="16" layer="0" tX="128" tY="64" />
+        <tile x="20" y="17" layer="0" tX="128" tY="64" />
+        <tile x="20" y="18" layer="0" tX="128" tY="64" />
+        <tile x="20" y="19" layer="0" tX="128" tY="64" />
+        <tile x="20" y="20" layer="0" tX="128" tY="64" />
+        <tile x="20" y="21" layer="0" tX="128" tY="64" />
+        <tile x="20" y="22" layer="0" tX="128" tY="64" />
+        <tile x="21" y="14" layer="0" tX="128" tY="448" />
+        <tile x="21" y="15" layer="0" tX="384" tY="128" />
+        <tile x="21" y="16" layer="0" tX="128" tY="64" />
+        <tile x="21" y="17" layer="0" tX="128" tY="64" />
+        <tile x="21" y="18" layer="0" tX="128" tY="64" />
+        <tile x="21" y="19" layer="0" tX="128" tY="64" />
+        <tile x="21" y="20" layer="0" tX="128" tY="64" />
+        <tile x="21" y="21" layer="0" tX="128" tY="64" />
+        <tile x="21" y="22" layer="0" tX="128" tY="64" />
+        <tile x="22" y="13" layer="0" tX="256" tY="384" />
+        <tile x="22" y="14" layer="0" tX="128" tY="448" />
+        <tile x="22" y="15" layer="0" tX="384" tY="128" />
+        <tile x="22" y="16" layer="0" tX="128" tY="64" />
+        <tile x="22" y="17" layer="0" tX="128" tY="64" />
+        <tile x="22" y="18" layer="0" tX="128" tY="64" />
+        <tile x="22" y="19" layer="0" tX="128" tY="64" />
+        <tile x="22" y="20" layer="0" tX="128" tY="64" />
+        <tile x="22" y="21" layer="0" tX="128" tY="64" />
+        <tile x="22" y="22" layer="0" tX="128" tY="64" />
+        <tile x="23" y="13" layer="0" tX="320" tY="384" />
+        <tile x="23" y="14" layer="0" tX="128" tY="448" />
+        <tile x="23" y="15" layer="0" tX="384" tY="128" />
+        <tile x="23" y="16" layer="0" tX="128" tY="64" />
+        <tile x="23" y="17" layer="0" tX="128" tY="64" />
+        <tile x="23" y="18" layer="0" tX="128" tY="64" />
+        <tile x="23" y="19" layer="0" tX="128" tY="64" />
+        <tile x="23" y="20" layer="0" tX="128" tY="64" />
+        <tile x="23" y="21" layer="0" tX="128" tY="64" />
+        <tile x="23" y="22" layer="0" tX="128" tY="64" />
+        <tile x="24" y="13" layer="0" tX="384" tY="448" />
+        <tile x="24" y="15" layer="0" tX="384" tY="128" />
+        <tile x="24" y="16" layer="0" tX="128" tY="64" />
+        <tile x="24" y="17" layer="0" tX="128" tY="64" />
+        <tile x="24" y="18" layer="0" tX="128" tY="64" />
+        <tile x="24" y="19" layer="0" tX="128" tY="64" />
+        <tile x="24" y="20" layer="0" tX="128" tY="64" />
+        <tile x="24" y="21" layer="0" tX="128" tY="64" />
+        <tile x="24" y="22" layer="0" tX="128" tY="64" />
+        <tile x="25" y="13" layer="0" tX="192" tY="128" />
+        <tile x="25" y="15" layer="0" tX="384" tY="128" />
+        <tile x="25" y="16" layer="0" tX="128" tY="64" />
+        <tile x="25" y="17" layer="0" tX="128" tY="64" />
+        <tile x="25" y="18" layer="0" tX="128" tY="64" />
+        <tile x="25" y="19" layer="0" tX="128" tY="64" />
+        <tile x="25" y="20" layer="0" tX="128" tY="64" />
+        <tile x="25" y="21" layer="0" tX="128" tY="64" />
+        <tile x="25" y="22" layer="0" tX="128" tY="64" />
+        <tile x="26" y="13" layer="0" tX="256" tY="128" />
+        <tile x="26" y="15" layer="0" tX="384" tY="128" />
+        <tile x="26" y="16" layer="0" tX="128" tY="64" />
+        <tile x="26" y="17" layer="0" tX="128" tY="64" />
+        <tile x="26" y="18" layer="0" tX="128" tY="64" />
+        <tile x="26" y="19" layer="0" tX="128" tY="64" />
+        <tile x="26" y="20" layer="0" tX="128" tY="64" />
+        <tile x="26" y="21" layer="0" tX="128" tY="64" />
+        <tile x="26" y="22" layer="0" tX="128" tY="64" />
+        <tile x="27" y="15" layer="0" tX="384" tY="128" />
+        <tile x="27" y="16" layer="0" tX="128" tY="64" />
+        <tile x="27" y="17" layer="0" tX="128" tY="64" />
+        <tile x="27" y="18" layer="0" tX="128" tY="64" />
+        <tile x="27" y="19" layer="0" tX="128" tY="64" />
+        <tile x="27" y="20" layer="0" tX="128" tY="64" />
+        <tile x="27" y="21" layer="0" tX="128" tY="64" />
+        <tile x="27" y="22" layer="0" tX="128" tY="64" />
+        <tile x="28" y="15" layer="0" tX="384" tY="128" />
+        <tile x="28" y="16" layer="0" tX="128" tY="64" />
+        <tile x="28" y="17" layer="0" tX="128" tY="64" />
+        <tile x="28" y="18" layer="0" tX="128" tY="64" />
+        <tile x="28" y="19" layer="0" tX="128" tY="64" />
+        <tile x="28" y="20" layer="0" tX="128" tY="64" />
+        <tile x="28" y="21" layer="0" tX="128" tY="64" />
+        <tile x="28" y="22" layer="0" tX="128" tY="64" />
+        <tile x="29" y="15" layer="0" tX="384" tY="128" />
+        <tile x="29" y="16" layer="0" tX="128" tY="64" />
+        <tile x="29" y="17" layer="0" tX="128" tY="64" />
+        <tile x="29" y="18" layer="0" tX="128" tY="64" />
+        <tile x="29" y="19" layer="0" tX="128" tY="64" />
+        <tile x="29" y="20" layer="0" tX="128" tY="64" />
+        <tile x="29" y="21" layer="0" tX="128" tY="64" />
+        <tile x="29" y="22" layer="0" tX="128" tY="64" />
+        <tile x="30" y="15" layer="0" tX="384" tY="128" />
+        <tile x="30" y="16" layer="0" tX="128" tY="64" />
+        <tile x="30" y="17" layer="0" tX="128" tY="64" />
+        <tile x="30" y="18" layer="0" tX="128" tY="64" />
+        <tile x="30" y="19" layer="0" tX="128" tY="64" />
+        <tile x="30" y="20" layer="0" tX="128" tY="64" />
+        <tile x="30" y="21" layer="0" tX="128" tY="64" />
+        <tile x="30" y="22" layer="0" tX="128" tY="64" />
+        <tile x="31" y="15" layer="0" tX="384" tY="128" />
+        <tile x="31" y="16" layer="0" tX="128" tY="64" />
+        <tile x="31" y="17" layer="0" tX="128" tY="64" />
+        <tile x="31" y="18" layer="0" tX="128" tY="64" />
+        <tile x="31" y="19" layer="0" tX="128" tY="64" />
+        <tile x="31" y="20" layer="0" tX="128" tY="64" />
+        <tile x="31" y="21" layer="0" tX="128" tY="64" />
+        <tile x="31" y="22" layer="0" tX="128" tY="64" />
+        <tile x="32" y="15" layer="0" tX="384" tY="128" />
+        <tile x="32" y="16" layer="0" tX="128" tY="64" />
+        <tile x="32" y="17" layer="0" tX="128" tY="64" />
+        <tile x="32" y="18" layer="0" tX="128" tY="64" />
+        <tile x="32" y="19" layer="0" tX="128" tY="64" />
+        <tile x="32" y="20" layer="0" tX="128" tY="64" />
+        <tile x="32" y="21" layer="0" tX="128" tY="64" />
+        <tile x="32" y="22" layer="0" tX="128" tY="64" />
+        <tile x="33" y="15" layer="0" tX="384" tY="128" />
+        <tile x="33" y="16" layer="0" tX="128" tY="64" />
+        <tile x="33" y="17" layer="0" tX="128" tY="64" />
+        <tile x="33" y="18" layer="0" tX="128" tY="64" />
+        <tile x="33" y="19" layer="0" tX="128" tY="64" />
+        <tile x="33" y="20" layer="0" tX="128" tY="64" />
+        <tile x="33" y="21" layer="0" tX="128" tY="64" />
+        <tile x="33" y="22" layer="0" tX="128" tY="64" />
+        <tile x="34" y="15" layer="0" tX="384" tY="128" />
+        <tile x="34" y="16" layer="0" tX="128" tY="64" />
+        <tile x="34" y="17" layer="0" tX="128" tY="64" />
+        <tile x="34" y="18" layer="0" tX="128" tY="64" />
+        <tile x="34" y="19" layer="0" tX="128" tY="64" />
+        <tile x="34" y="20" layer="0" tX="128" tY="64" />
+        <tile x="34" y="21" layer="0" tX="128" tY="64" />
+        <tile x="34" y="22" layer="0" tX="128" tY="64" />
+        <tile x="35" y="14" layer="0" tX="64" tY="0" />
+        <tile x="35" y="15" layer="0" tX="384" tY="128" />
+        <tile x="35" y="16" layer="0" tX="128" tY="64" />
+        <tile x="35" y="17" layer="0" tX="128" tY="64" />
+        <tile x="35" y="18" layer="0" tX="128" tY="64" />
+        <tile x="35" y="19" layer="0" tX="128" tY="64" />
+        <tile x="35" y="20" layer="0" tX="128" tY="64" />
+        <tile x="35" y="21" layer="0" tX="128" tY="64" />
+        <tile x="35" y="22" layer="0" tX="128" tY="64" />
+        <tile x="36" y="15" layer="0" tX="384" tY="128" />
+        <tile x="36" y="16" layer="0" tX="128" tY="64" />
+        <tile x="36" y="17" layer="0" tX="128" tY="64" />
+        <tile x="36" y="18" layer="0" tX="128" tY="64" />
+        <tile x="36" y="19" layer="0" tX="128" tY="64" />
+        <tile x="36" y="20" layer="0" tX="128" tY="64" />
+        <tile x="36" y="21" layer="0" tX="128" tY="64" />
+        <tile x="36" y="22" layer="0" tX="128" tY="64" />
+        <tile x="43" y="3" layer="0" tX="64" tY="0" />
+        <tile x="48" y="3" layer="0" tX="64" tY="0" />
+        <tile x="59" y="8" layer="0" tX="64" tY="0" />
+        <tile x="59" y="9" layer="0" tX="64" tY="0" />
     </tiles>
     <objects>
+        <object x="1" y="4" layer="0" name="back" />
+        <object x="1" y="15" layer="0" name="solid" />
+        <object x="2" y="15" layer="0" name="solid" />
+        <object x="3" y="15" layer="0" name="solid" />
+        <object x="4" y="15" layer="0" name="solid" />
+        <object x="5" y="15" layer="0" name="solid" />
+        <object x="6" y="15" layer="0" name="solid" />
         <object x="7" y="15" layer="0" name="solid" />
+        <object x="8" y="13" layer="0" name="player" />
         <object x="8" y="15" layer="0" name="solid" />
         <object x="9" y="15" layer="0" name="solid" />
         <object x="10" y="15" layer="0" name="solid" />
@@ -49,34 +341,42 @@
         <object x="13" y="15" layer="0" name="solid" />
         <object x="14" y="15" layer="0" name="solid" />
         <object x="15" y="15" layer="0" name="solid" />
+        <object x="16" y="14" layer="0" name="sleft" />
         <object x="16" y="15" layer="0" name="solid" />
+        <object x="17" y="14" layer="0" name="solid" />
         <object x="17" y="15" layer="0" name="solid" />
+        <object x="18" y="14" layer="0" name="solid" />
         <object x="18" y="15" layer="0" name="solid" />
+        <object x="19" y="14" layer="0" name="solid" />
         <object x="19" y="15" layer="0" name="solid" />
+        <object x="20" y="14" layer="0" name="solid" />
         <object x="20" y="15" layer="0" name="solid" />
+        <object x="21" y="14" layer="0" name="solid" />
         <object x="21" y="15" layer="0" name="solid" />
+        <object x="22" y="13" layer="0" name="sleft" />
+        <object x="22" y="14" layer="0" name="solid" />
         <object x="22" y="15" layer="0" name="solid" />
+        <object x="23" y="13" layer="0" name="sleft" />
+        <object x="23" y="14" layer="0" name="solid" />
         <object x="23" y="15" layer="0" name="solid" />
+        <object x="24" y="13" layer="0" name="solid" />
         <object x="24" y="15" layer="0" name="solid" />
+        <object x="25" y="13" layer="0" name="solid" />
         <object x="25" y="15" layer="0" name="solid" />
+        <object x="26" y="13" layer="0" name="solid" />
         <object x="26" y="15" layer="0" name="solid" />
         <object x="27" y="15" layer="0" name="solid" />
         <object x="28" y="15" layer="0" name="solid" />
+        <object x="29" y="3" layer="0" name="soli" />
         <object x="29" y="15" layer="0" name="solid" />
         <object x="30" y="15" layer="0" name="solid" />
         <object x="31" y="15" layer="0" name="solid" />
         <object x="32" y="15" layer="0" name="solid" />
         <object x="33" y="15" layer="0" name="solid" />
-        <object x="34" y="4" layer="0" name="player" />
         <object x="34" y="15" layer="0" name="solid" />
+        <object x="35" y="4" layer="0" name="soli" />
         <object x="35" y="15" layer="0" name="solid" />
-        <object x="36" y="14" layer="0" name="solid" />
         <object x="36" y="15" layer="0" name="solid" />
-        <object x="37" y="13" layer="0" name="solid" />
-        <object x="37" y="14" layer="0" name="solid" />
-        <object x="38" y="12" layer="0" name="solid" />
-        <object x="38" y="13" layer="0" name="solid" />
-        <object x="39" y="12" layer="0" name="solid" />
-        <object x="40" y="11" layer="0" name="solid" />
+        <object x="51" y="10" layer="0" name="soli" />
     </objects>
 </map>

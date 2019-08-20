@@ -35,6 +35,26 @@ Button::~Button()
 
 }
 
+const std::string Button::getText() const
+{
+	return this->text;
+}
+
+const short unsigned & Button::getID() const
+{
+	return this->id;
+}
+
+void Button::setText(std::string text)
+{
+	this->text.setString(text);
+}
+
+void Button::setID(const short unsigned id)
+{
+	this->id = id;
+}
+
 const bool Button::isPressed() const
 {
     if (this->buttonState == BUTTON_ACTIVE)

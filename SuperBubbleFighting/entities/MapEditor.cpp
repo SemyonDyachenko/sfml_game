@@ -32,7 +32,7 @@ void MapEditor::initTextures()
 MapEditor::MapEditor(sf::RenderWindow * window,std::string textureFile)
 {
 	this->window = window;
-	this->gridSizeF = 48.f;
+	this->gridSizeF = 64.f;
 	this->gridSizeU = static_cast<unsigned>(this->gridSizeF);
 	this->maxSizeWorldGrid.x = 100;
 	this->maxSizeWorldGrid.y = 100;

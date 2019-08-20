@@ -109,6 +109,12 @@
     <ClInclude Include="GUI\ObjectCreator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="components\MovementComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="components\AnimationComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -199,6 +205,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GUI\ObjectCreator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="components\MovementComponent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="components\AnimationComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

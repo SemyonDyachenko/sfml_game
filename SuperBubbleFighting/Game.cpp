@@ -7,8 +7,8 @@ void Game::initWindow()
     /* here init and create window */
     this->vertical_sync_enable = false;
     this->FrameRateLimit = 120;
-    this->winSizeX = 1920; // GetSystemMetrics(SM_CXSCREEN)
-    this->winSizeY = 1080; // GetSystemMetrics(SM_CYSCREEN)
+    this->winSizeX = 1440; // GetSystemMetrics(SM_CXSCREEN)
+    this->winSizeY = 900; // GetSystemMetrics(SM_CYSCREEN)
     this->winTitle = "Super Bubble Fighting";
     this->window = new sf::RenderWindow(sf::VideoMode(winSizeX, winSizeY), winTitle,sf::Style::Titlebar);
     this->window->setVerticalSyncEnabled(this->vertical_sync_enable);
@@ -97,7 +97,7 @@ void Game::update()
 void Game::render()
 {
     //clear
-    this->window->clear();
+	this->window->clear();
 
     //render here
     if (!this->states.empty()) {

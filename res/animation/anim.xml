@@ -1,29 +1,28 @@
 <!DOCTYPE SpriteDecomposer>
-<sprites image="player.png" transparentColor="">
- <animation title="stay" delay="120">
-  <cut w="19" x="14" y="7" h="29" row="1" col="1"/>
-  <cut w="17" x="66" y="6" h="30" row="1" col="1"/>
-  <cut w="19" x="115" y="6" h="30" row="1" col="1"/>
-  <cut w="20" x="163" y="7" h="29" row="1" col="1"/>
+<sprites image="braid.png" transparentColor="">
+ <animation title="stay" delay="110">
+  <cut w="81" x="2" y="2" h="137" row="1" col="1"/>
+  <cut w="81" x="85" y="2" h="137" row="1" col="1"/>
+  <cut w="81" x="168" y="2" h="137" row="1" col="1"/>
+  <cut w="81" x="251" y="2" h="138" row="1" col="1"/>
+  <cut w="80" x="335" y="2" h="138" row="1" col="1"/>
+  <cut w="79" x="417" y="2" h="138" row="1" col="1"/>
+  <cut w="80" x="501" y="2" h="138" row="1" col="1"/>
+  <cut w="81" x="583" y="2" h="138" row="1" col="1"/>
+  <cut w="80" x="667" y="2" h="142" row="1" col="1"/>
+  <cut w="79" x="750" y="2" h="139" row="1" col="1"/>
+  <cut w="81" x="832" y="2" h="142" row="1" col="1"/>
+  <cut w="79" x="917" y="2" h="143" row="1" col="1"/>
  </animation>
- <animation title="run" delay="120">
-  <cut w="20" x="67" y="45" h="28" row="1" col="1"/>
-  <cut w="20" x="116" y="46" h="27" row="1" col="1"/>
-  <cut w="20" x="166" y="48" h="25" row="1" col="1"/>
-  <cut w="23" x="217" y="45" h="28" row="1" col="1"/>
-  <cut w="20" x="266" y="46" h="27" row="1" col="1"/>
-  <cut w="20" x="316" y="48" h="25" row="1" col="1"/>
- </animation>
- <animation title="jump" delay="90">
-  <cut w="20" x="15" y="86" h="24" row="1" col="1"/>
-  <cut w="20" x="65" y="88" h="22" row="1" col="1"/>
-  <cut w="19" x="117" y="81" h="27" row="1" col="1"/>
-  <cut w="21" x="164" y="79" h="23" row="1" col="1"/>
-  <cut w="15" x="218" y="82" h="20" row="1" col="1"/>
-  <cut w="23" x="264" y="84" h="17" row="1" col="1"/>
-  <cut w="18" x="320" y="84" h="20" row="1" col="1"/>
-  <cut w="23" x="14" y="124" h="17" row="1" col="1"/>
-  <cut w="17" x="68" y="112" h="31" row="1" col="1"/>
-  <cut w="17" x="118" y="113" h="30" row="1" col="1"/>
+ <animation title="walk" delay="150">
+  <cut w="95" x="2" y="421" h="133" row="1" col="1"/>
+  <cut w="99" x="99" y="421" h="133" row="1" col="1"/>
+  <cut w="101" x="201" y="421" h="134" row="1" col="1"/>
+  <cut w="104" x="308" y="421" h="130" row="1" col="1"/>
+  <cut w="114" x="416" y="421" h="126" row="1" col="1"/>
+  <cut w="117" x="533" y="421" h="127" row="1" col="1"/>
+  <cut w="107" x="655" y="421" h="128" row="1" col="1"/>
+  <cut w="100" x="766" y="421" h="129" row="1" col="1"/>
+  <cut w="102" x="869" y="421" h="130" row="1" col="1"/>
  </animation>
 </sprites>

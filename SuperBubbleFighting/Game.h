@@ -22,6 +22,10 @@ private:
     // window params ..
     unsigned winSizeX; // width window
     unsigned winSizeY; // height window
+
+	std::vector<sf::VideoMode> videoModes;
+	sf::ContextSettings windowSettings;
+
     bool vertical_sync_enable; //vsync
     std::string winTitle; // window title
     unsigned FrameRateLimit; // fps limit

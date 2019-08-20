@@ -18,12 +18,15 @@ private:
 	sf::RectangleShape cursor;
 	sf::Texture textureCursor;
 
+	Music theme;
+
     //funcs
 	void initCursor();
     void initVariables();
     void initBackground();
     void initFonts();
     void initButtons();
+	void initMusic();
 public:
     MainMenuState(sf::RenderWindow * window, std::stack<State*>* states);
     virtual ~MainMenuState();

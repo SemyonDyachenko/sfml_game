@@ -13,6 +13,7 @@ enum buttonStates
 class Button
 {
 private:
+	short unsigned id;
     short unsigned buttonState;
 
     sf::RectangleShape button;
@@ -31,6 +32,11 @@ public:
            sf::Color hoverColor, sf::Color activeColor);
     ~Button();
 
+	const std::string getText() const;
+	const short unsigned & getID() const;
+
+	void setText(std::string text);
+	void setID(const short unsigned  id);
 
     const bool isPressed()  const;
 

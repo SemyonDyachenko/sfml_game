@@ -48,6 +48,14 @@ void MainMenuState::initButtons()
     this->buttons["EXIT_STATE"] = new Button(this->window->getSize().x / 2 - 100, window->getSize().y / 3 + 400, 150, 45, &this->font, "QUIT", sf::Color(255, 255, 255, 255), sf::Color(150, 150, 150, 255), sf::Color(255, 255, 255, 255));
 }
 
+void MainMenuState::initMusic()
+{
+	this->theme.openFromFile("../res/music/theme.ogg");
+	this->theme.setLoop(true);
+	this->theme.setVolume(7);
+	this->theme.play();
+}
+
 MainMenuState::MainMenuState(sf::RenderWindow * window,std::stack<State*>* states) : State(window,states)
 {
     this->initVariables();
@@ -55,6 +63,7 @@ MainMenuState::MainMenuState(sf::RenderWindow * window,std::stack<State*>* state
     this->initFonts();
     this->initButtons();
 	this->initCursor();
+	this->initMusic();
 	window->setMouseCursorVisible(false);
 }
 
@@ -96,6 +105,7 @@ void MainMenuState::updateButtons()
 	if (this->buttons["EDITOR_STATE"]->isPressed())
 	{
 		this->states->push(new EditorState(this->window, this->states));
+		this->theme.stop();
 	}
 
 
@@ -103,6 +113,7 @@ void MainMenuState::updateButtons()
     if (this->buttons["GAME_STATE"]->isPressed() || (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)) || sf::Joystick::isButtonPressed(0,9))
     {
         this->states->push(new GameState(this->window,this->states));
+		this->theme.stop();
     }
 
 
@@ -113,6 +124,7 @@ void MainMenuState::updateButtons()
     {
         this->quit = true;
         this->window->close();
+		this->theme.stop();
     }
 
 }

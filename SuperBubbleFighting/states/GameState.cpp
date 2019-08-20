@@ -50,6 +50,8 @@ void GameState::update(float time)
 	{
 			levels[i]->update(time);
 	}
+
+	
 }
 
 void GameState::render(sf::RenderWindow * window)

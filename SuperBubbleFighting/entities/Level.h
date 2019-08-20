@@ -20,8 +20,15 @@ protected:
 	std::vector<Enemy*> enemyes;
 	std::vector<SFMLObject*> objects;
 
-	sf::Texture backgroundTexture;
-	sf::Sprite background;
+	sf::Texture skyT;
+	sf::RectangleShape sky;
+
+	sf::Texture forestt1;
+	sf::RectangleShape forest1;
+	sf::Texture forestt2;
+	sf::RectangleShape forest2;
+	sf::Texture forestt3;
+	sf::RectangleShape forest3;
 
 	sf::Texture playerTexture;
 
@@ -29,6 +36,9 @@ protected:
 	sf::Sprite treeSprite;
 
 	sf::View levelView;
+
+
+	Music music;
 
 	MapEditor * tilemap;
 

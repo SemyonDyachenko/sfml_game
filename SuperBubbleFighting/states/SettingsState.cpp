@@ -5,6 +5,7 @@
 
 void SettingsState::initVariables()
 {
+	this->modes = sf::VideoMode::getFullscreenModes();
 }
 
 void SettingsState::initFonts()
@@ -17,20 +18,38 @@ void SettingsState::initFonts()
 
 void SettingsState::initButtons()
 {
-	this->buttons["RESOLUTION"] = new Button(10, 10, 150, 45, &this->font, "Resulotin", sf::Color(221, 59, 59, 200), sf::Color(150, 150, 150, 255), sf::Color(20, 20, 20, 200));
-	this->buttons["VSYNC"] = new Button(10, 100, 150, 45, &this->font, "VSYNC", sf::Color(78, 113, 183, 200), sf::Color(150, 150, 150, 255), sf::Color(20, 20, 20, 200));
-	this->buttons["FULL_SCREEN"] = new Button(10, 200, 150, 45, &this->font, "Full Screen", sf::Color(247, 119, 69, 200), sf::Color(150, 150, 150, 255), sf::Color(20, 20, 20, 200));
-	this->buttons["APPLY"] = new Button(10, 300, 150, 45, &this->font, "Apply", sf::Color(247, 119, 69, 200), sf::Color(150, 150, 150, 255), sf::Color(20, 20, 20, 200));
-	this->buttons["CANCEL"] = new Button(10, 400, 150, 45, &this->font, "Cancel", sf::Color(65, 147, 59, 200), sf::Color(150, 150, 150, 255), sf::Color(20, 20, 20, 200));
+	this->buttons["APPLY"] = new Button(this->window->getSize().x - 380, this->window->getSize().y - 10, 150, 45,
+	&this->font, "Apply", sf::Color(255, 255, 255, 100), sf::Color(255, 255, 255, 100), sf::Color(255, 255, 255, 100));
+	this->buttons["CANCEL"] = new Button(this->window->getSize().x - 180, this->window->getSize().y - 10, 150, 45, 
+	&this->font, "Cancel", sf::Color(255, 255, 255, 100), sf::Color(255, 255, 255, 100), sf::Color(255, 255, 255, 100));
+}
+
+void SettingsState::initGui()
+{
+}
+
+void SettingsState::initText()
+{
+	this->optionsText.setFont(this->font);
+
+	this->optionsText.setPosition(sf::Vector2f(100.f, 100.f));
+
+	this->optionsText.setFillColor(sf::Color(255, 255, 255, 200));
+	this->optionsText.setCharacterSize(30);
+
+	this->optionsText.setString(
+		"FullScreen \nResolution \nVsync \n\n"
+	);
 }
 
 SettingsState::SettingsState(sf::RenderWindow * window, std::stack<State*>* states)
 	: State(window,states)
 {
+	this->window = window;
 	this->initVariables();
 	this->initFonts();
 	this->initButtons();
-	
+	this->initText();
 }
 
 
@@ -58,27 +77,6 @@ void SettingsState::updateButtons()
 	for (auto &it : this->buttons)
 	{
 		it.second->update(this->mousePosView);
-	}
-
-
-	// change resolution
-	if (this->buttons["RESOLUTION"]->isPressed())
-	{
-		
-	}
-
-
-	// vsync
-	if (this->buttons["VSYNC"]->isPressed())
-	{
-		
-	}
-
-
-	//full screen mode
-	if (this->buttons["FULL_SCREEN"]->isPressed())
-	{
-		
 	}
 
 
@@ -119,4 +117,5 @@ void SettingsState::render(sf::RenderWindow * window)
 		window = this->window;
 
 	this->renderButtons(window);
+	window->draw(this->optionsText);
 }

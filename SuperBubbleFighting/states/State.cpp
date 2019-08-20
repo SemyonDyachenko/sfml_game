@@ -8,13 +8,14 @@ State::State(sf::RenderWindow * window,std::stack<State*>* states)
     this->window = window;
     this->quit = false;
     this->states = states;
-	this->gridSize = 48.f;
+	this->gridSize = 64.f;
 	this->keytime = 0.f;
 	this->keytimeMax = 10.f;
 }
 
 State::~State()
 {
+
 }
 
 const bool & State::getQuit() const

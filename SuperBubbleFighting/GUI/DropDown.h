@@ -6,24 +6,28 @@
 class DropDown
 {
 private:
-	std::map<std::string, Button*> buttons;
+	float keytime;
+	float keytimeMax;
 
-	sf::Vector2f size;
+	sf::Font& font;
+	Button* activeElement;
+	std::vector<Button*> list;
+	bool showList;
 
-	float posX, posY;
-
-	bool isDrop;
 
 public:
-	DropDown(std::map<std::string, Button*> buttons);
+	DropDown(float x, float y, float width, float height,sf::Font& font, std::string list[],unsigned nrOfElements, unsigned default_index = 0);
 
-	virtual ~DropDown();
+	~DropDown();
 
-	void setDrop(bool drop);
+	const unsigned short& getActiveElementId() const;
 
-	void update(sf::Vector2f mousePos);
+	const bool getKeytime();
 
-	void renderButtons(sf::RenderWindow * window);
+	void updateKeytime(float time);
+
+	void update(sf::Vector2f mousePos,float time);
+
 	void render(sf::RenderWindow * window);
 };
 

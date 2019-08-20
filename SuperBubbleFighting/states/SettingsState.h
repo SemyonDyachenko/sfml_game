@@ -3,6 +3,7 @@
 
 #include "State.h"
 #include "../GUI/Button.h"
+#include "../GUI/DropDown.h"
 
 
 class SettingsState :
@@ -13,12 +14,18 @@ private:
 	sf::Font font;
 	sf::RectangleShape background;
 	std::map<std::string, Button*> buttons;
-	std::map < std::string, sf::Text> labels;
+	std::map <std::string, DropDown*> dropDownLists;
+
+	sf::Text optionsText;
+
+	std::vector<sf::VideoMode> modes;
 
 	//funcs
 	void initVariables();
 	void initFonts();
 	void initButtons();
+	void initGui();
+	void initText();
 public:
 	SettingsState(sf::RenderWindow * window,std::stack<State*>* states);
 	virtual ~SettingsState();
