@@ -3,7 +3,7 @@
 
 
 
-
+/*
 DropDown::DropDown(float x, float y, float width, float height,sf::Font& font, std::string list[],unsigned nrOfElements, unsigned default_index)
 {
 	this->activeElement = new Button(
@@ -107,3 +107,4 @@ void DropDown::render(sf::RenderWindow * window)
 		}
 	}
 }
+*/

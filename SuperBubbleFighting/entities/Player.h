@@ -15,6 +15,7 @@ class Player
  {
 
 private:
+	sf::RenderWindow * window;
 	AnimationManager anim;
 	float posX, posY, dx, dy;
 	float speed;
@@ -31,6 +32,11 @@ private:
 
 	MapEditor *map;
 
+	sf::SoundBuffer buffer;
+	sf::Sound sound;
+	bool soundplay;
+
+
 	sf::RectangleShape collider2D;
 
 	sf::Texture playerTextureSheet;
@@ -41,7 +47,7 @@ private:
 	void initDefaultVariables();
 
 public:
-	Player(float x, float y,sf::Texture & texture, std::string anim_file, MapEditor&map);
+	Player(sf::RenderWindow * window,float x, float y,sf::Texture & texture, std::string anim_file, MapEditor&map);
 	virtual ~Player();
 
 	const bool& checkLife() const;

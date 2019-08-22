@@ -23,6 +23,13 @@ protected:
 	sf::Texture skyT;
 	sf::RectangleShape sky;
 
+	sf::Texture skyT1;
+	sf::RectangleShape sky1;
+
+	sf::Texture skyT2;
+	sf::RectangleShape sky2;
+
+
 	sf::Texture forestt1;
 	sf::RectangleShape forest1;
 	sf::Texture forestt2;

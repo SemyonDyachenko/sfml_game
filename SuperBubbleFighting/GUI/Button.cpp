@@ -37,7 +37,7 @@ Button::~Button()
 
 const std::string Button::getText() const
 {
-	return this->text;
+	return this->text.getString();
 }
 
 const short unsigned & Button::getID() const

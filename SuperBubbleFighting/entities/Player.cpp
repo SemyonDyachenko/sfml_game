@@ -23,8 +23,9 @@ void Player::initDefaultVariables()
 	this->life = true;
 }
 
-Player::Player(float x, float y, sf::Texture & texture,std::string anim_file,MapEditor &map)
+Player::Player(sf::RenderWindow * window,float x, float y, sf::Texture & texture,std::string anim_file,MapEditor &map)
 {
+	this->window = window;
 	this->posX = x;
 	this->posY = y;
 	this->map = &map;
@@ -34,6 +35,12 @@ Player::Player(float x, float y, sf::Texture & texture,std::string anim_file,Map
 	this->collider2D.setOutlineThickness(1.f);
 	this->collider2D.setOutlineColor(sf::Color::Green);
 	this->anim.loadFromXML(anim_file, texture);
+	this->anim.set("stay");
+
+	this->buffer.loadFromFile("../res/music/sounds/go.ogg");
+	this->sound.setBuffer(buffer);
+	this->sound.setLoop(true);
+	this->soundplay = false;
 }
 
 Player::~Player()
@@ -48,20 +55,28 @@ const bool & Player::checkLife() const
 
 void Player::movement(float time)
 {
-	if (!sf::Keyboard::isKeyPressed)
+	
+	if (!KeyA && !KeyD && !AxisD && !AxisA)
 	{
-		this->state = STAY;
-		//this->anim.set("stay");
+		if (this->state == LEFT)
+		{
+			this->anim.flip("stay");
+		}
+		if (this->state == RIGHT)
+		{
+			this->anim.set("stay");
+		}
 	}
+
 	if (KeyD || AxisD)
 	{
-		this->state = RIGHT; this->speed = 0.3f;
-		//this->anim.set("walk");
+		this->state = RIGHT; this->speed = 0.2f;
+		this->anim.set("run");
 	}
 	else if (KeyA || AxisA)
 	{
-		this->state = LEFT; this->speed = 0.3f;
-		//this->anim.flip("walk");
+		this->state = LEFT; this->speed = 0.2f;
+		this->anim.flip("run");
 	}
 
 	if ((KeySpace || JostickSpace) && this->playerOnGround)
@@ -86,13 +101,13 @@ void Player::checkCollision(float Dy, float Dx)
 			{
 				if (z != NULL)
 				{
-					if (sf::FloatRect(this->posX,this->posY,60,60).intersects(z->rect))
+					if (sf::FloatRect(this->posX,this->posY,this->anim.getW(),this->anim.getH()).intersects(z->rect))
 					{
 					if (z->getName() == "solid")
 					{
-						if (Dy > 0) { this->posY = z->rect.top - this->collider2D.getSize().y;  this->dy = 0; this->playerOnGround = true;}
+						if (Dy > 0) { this->posY = z->rect.top - this->anim.getH();  this->dy = 0; this->playerOnGround = true;}
 						//if (Dy < 0) { this->posY = z->getGlobalBounds().top + z->getGlobalBounds().height; this->dy = 0; }
-						if (Dx > 0) {this->posX = z->rect.left - this->collider2D.getSize().x; dx = 0; }
+						if (Dx > 0) {this->posX = z->rect.left - this->anim.getW(); dx = 0; }
 						if (Dx < 0) {this->posX =  z->rect.left + z->rect.width; dx = 0;  }
 
 					}
@@ -172,7 +187,9 @@ void Player::update(float time)
 		this->dy = dy + 0.0014*time;
 		this->updateLife();
 
-	
+			
+
+		anim.tick(time);
 
 }
 
@@ -184,6 +201,6 @@ void Player::renderCollider(sf::RenderWindow * window)
 
 void Player::render(sf::RenderWindow * window)
 {
-	this->renderCollider(window);
-	//this->anim.draw(*window, this->posX, this->posY);
+	//this->renderCollider(window);
+	this->anim.draw(*window, this->posX, this->posY);
 }

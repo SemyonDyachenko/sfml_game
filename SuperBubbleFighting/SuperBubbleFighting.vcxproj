@@ -160,6 +160,7 @@
     <ClInclude Include="entities\objects\SFMLObject.h" />
     <ClInclude Include="GUI\ObjectCreator.h" />
     <ClInclude Include="components\MovementComponent.h" />
+    <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="states\SettingsState.h" />
     <ClInclude Include="states\EditorState.h" />
     <ClInclude Include="entities\Bubble.h" />
@@ -191,6 +192,7 @@
     <ClCompile Include="entities\objects\SFMLObject.cpp" />
     <ClCompile Include="GUI\ObjectCreator.cpp" />
     <ClCompile Include="components\MovementComponent.cpp" />
+    <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="states\SettingsState.cpp" />
     <ClCompile Include="states\EditorState.cpp" />
     <ClCompile Include="entities\Bubble.cpp" />

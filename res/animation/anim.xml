@@ -1,28 +1,19 @@
 <!DOCTYPE SpriteDecomposer>
-<sprites image="braid.png" transparentColor="">
- <animation title="stay" delay="110">
-  <cut w="81" x="2" y="2" h="137" row="1" col="1"/>
-  <cut w="81" x="85" y="2" h="137" row="1" col="1"/>
-  <cut w="81" x="168" y="2" h="137" row="1" col="1"/>
-  <cut w="81" x="251" y="2" h="138" row="1" col="1"/>
-  <cut w="80" x="335" y="2" h="138" row="1" col="1"/>
-  <cut w="79" x="417" y="2" h="138" row="1" col="1"/>
-  <cut w="80" x="501" y="2" h="138" row="1" col="1"/>
-  <cut w="81" x="583" y="2" h="138" row="1" col="1"/>
-  <cut w="80" x="667" y="2" h="142" row="1" col="1"/>
-  <cut w="79" x="750" y="2" h="139" row="1" col="1"/>
-  <cut w="81" x="832" y="2" h="142" row="1" col="1"/>
-  <cut w="79" x="917" y="2" h="143" row="1" col="1"/>
+<sprites image="hero.png" transparentColor="0">
+ <animation title="stay" delay="150">
+  <cut w="29" x="12" y="14" h="50" row="1" col="1"/>
+  <cut w="29" x="48" y="13" h="52" row="1" col="1"/>
+  <cut w="28" x="85" y="13" h="51" row="1" col="1"/>
+  <cut w="29" x="121" y="13" h="51" row="1" col="1"/>
+  <cut w="30" x="157" y="15" h="50" row="1" col="1"/>
+  <cut w="29" x="192" y="15" h="50" row="1" col="1"/>
  </animation>
- <animation title="walk" delay="150">
-  <cut w="95" x="2" y="421" h="133" row="1" col="1"/>
-  <cut w="99" x="99" y="421" h="133" row="1" col="1"/>
-  <cut w="101" x="201" y="421" h="134" row="1" col="1"/>
-  <cut w="104" x="308" y="421" h="130" row="1" col="1"/>
-  <cut w="114" x="416" y="421" h="126" row="1" col="1"/>
-  <cut w="117" x="533" y="421" h="127" row="1" col="1"/>
-  <cut w="107" x="655" y="421" h="128" row="1" col="1"/>
-  <cut w="100" x="766" y="421" h="129" row="1" col="1"/>
-  <cut w="102" x="869" y="421" h="130" row="1" col="1"/>
+ <animation title="run" delay="150">
+  <cut w="31" x="12" y="79" h="51" row="1" col="1"/>
+  <cut w="28" x="47" y="78" h="52" row="1" col="1"/>
+  <cut w="30" x="81" y="79" h="51" row="1" col="1"/>
+  <cut w="27" x="116" y="79" h="51" row="1" col="1"/>
+  <cut w="29" x="151" y="78" h="52" row="1" col="1"/>
+  <cut w="32" x="189" y="79" h="51" row="1" col="1"/>
  </animation>
 </sprites>

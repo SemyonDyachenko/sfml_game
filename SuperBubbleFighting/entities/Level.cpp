@@ -11,24 +11,32 @@ void Level::initShaders()
 
 void Level::initTextures()
 {
-	if (!this->playerTexture.loadFromFile("../res/images/braid.png"))
+	if (!this->playerTexture.loadFromFile("../res/images/hero.png"))
 		std::cout << "ERROR: don't load playerTexture in level \n";
 
 	this->skyT.loadFromFile("../res/images/skyblue.png");
 	this->sky.setTexture(&skyT);
-	this->sky.setSize(sf::Vector2f(this->window->getSize()));
+	this->sky.setSize(sf::Vector2f(2500,this->window->getSize().y));
+
+	this->skyT1.loadFromFile("../res/images/skyblue.png");
+	this->sky1.setTexture(&skyT);
+	this->sky1.setSize(sf::Vector2f(2500, this->window->getSize().y));
+
+	this->skyT2.loadFromFile("../res/images/skyblue.png");
+	this->sky2.setTexture(&skyT);
+	this->sky2.setSize(sf::Vector2f(2500, this->window->getSize().y));
 
 	this->forestt1.loadFromFile("../res/images/forest1.png");
 	this->forest1.setTexture(&forestt1);
-	this->forest1.setSize(sf::Vector2f(this->window->getSize()));
+	this->forest1.setSize(sf::Vector2f(2500,this->window->getSize().y));
 
 	this->forestt2.loadFromFile("../res/images/forest2.png");
 	this->forest2.setTexture(&forestt2);
-	this->forest2.setSize(sf::Vector2f(this->window->getSize()));
+	this->forest2.setSize(sf::Vector2f(2500,this->window->getSize().y));
 
 	this->forestt3.loadFromFile("../res/images/forest3.png");
 	this->forest3.setTexture(&forestt3);
-	this->forest3.setSize(sf::Vector2f(this->window->getSize()));
+	this->forest3.setSize(sf::Vector2f(2500,this->window->getSize().y));
 }
 
 void Level::initVariables()
@@ -78,9 +86,11 @@ Level::Level(sf::RenderWindow & window, std::string map_filename, std::string ba
 	this->tilemap = new MapEditor(&window, "../res/images/tileset.png");
 	this->tilemap->loadFromFile(map_filename);
 	this->tilemap->setGameMap(true);
-	this->player = new Player(this->tilemap->getObject("player")->getGlobalBounds().left, this->tilemap->getObject("player")->getGlobalBounds().top, playerTexture, "../res/animation/anim.xml", *this->tilemap);
+	this->player = new Player(&window,this->tilemap->getObject("player")->getGlobalBounds().left, this->tilemap->getObject("player")->getGlobalBounds().top, playerTexture, "../res/animation/anim.xml", *this->tilemap);
 	this->levelView.setCenter(player->getPosition().x, player->getPosition().y);
 	this->sky.setPosition(this->tilemap->getObject("back")->rect.left, this->tilemap->getObject("back")->rect.top);
+	this->sky1.setPosition(this->sky.getPosition().x + this->sky.getSize().x,this->tilemap->getObject("back")->rect.top);
+	this->sky2.setPosition(this->sky1.getPosition().x + this->sky1.getSize().x, this->tilemap->getObject("back")->rect.top);
 	this->forest1.setPosition(this->tilemap->getObject("back")->rect.left,this->tilemap->getObject("back")->rect.top);
 	this->forest2.setPosition(this->tilemap->getObject("back")->rect.left,this->tilemap->getObject("back")->rect.top);
 	this->forest3.setPosition(this->tilemap->getObject("back")->rect.left,this->tilemap->getObject("back")->rect.top);
@@ -153,6 +163,19 @@ void Level::update(float time)
 	this->updateObjects(time);
 	this->window->setView(this->levelView);
 	this->levelView.setCenter(player->getPosition().x, player->getPosition().y);
+
+	this->sky.setPosition(this->sky.getPosition().x-time*0.01, this->sky.getPosition().y);
+	this->sky1.setPosition(this->sky.getPosition().x - time *0.01, this->sky.getPosition().y);
+	this->sky2.setPosition(this->sky.getPosition().x - time*0.01,this->sky.getPosition().y);
+
+
+	if (sky.getPosition().x < window->getSize().x)
+	{
+		this->sky.setPosition(0, this->sky.getPosition().y);
+		this->sky1.setPosition(sky.getPosition().x+sky.getSize().x, this->sky.getPosition().y);
+		this->sky2.setPosition(sky1.getPosition().x + sky1.getSize().x, this->sky.getPosition().y);
+	}
+
 }
 
 // RENDER

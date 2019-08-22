@@ -62,7 +62,7 @@ void AnimationManager::loadFromXML(std::string fileName, Texture & t)
 				cut = cut->NextSiblingElement("cut");
 			}
 
-			anim.sprite.setOrigin(0, anim.frames[0].height);
+			anim.sprite.setOrigin(0, 0);
 
 			animList[currentAnim] = anim;
 			animElement = animElement->NextSiblingElement("animation");
