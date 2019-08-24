@@ -15,8 +15,6 @@ private:
     float time;
 
 
-	
-
     std::stack<State*> states; // STATES
 
     // window params ..

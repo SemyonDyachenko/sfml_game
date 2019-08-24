@@ -164,17 +164,6 @@ void Level::update(float time)
 	this->window->setView(this->levelView);
 	this->levelView.setCenter(player->getPosition().x, player->getPosition().y);
 
-	this->sky.setPosition(this->sky.getPosition().x-time*0.01, this->sky.getPosition().y);
-	this->sky1.setPosition(this->sky.getPosition().x - time *0.01, this->sky.getPosition().y);
-	this->sky2.setPosition(this->sky.getPosition().x - time*0.01,this->sky.getPosition().y);
-
-
-	if (sky.getPosition().x < window->getSize().x)
-	{
-		this->sky.setPosition(0, this->sky.getPosition().y);
-		this->sky1.setPosition(sky.getPosition().x+sky.getSize().x, this->sky.getPosition().y);
-		this->sky2.setPosition(sky1.getPosition().x + sky1.getSize().x, this->sky.getPosition().y);
-	}
 
 }
 

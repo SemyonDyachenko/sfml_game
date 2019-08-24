@@ -44,7 +44,7 @@ void EditorState::initVariables()
 	this->type = TileTypes::DEFAULT;
 	this->cameraSpeed = 0.3f;
 	this->objectMode = false;
-
+	this->blueprintMode = false;
 }
 
 void EditorState::initSelector()
@@ -136,6 +136,24 @@ void EditorState::updateInput(const float & time)
 			this->objectMode = false;
 		else
 			this->objectMode = true;
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::B) && this->getKeyTime())
+	{
+		if (!this->blueprintMode)
+		{
+			if (this->objectMode)
+				this->objectMode = false;
+				this->blueprintMode = true;
+				if (!this->objectMode)
+					this->objectMode = false;
+				this->blueprintMode = true;
+		}
+		else
+		{
+			this->blueprintMode = false;
+			this->objectMode = false;
+		}
 	}
 }
 

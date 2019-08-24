@@ -39,6 +39,8 @@ private:
 	short type;
 
 	bool objectMode;
+	bool blueprintMode;
+
 
 	TextureSelector *textureSelector;
 	
