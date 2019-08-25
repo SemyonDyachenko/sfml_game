@@ -26,8 +26,8 @@ protected:
 	sf::Texture skyT1;
 	sf::RectangleShape sky1;
 
-	sf::Texture skyT2;
-	sf::RectangleShape sky2;
+	sf::Vector2f skyPos1;
+	sf::Vector2f skyPos2;
 
 
 	sf::Texture forestt1;

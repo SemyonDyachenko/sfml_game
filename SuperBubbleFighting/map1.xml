@@ -3,7 +3,7 @@
     <tiles>
         <tile x="1" y="18" layer="0" tX="256" tY="192" />
         <tile x="1" y="19" layer="0" tX="0" tY="0" />
-        <tile x="1" y="20" layer="0" tX="256" tY="0" />
+        <tile x="1" y="20" layer="0" tX="64" tY="384" />
         <tile x="1" y="21" layer="0" tX="256" tY="0" />
         <tile x="1" y="22" layer="0" tX="256" tY="0" />
         <tile x="1" y="23" layer="0" tX="256" tY="0" />
@@ -12,6 +12,7 @@
         <tile x="1" y="26" layer="0" tX="256" tY="0" />
         <tile x="1" y="27" layer="0" tX="256" tY="0" />
         <tile x="1" y="28" layer="0" tX="256" tY="0" />
+        <tile x="1" y="29" layer="0" tX="448" tY="128" />
         <tile x="2" y="18" layer="0" tX="256" tY="192" />
         <tile x="2" y="19" layer="0" tX="0" tY="0" />
         <tile x="2" y="20" layer="0" tX="256" tY="0" />
@@ -23,6 +24,7 @@
         <tile x="2" y="26" layer="0" tX="256" tY="0" />
         <tile x="2" y="27" layer="0" tX="256" tY="0" />
         <tile x="2" y="28" layer="0" tX="256" tY="0" />
+        <tile x="2" y="29" layer="0" tX="448" tY="128" />
         <tile x="3" y="18" layer="0" tX="256" tY="192" />
         <tile x="3" y="19" layer="0" tX="0" tY="0" />
         <tile x="3" y="20" layer="0" tX="256" tY="0" />
@@ -34,6 +36,7 @@
         <tile x="3" y="26" layer="0" tX="256" tY="0" />
         <tile x="3" y="27" layer="0" tX="256" tY="0" />
         <tile x="3" y="28" layer="0" tX="256" tY="0" />
+        <tile x="3" y="29" layer="0" tX="448" tY="128" />
         <tile x="4" y="18" layer="0" tX="256" tY="192" />
         <tile x="4" y="19" layer="0" tX="0" tY="0" />
         <tile x="4" y="20" layer="0" tX="256" tY="0" />
@@ -45,6 +48,7 @@
         <tile x="4" y="26" layer="0" tX="256" tY="0" />
         <tile x="4" y="27" layer="0" tX="256" tY="0" />
         <tile x="4" y="28" layer="0" tX="256" tY="0" />
+        <tile x="4" y="29" layer="0" tX="448" tY="128" />
         <tile x="5" y="18" layer="0" tX="256" tY="192" />
         <tile x="5" y="19" layer="0" tX="0" tY="0" />
         <tile x="5" y="20" layer="0" tX="256" tY="0" />
@@ -56,17 +60,19 @@
         <tile x="5" y="26" layer="0" tX="256" tY="0" />
         <tile x="5" y="27" layer="0" tX="256" tY="0" />
         <tile x="5" y="28" layer="0" tX="256" tY="0" />
+        <tile x="5" y="29" layer="0" tX="448" tY="128" />
         <tile x="6" y="18" layer="0" tX="256" tY="192" />
         <tile x="6" y="19" layer="0" tX="0" tY="0" />
         <tile x="6" y="20" layer="0" tX="256" tY="0" />
         <tile x="6" y="21" layer="0" tX="256" tY="0" />
         <tile x="6" y="22" layer="0" tX="256" tY="0" />
-        <tile x="6" y="23" layer="0" tX="256" tY="0" />
+        <tile x="6" y="23" layer="0" tX="64" tY="384" />
         <tile x="6" y="24" layer="0" tX="256" tY="0" />
         <tile x="6" y="25" layer="0" tX="256" tY="0" />
         <tile x="6" y="26" layer="0" tX="256" tY="0" />
         <tile x="6" y="27" layer="0" tX="256" tY="0" />
         <tile x="6" y="28" layer="0" tX="256" tY="0" />
+        <tile x="6" y="29" layer="0" tX="448" tY="128" />
         <tile x="7" y="18" layer="0" tX="256" tY="192" />
         <tile x="7" y="19" layer="0" tX="0" tY="0" />
         <tile x="7" y="20" layer="0" tX="256" tY="0" />
@@ -78,17 +84,19 @@
         <tile x="7" y="26" layer="0" tX="256" tY="0" />
         <tile x="7" y="27" layer="0" tX="256" tY="0" />
         <tile x="7" y="28" layer="0" tX="256" tY="0" />
+        <tile x="7" y="29" layer="0" tX="448" tY="128" />
         <tile x="8" y="18" layer="0" tX="256" tY="192" />
         <tile x="8" y="19" layer="0" tX="0" tY="0" />
         <tile x="8" y="20" layer="0" tX="256" tY="0" />
         <tile x="8" y="21" layer="0" tX="256" tY="0" />
         <tile x="8" y="22" layer="0" tX="256" tY="0" />
-        <tile x="8" y="23" layer="0" tX="256" tY="0" />
+        <tile x="8" y="23" layer="0" tX="64" tY="384" />
         <tile x="8" y="24" layer="0" tX="256" tY="0" />
         <tile x="8" y="25" layer="0" tX="256" tY="0" />
         <tile x="8" y="26" layer="0" tX="256" tY="0" />
         <tile x="8" y="27" layer="0" tX="256" tY="0" />
         <tile x="8" y="28" layer="0" tX="256" tY="0" />
+        <tile x="8" y="29" layer="0" tX="448" tY="128" />
         <tile x="9" y="18" layer="0" tX="256" tY="192" />
         <tile x="9" y="19" layer="0" tX="0" tY="0" />
         <tile x="9" y="20" layer="0" tX="256" tY="0" />
@@ -100,6 +108,7 @@
         <tile x="9" y="26" layer="0" tX="256" tY="0" />
         <tile x="9" y="27" layer="0" tX="256" tY="0" />
         <tile x="9" y="28" layer="0" tX="256" tY="0" />
+        <tile x="9" y="29" layer="0" tX="448" tY="128" />
         <tile x="10" y="18" layer="0" tX="256" tY="192" />
         <tile x="10" y="19" layer="0" tX="0" tY="0" />
         <tile x="10" y="20" layer="0" tX="256" tY="0" />
@@ -111,6 +120,7 @@
         <tile x="10" y="26" layer="0" tX="256" tY="0" />
         <tile x="10" y="27" layer="0" tX="256" tY="0" />
         <tile x="10" y="28" layer="0" tX="256" tY="0" />
+        <tile x="10" y="29" layer="0" tX="448" tY="128" />
         <tile x="11" y="18" layer="0" tX="256" tY="192" />
         <tile x="11" y="19" layer="0" tX="0" tY="0" />
         <tile x="11" y="20" layer="0" tX="256" tY="0" />
@@ -122,17 +132,19 @@
         <tile x="11" y="26" layer="0" tX="256" tY="0" />
         <tile x="11" y="27" layer="0" tX="256" tY="0" />
         <tile x="11" y="28" layer="0" tX="256" tY="0" />
+        <tile x="11" y="29" layer="0" tX="448" tY="128" />
         <tile x="12" y="18" layer="0" tX="256" tY="192" />
         <tile x="12" y="19" layer="0" tX="0" tY="0" />
         <tile x="12" y="20" layer="0" tX="256" tY="0" />
         <tile x="12" y="21" layer="0" tX="256" tY="0" />
         <tile x="12" y="22" layer="0" tX="256" tY="0" />
         <tile x="12" y="23" layer="0" tX="256" tY="0" />
-        <tile x="12" y="24" layer="0" tX="256" tY="0" />
+        <tile x="12" y="24" layer="0" tX="64" tY="384" />
         <tile x="12" y="25" layer="0" tX="256" tY="0" />
         <tile x="12" y="26" layer="0" tX="256" tY="0" />
         <tile x="12" y="27" layer="0" tX="256" tY="0" />
         <tile x="12" y="28" layer="0" tX="256" tY="0" />
+        <tile x="12" y="29" layer="0" tX="448" tY="128" />
         <tile x="13" y="18" layer="0" tX="256" tY="192" />
         <tile x="13" y="19" layer="0" tX="0" tY="0" />
         <tile x="13" y="20" layer="0" tX="256" tY="0" />
@@ -144,6 +156,7 @@
         <tile x="13" y="26" layer="0" tX="256" tY="0" />
         <tile x="13" y="27" layer="0" tX="256" tY="0" />
         <tile x="13" y="28" layer="0" tX="256" tY="0" />
+        <tile x="13" y="29" layer="0" tX="448" tY="128" />
         <tile x="14" y="16" layer="0" tX="128" tY="384" />
         <tile x="14" y="18" layer="0" tX="256" tY="192" />
         <tile x="14" y="19" layer="0" tX="0" tY="0" />
@@ -156,17 +169,19 @@
         <tile x="14" y="26" layer="0" tX="256" tY="0" />
         <tile x="14" y="27" layer="0" tX="256" tY="0" />
         <tile x="14" y="28" layer="0" tX="256" tY="0" />
+        <tile x="14" y="29" layer="0" tX="448" tY="128" />
         <tile x="15" y="18" layer="0" tX="256" tY="192" />
         <tile x="15" y="19" layer="0" tX="0" tY="0" />
         <tile x="15" y="20" layer="0" tX="256" tY="0" />
         <tile x="15" y="21" layer="0" tX="256" tY="0" />
-        <tile x="15" y="22" layer="0" tX="256" tY="0" />
+        <tile x="15" y="22" layer="0" tX="64" tY="384" />
         <tile x="15" y="23" layer="0" tX="256" tY="0" />
         <tile x="15" y="24" layer="0" tX="256" tY="0" />
         <tile x="15" y="25" layer="0" tX="256" tY="0" />
         <tile x="15" y="26" layer="0" tX="256" tY="0" />
         <tile x="15" y="27" layer="0" tX="256" tY="0" />
         <tile x="15" y="28" layer="0" tX="256" tY="0" />
+        <tile x="15" y="29" layer="0" tX="448" tY="128" />
         <tile x="16" y="16" layer="0" tX="128" tY="384" />
         <tile x="16" y="18" layer="0" tX="256" tY="192" />
         <tile x="16" y="19" layer="0" tX="0" tY="0" />
@@ -174,22 +189,24 @@
         <tile x="16" y="21" layer="0" tX="256" tY="0" />
         <tile x="16" y="22" layer="0" tX="256" tY="0" />
         <tile x="16" y="23" layer="0" tX="256" tY="0" />
-        <tile x="16" y="24" layer="0" tX="256" tY="0" />
+        <tile x="16" y="24" layer="0" tX="0" tY="384" />
         <tile x="16" y="25" layer="0" tX="256" tY="0" />
         <tile x="16" y="26" layer="0" tX="256" tY="0" />
         <tile x="16" y="27" layer="0" tX="256" tY="0" />
         <tile x="16" y="28" layer="0" tX="256" tY="0" />
+        <tile x="16" y="29" layer="0" tX="448" tY="128" />
         <tile x="17" y="18" layer="0" tX="256" tY="192" />
         <tile x="17" y="19" layer="0" tX="0" tY="0" />
         <tile x="17" y="20" layer="0" tX="256" tY="0" />
         <tile x="17" y="21" layer="0" tX="256" tY="0" />
-        <tile x="17" y="22" layer="0" tX="256" tY="0" />
+        <tile x="17" y="22" layer="0" tX="64" tY="384" />
         <tile x="17" y="23" layer="0" tX="256" tY="0" />
         <tile x="17" y="24" layer="0" tX="256" tY="0" />
         <tile x="17" y="25" layer="0" tX="256" tY="0" />
         <tile x="17" y="26" layer="0" tX="256" tY="0" />
         <tile x="17" y="27" layer="0" tX="256" tY="0" />
         <tile x="17" y="28" layer="0" tX="256" tY="0" />
+        <tile x="17" y="29" layer="0" tX="448" tY="128" />
         <tile x="18" y="18" layer="0" tX="256" tY="192" />
         <tile x="18" y="19" layer="0" tX="0" tY="0" />
         <tile x="18" y="20" layer="0" tX="256" tY="0" />
@@ -201,6 +218,7 @@
         <tile x="18" y="26" layer="0" tX="256" tY="0" />
         <tile x="18" y="27" layer="0" tX="256" tY="0" />
         <tile x="18" y="28" layer="0" tX="256" tY="0" />
+        <tile x="18" y="29" layer="0" tX="448" tY="128" />
         <tile x="19" y="18" layer="0" tX="256" tY="192" />
         <tile x="19" y="19" layer="0" tX="0" tY="0" />
         <tile x="19" y="20" layer="0" tX="256" tY="0" />
@@ -212,6 +230,7 @@
         <tile x="19" y="26" layer="0" tX="256" tY="0" />
         <tile x="19" y="27" layer="0" tX="256" tY="0" />
         <tile x="19" y="28" layer="0" tX="256" tY="0" />
+        <tile x="19" y="29" layer="0" tX="448" tY="128" />
         <tile x="20" y="16" layer="0" tX="128" tY="384" />
         <tile x="20" y="18" layer="0" tX="256" tY="192" />
         <tile x="20" y="19" layer="0" tX="0" tY="0" />
@@ -224,6 +243,7 @@
         <tile x="20" y="26" layer="0" tX="256" tY="0" />
         <tile x="20" y="27" layer="0" tX="256" tY="0" />
         <tile x="20" y="28" layer="0" tX="256" tY="0" />
+        <tile x="20" y="29" layer="0" tX="448" tY="128" />
         <tile x="21" y="18" layer="0" tX="256" tY="192" />
         <tile x="21" y="19" layer="0" tX="0" tY="0" />
         <tile x="21" y="20" layer="0" tX="256" tY="0" />
@@ -235,6 +255,7 @@
         <tile x="21" y="26" layer="0" tX="256" tY="0" />
         <tile x="21" y="27" layer="0" tX="256" tY="0" />
         <tile x="21" y="28" layer="0" tX="256" tY="0" />
+        <tile x="21" y="29" layer="0" tX="448" tY="128" />
         <tile x="22" y="18" layer="0" tX="256" tY="192" />
         <tile x="22" y="19" layer="0" tX="0" tY="0" />
         <tile x="22" y="20" layer="0" tX="256" tY="0" />
@@ -246,6 +267,7 @@
         <tile x="22" y="26" layer="0" tX="256" tY="0" />
         <tile x="22" y="27" layer="0" tX="256" tY="0" />
         <tile x="22" y="28" layer="0" tX="256" tY="0" />
+        <tile x="22" y="29" layer="0" tX="448" tY="128" />
         <tile x="23" y="18" layer="0" tX="256" tY="192" />
         <tile x="23" y="19" layer="0" tX="0" tY="0" />
         <tile x="23" y="20" layer="0" tX="256" tY="0" />
@@ -257,18 +279,19 @@
         <tile x="23" y="26" layer="0" tX="256" tY="0" />
         <tile x="23" y="27" layer="0" tX="256" tY="0" />
         <tile x="23" y="28" layer="0" tX="256" tY="0" />
-        <tile x="24" y="17" layer="0" tX="128" tY="384" />
+        <tile x="23" y="29" layer="0" tX="448" tY="128" />
         <tile x="24" y="18" layer="0" tX="256" tY="192" />
         <tile x="24" y="19" layer="0" tX="0" tY="0" />
         <tile x="24" y="20" layer="0" tX="256" tY="0" />
         <tile x="24" y="21" layer="0" tX="256" tY="0" />
-        <tile x="24" y="22" layer="0" tX="256" tY="0" />
+        <tile x="24" y="22" layer="0" tX="0" tY="384" />
         <tile x="24" y="23" layer="0" tX="256" tY="0" />
         <tile x="24" y="24" layer="0" tX="256" tY="0" />
         <tile x="24" y="25" layer="0" tX="256" tY="0" />
         <tile x="24" y="26" layer="0" tX="256" tY="0" />
         <tile x="24" y="27" layer="0" tX="256" tY="0" />
         <tile x="24" y="28" layer="0" tX="256" tY="0" />
+        <tile x="24" y="29" layer="0" tX="448" tY="128" />
         <tile x="25" y="18" layer="0" tX="256" tY="192" />
         <tile x="25" y="19" layer="0" tX="0" tY="0" />
         <tile x="25" y="20" layer="0" tX="256" tY="0" />
@@ -280,6 +303,7 @@
         <tile x="25" y="26" layer="0" tX="256" tY="0" />
         <tile x="25" y="27" layer="0" tX="256" tY="0" />
         <tile x="25" y="28" layer="0" tX="256" tY="0" />
+        <tile x="25" y="29" layer="0" tX="448" tY="128" />
         <tile x="26" y="18" layer="0" tX="256" tY="192" />
         <tile x="26" y="19" layer="0" tX="0" tY="0" />
         <tile x="26" y="20" layer="0" tX="256" tY="0" />
@@ -291,28 +315,31 @@
         <tile x="26" y="26" layer="0" tX="256" tY="0" />
         <tile x="26" y="27" layer="0" tX="256" tY="0" />
         <tile x="26" y="28" layer="0" tX="256" tY="0" />
+        <tile x="26" y="29" layer="0" tX="448" tY="128" />
         <tile x="27" y="18" layer="0" tX="256" tY="192" />
         <tile x="27" y="19" layer="0" tX="0" tY="0" />
         <tile x="27" y="20" layer="0" tX="256" tY="0" />
         <tile x="27" y="21" layer="0" tX="256" tY="0" />
         <tile x="27" y="22" layer="0" tX="256" tY="0" />
         <tile x="27" y="23" layer="0" tX="256" tY="0" />
-        <tile x="27" y="24" layer="0" tX="256" tY="0" />
+        <tile x="27" y="24" layer="0" tX="0" tY="384" />
         <tile x="27" y="25" layer="0" tX="256" tY="0" />
         <tile x="27" y="26" layer="0" tX="256" tY="0" />
         <tile x="27" y="27" layer="0" tX="256" tY="0" />
         <tile x="27" y="28" layer="0" tX="256" tY="0" />
+        <tile x="27" y="29" layer="0" tX="448" tY="128" />
         <tile x="28" y="18" layer="0" tX="256" tY="192" />
         <tile x="28" y="19" layer="0" tX="0" tY="0" />
         <tile x="28" y="20" layer="0" tX="256" tY="0" />
         <tile x="28" y="21" layer="0" tX="256" tY="0" />
         <tile x="28" y="22" layer="0" tX="256" tY="0" />
         <tile x="28" y="23" layer="0" tX="256" tY="0" />
-        <tile x="28" y="24" layer="0" tX="256" tY="0" />
+        <tile x="28" y="24" layer="0" tX="0" tY="384" />
         <tile x="28" y="25" layer="0" tX="256" tY="0" />
         <tile x="28" y="26" layer="0" tX="256" tY="0" />
         <tile x="28" y="27" layer="0" tX="256" tY="0" />
         <tile x="28" y="28" layer="0" tX="256" tY="0" />
+        <tile x="28" y="29" layer="0" tX="448" tY="128" />
         <tile x="29" y="18" layer="0" tX="256" tY="192" />
         <tile x="29" y="19" layer="0" tX="0" tY="0" />
         <tile x="29" y="20" layer="0" tX="256" tY="0" />
@@ -324,6 +351,7 @@
         <tile x="29" y="26" layer="0" tX="256" tY="0" />
         <tile x="29" y="27" layer="0" tX="256" tY="0" />
         <tile x="29" y="28" layer="0" tX="256" tY="0" />
+        <tile x="29" y="29" layer="0" tX="448" tY="128" />
         <tile x="30" y="18" layer="0" tX="256" tY="192" />
         <tile x="30" y="19" layer="0" tX="0" tY="0" />
         <tile x="30" y="20" layer="0" tX="256" tY="0" />
@@ -335,6 +363,7 @@
         <tile x="30" y="26" layer="0" tX="256" tY="0" />
         <tile x="30" y="27" layer="0" tX="256" tY="0" />
         <tile x="30" y="28" layer="0" tX="256" tY="0" />
+        <tile x="30" y="29" layer="0" tX="448" tY="128" />
         <tile x="31" y="18" layer="0" tX="256" tY="192" />
         <tile x="31" y="19" layer="0" tX="0" tY="0" />
         <tile x="31" y="20" layer="0" tX="256" tY="0" />
@@ -346,6 +375,7 @@
         <tile x="31" y="26" layer="0" tX="256" tY="0" />
         <tile x="31" y="27" layer="0" tX="256" tY="0" />
         <tile x="31" y="28" layer="0" tX="256" tY="0" />
+        <tile x="31" y="29" layer="0" tX="448" tY="128" />
         <tile x="32" y="18" layer="0" tX="256" tY="192" />
         <tile x="32" y="19" layer="0" tX="0" tY="0" />
         <tile x="32" y="20" layer="0" tX="256" tY="0" />
@@ -357,17 +387,19 @@
         <tile x="32" y="26" layer="0" tX="256" tY="0" />
         <tile x="32" y="27" layer="0" tX="256" tY="0" />
         <tile x="32" y="28" layer="0" tX="256" tY="0" />
+        <tile x="32" y="29" layer="0" tX="448" tY="128" />
         <tile x="33" y="18" layer="0" tX="256" tY="192" />
         <tile x="33" y="19" layer="0" tX="0" tY="0" />
         <tile x="33" y="20" layer="0" tX="256" tY="0" />
         <tile x="33" y="21" layer="0" tX="256" tY="0" />
-        <tile x="33" y="22" layer="0" tX="256" tY="0" />
+        <tile x="33" y="22" layer="0" tX="0" tY="384" />
         <tile x="33" y="23" layer="0" tX="256" tY="0" />
         <tile x="33" y="24" layer="0" tX="256" tY="0" />
         <tile x="33" y="25" layer="0" tX="256" tY="0" />
         <tile x="33" y="26" layer="0" tX="256" tY="0" />
         <tile x="33" y="27" layer="0" tX="256" tY="0" />
         <tile x="33" y="28" layer="0" tX="256" tY="0" />
+        <tile x="33" y="29" layer="0" tX="448" tY="128" />
         <tile x="34" y="18" layer="0" tX="256" tY="192" />
         <tile x="34" y="19" layer="0" tX="0" tY="0" />
         <tile x="34" y="20" layer="0" tX="256" tY="0" />
@@ -379,6 +411,7 @@
         <tile x="34" y="26" layer="0" tX="256" tY="0" />
         <tile x="34" y="27" layer="0" tX="256" tY="0" />
         <tile x="34" y="28" layer="0" tX="256" tY="0" />
+        <tile x="34" y="29" layer="0" tX="448" tY="128" />
         <tile x="35" y="18" layer="0" tX="256" tY="192" />
         <tile x="35" y="19" layer="0" tX="0" tY="0" />
         <tile x="35" y="20" layer="0" tX="256" tY="0" />
@@ -390,17 +423,19 @@
         <tile x="35" y="26" layer="0" tX="256" tY="0" />
         <tile x="35" y="27" layer="0" tX="256" tY="0" />
         <tile x="35" y="28" layer="0" tX="256" tY="0" />
+        <tile x="35" y="29" layer="0" tX="448" tY="128" />
         <tile x="36" y="18" layer="0" tX="256" tY="192" />
         <tile x="36" y="19" layer="0" tX="0" tY="0" />
         <tile x="36" y="20" layer="0" tX="256" tY="0" />
         <tile x="36" y="21" layer="0" tX="256" tY="0" />
         <tile x="36" y="22" layer="0" tX="256" tY="0" />
         <tile x="36" y="23" layer="0" tX="256" tY="0" />
-        <tile x="36" y="24" layer="0" tX="256" tY="0" />
+        <tile x="36" y="24" layer="0" tX="0" tY="384" />
         <tile x="36" y="25" layer="0" tX="256" tY="0" />
         <tile x="36" y="26" layer="0" tX="256" tY="0" />
         <tile x="36" y="27" layer="0" tX="256" tY="0" />
         <tile x="36" y="28" layer="0" tX="256" tY="0" />
+        <tile x="36" y="29" layer="0" tX="448" tY="128" />
         <tile x="37" y="19" layer="0" tX="0" tY="0" />
         <tile x="37" y="20" layer="0" tX="256" tY="0" />
         <tile x="37" y="21" layer="0" tX="256" tY="0" />
@@ -411,6 +446,7 @@
         <tile x="37" y="26" layer="0" tX="256" tY="0" />
         <tile x="37" y="27" layer="0" tX="256" tY="0" />
         <tile x="37" y="28" layer="0" tX="256" tY="0" />
+        <tile x="37" y="29" layer="0" tX="448" tY="128" />
         <tile x="38" y="19" layer="0" tX="0" tY="0" />
         <tile x="38" y="20" layer="0" tX="256" tY="0" />
         <tile x="38" y="21" layer="0" tX="256" tY="0" />
@@ -421,6 +457,7 @@
         <tile x="38" y="26" layer="0" tX="256" tY="0" />
         <tile x="38" y="27" layer="0" tX="256" tY="0" />
         <tile x="38" y="28" layer="0" tX="256" tY="0" />
+        <tile x="38" y="29" layer="0" tX="448" tY="128" />
         <tile x="39" y="19" layer="0" tX="0" tY="0" />
         <tile x="39" y="20" layer="0" tX="256" tY="0" />
         <tile x="39" y="21" layer="0" tX="256" tY="0" />
@@ -431,16 +468,18 @@
         <tile x="39" y="26" layer="0" tX="256" tY="0" />
         <tile x="39" y="27" layer="0" tX="256" tY="0" />
         <tile x="39" y="28" layer="0" tX="256" tY="0" />
+        <tile x="39" y="29" layer="0" tX="448" tY="128" />
         <tile x="40" y="19" layer="0" tX="0" tY="0" />
         <tile x="40" y="20" layer="0" tX="256" tY="0" />
         <tile x="40" y="21" layer="0" tX="256" tY="0" />
-        <tile x="40" y="22" layer="0" tX="256" tY="0" />
+        <tile x="40" y="22" layer="0" tX="0" tY="384" />
         <tile x="40" y="23" layer="0" tX="256" tY="0" />
         <tile x="40" y="24" layer="0" tX="256" tY="0" />
         <tile x="40" y="25" layer="0" tX="256" tY="0" />
         <tile x="40" y="26" layer="0" tX="256" tY="0" />
         <tile x="40" y="27" layer="0" tX="256" tY="0" />
         <tile x="40" y="28" layer="0" tX="256" tY="0" />
+        <tile x="40" y="29" layer="0" tX="448" tY="128" />
         <tile x="41" y="19" layer="0" tX="0" tY="0" />
         <tile x="41" y="20" layer="0" tX="256" tY="0" />
         <tile x="41" y="21" layer="0" tX="256" tY="0" />
@@ -451,6 +490,7 @@
         <tile x="41" y="26" layer="0" tX="256" tY="0" />
         <tile x="41" y="27" layer="0" tX="256" tY="0" />
         <tile x="41" y="28" layer="0" tX="256" tY="0" />
+        <tile x="41" y="29" layer="0" tX="448" tY="128" />
         <tile x="42" y="19" layer="0" tX="0" tY="0" />
         <tile x="42" y="20" layer="0" tX="256" tY="0" />
         <tile x="42" y="21" layer="0" tX="256" tY="0" />
@@ -461,6 +501,7 @@
         <tile x="42" y="26" layer="0" tX="256" tY="0" />
         <tile x="42" y="27" layer="0" tX="256" tY="0" />
         <tile x="42" y="28" layer="0" tX="256" tY="0" />
+        <tile x="42" y="29" layer="0" tX="448" tY="128" />
         <tile x="43" y="19" layer="0" tX="0" tY="0" />
         <tile x="43" y="20" layer="0" tX="256" tY="0" />
         <tile x="43" y="21" layer="0" tX="256" tY="0" />
@@ -471,6 +512,8 @@
         <tile x="43" y="26" layer="0" tX="256" tY="0" />
         <tile x="43" y="27" layer="0" tX="256" tY="0" />
         <tile x="43" y="28" layer="0" tX="256" tY="0" />
+        <tile x="43" y="29" layer="0" tX="448" tY="128" />
+        <tile x="44" y="18" layer="0" tX="256" tY="192" />
         <tile x="44" y="19" layer="0" tX="0" tY="0" />
         <tile x="44" y="20" layer="0" tX="256" tY="0" />
         <tile x="44" y="21" layer="0" tX="256" tY="0" />
@@ -481,6 +524,8 @@
         <tile x="44" y="26" layer="0" tX="256" tY="0" />
         <tile x="44" y="27" layer="0" tX="256" tY="0" />
         <tile x="44" y="28" layer="0" tX="256" tY="0" />
+        <tile x="44" y="29" layer="0" tX="448" tY="128" />
+        <tile x="45" y="18" layer="0" tX="256" tY="192" />
         <tile x="45" y="19" layer="0" tX="0" tY="0" />
         <tile x="45" y="20" layer="0" tX="256" tY="0" />
         <tile x="45" y="21" layer="0" tX="256" tY="0" />
@@ -491,6 +536,8 @@
         <tile x="45" y="26" layer="0" tX="256" tY="0" />
         <tile x="45" y="27" layer="0" tX="256" tY="0" />
         <tile x="45" y="28" layer="0" tX="256" tY="0" />
+        <tile x="45" y="29" layer="0" tX="448" tY="128" />
+        <tile x="46" y="18" layer="0" tX="256" tY="192" />
         <tile x="46" y="19" layer="0" tX="0" tY="0" />
         <tile x="46" y="20" layer="0" tX="256" tY="0" />
         <tile x="46" y="21" layer="0" tX="256" tY="0" />
@@ -501,6 +548,8 @@
         <tile x="46" y="26" layer="0" tX="256" tY="0" />
         <tile x="46" y="27" layer="0" tX="256" tY="0" />
         <tile x="46" y="28" layer="0" tX="256" tY="0" />
+        <tile x="46" y="29" layer="0" tX="448" tY="128" />
+        <tile x="47" y="18" layer="0" tX="256" tY="192" />
         <tile x="47" y="19" layer="0" tX="0" tY="0" />
         <tile x="47" y="20" layer="0" tX="256" tY="0" />
         <tile x="47" y="21" layer="0" tX="256" tY="0" />
@@ -511,6 +560,7 @@
         <tile x="47" y="26" layer="0" tX="256" tY="0" />
         <tile x="47" y="27" layer="0" tX="256" tY="0" />
         <tile x="47" y="28" layer="0" tX="256" tY="0" />
+        <tile x="47" y="29" layer="0" tX="448" tY="128" />
         <tile x="48" y="19" layer="0" tX="0" tY="0" />
         <tile x="48" y="20" layer="0" tX="256" tY="0" />
         <tile x="48" y="21" layer="0" tX="256" tY="0" />
@@ -521,6 +571,7 @@
         <tile x="48" y="26" layer="0" tX="256" tY="0" />
         <tile x="48" y="27" layer="0" tX="256" tY="0" />
         <tile x="48" y="28" layer="0" tX="256" tY="0" />
+        <tile x="48" y="29" layer="0" tX="448" tY="128" />
         <tile x="49" y="19" layer="0" tX="0" tY="0" />
         <tile x="49" y="20" layer="0" tX="256" tY="0" />
         <tile x="49" y="21" layer="0" tX="256" tY="0" />
@@ -531,6 +582,7 @@
         <tile x="49" y="26" layer="0" tX="256" tY="0" />
         <tile x="49" y="27" layer="0" tX="256" tY="0" />
         <tile x="49" y="28" layer="0" tX="256" tY="0" />
+        <tile x="49" y="29" layer="0" tX="448" tY="128" />
         <tile x="50" y="19" layer="0" tX="0" tY="0" />
         <tile x="50" y="20" layer="0" tX="256" tY="0" />
         <tile x="50" y="21" layer="0" tX="256" tY="0" />
@@ -541,6 +593,7 @@
         <tile x="50" y="26" layer="0" tX="256" tY="0" />
         <tile x="50" y="27" layer="0" tX="256" tY="0" />
         <tile x="50" y="28" layer="0" tX="256" tY="0" />
+        <tile x="50" y="29" layer="0" tX="448" tY="128" />
         <tile x="51" y="19" layer="0" tX="0" tY="0" />
         <tile x="51" y="20" layer="0" tX="256" tY="0" />
         <tile x="51" y="21" layer="0" tX="256" tY="0" />
@@ -551,6 +604,8 @@
         <tile x="51" y="26" layer="0" tX="256" tY="0" />
         <tile x="51" y="27" layer="0" tX="256" tY="0" />
         <tile x="51" y="28" layer="0" tX="256" tY="0" />
+        <tile x="51" y="29" layer="0" tX="448" tY="128" />
+        <tile x="52" y="18" layer="0" tX="256" tY="192" />
         <tile x="52" y="19" layer="0" tX="0" tY="0" />
         <tile x="52" y="20" layer="0" tX="256" tY="0" />
         <tile x="52" y="21" layer="0" tX="256" tY="0" />
@@ -561,6 +616,8 @@
         <tile x="52" y="26" layer="0" tX="256" tY="0" />
         <tile x="52" y="27" layer="0" tX="256" tY="0" />
         <tile x="52" y="28" layer="0" tX="256" tY="0" />
+        <tile x="52" y="29" layer="0" tX="448" tY="128" />
+        <tile x="53" y="18" layer="0" tX="256" tY="192" />
         <tile x="53" y="19" layer="0" tX="0" tY="0" />
         <tile x="53" y="20" layer="0" tX="256" tY="0" />
         <tile x="53" y="21" layer="0" tX="256" tY="0" />
@@ -571,6 +628,7 @@
         <tile x="53" y="26" layer="0" tX="256" tY="0" />
         <tile x="53" y="27" layer="0" tX="256" tY="0" />
         <tile x="53" y="28" layer="0" tX="256" tY="0" />
+        <tile x="53" y="29" layer="0" tX="448" tY="128" />
         <tile x="54" y="19" layer="0" tX="0" tY="0" />
         <tile x="54" y="20" layer="0" tX="256" tY="0" />
         <tile x="54" y="21" layer="0" tX="256" tY="0" />
@@ -581,6 +639,7 @@
         <tile x="54" y="26" layer="0" tX="256" tY="0" />
         <tile x="54" y="27" layer="0" tX="256" tY="0" />
         <tile x="54" y="28" layer="0" tX="256" tY="0" />
+        <tile x="54" y="29" layer="0" tX="448" tY="128" />
         <tile x="55" y="19" layer="0" tX="0" tY="0" />
         <tile x="55" y="20" layer="0" tX="256" tY="0" />
         <tile x="55" y="21" layer="0" tX="256" tY="0" />
@@ -591,6 +650,7 @@
         <tile x="55" y="26" layer="0" tX="256" tY="0" />
         <tile x="55" y="27" layer="0" tX="256" tY="0" />
         <tile x="55" y="28" layer="0" tX="256" tY="0" />
+        <tile x="55" y="29" layer="0" tX="448" tY="128" />
     </tiles>
     <objects>
         <object x="1" y="8" layer="0" name="back" />
@@ -608,12 +668,15 @@
         <object x="11" y="19" layer="0" name="solid" />
         <object x="12" y="19" layer="0" name="solid" />
         <object x="13" y="19" layer="0" name="solid" />
+        <object x="14" y="16" layer="0" name="coin" />
         <object x="14" y="19" layer="0" name="solid" />
         <object x="15" y="19" layer="0" name="solid" />
+        <object x="16" y="16" layer="0" name="coin" />
         <object x="16" y="19" layer="0" name="solid" />
         <object x="17" y="19" layer="0" name="solid" />
         <object x="18" y="19" layer="0" name="solid" />
         <object x="19" y="19" layer="0" name="solid" />
+        <object x="20" y="16" layer="0" name="coin" />
         <object x="20" y="19" layer="0" name="solid" />
         <object x="21" y="19" layer="0" name="solid" />
         <object x="22" y="19" layer="0" name="solid" />

@@ -116,6 +116,11 @@ void Player::checkCollision(float Dy, float Dx)
 						this->playerOnGround = false;
 					}
 
+					if (z->getName() == "coin")
+					{
+						this->map->removeTile(z->rect.left, z->rect.top, 0);
+					}
+
 					}
 				}
 			}

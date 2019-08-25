@@ -22,9 +22,6 @@ void Level::initTextures()
 	this->sky1.setTexture(&skyT);
 	this->sky1.setSize(sf::Vector2f(2500, this->window->getSize().y));
 
-	this->skyT2.loadFromFile("../res/images/skyblue.png");
-	this->sky2.setTexture(&skyT);
-	this->sky2.setSize(sf::Vector2f(2500, this->window->getSize().y));
 
 	this->forestt1.loadFromFile("../res/images/forest1.png");
 	this->forest1.setTexture(&forestt1);
@@ -88,9 +85,18 @@ Level::Level(sf::RenderWindow & window, std::string map_filename, std::string ba
 	this->tilemap->setGameMap(true);
 	this->player = new Player(&window,this->tilemap->getObject("player")->getGlobalBounds().left, this->tilemap->getObject("player")->getGlobalBounds().top, playerTexture, "../res/animation/anim.xml", *this->tilemap);
 	this->levelView.setCenter(player->getPosition().x, player->getPosition().y);
-	this->sky.setPosition(this->tilemap->getObject("back")->rect.left, this->tilemap->getObject("back")->rect.top);
-	this->sky1.setPosition(this->sky.getPosition().x + this->sky.getSize().x,this->tilemap->getObject("back")->rect.top);
-	this->sky2.setPosition(this->sky1.getPosition().x + this->sky1.getSize().x, this->tilemap->getObject("back")->rect.top);
+
+	this->skyPos1.x = this->tilemap->getObject("back")->rect.left;
+	this->skyPos1.y = this->tilemap->getObject("back")->rect.top;
+
+	this->skyPos2.x = this->sky.getPosition().x + this->sky.getSize().x;
+	this->skyPos2.y = this->tilemap->getObject("back")->rect.top;
+
+	this->sky.setPosition(this->skyPos1.x,this->skyPos1.y);
+	this->sky1.setPosition(this->skyPos2.x, this->skyPos2.y);
+
+	
+
 	this->forest1.setPosition(this->tilemap->getObject("back")->rect.left,this->tilemap->getObject("back")->rect.top);
 	this->forest2.setPosition(this->tilemap->getObject("back")->rect.left,this->tilemap->getObject("back")->rect.top);
 	this->forest3.setPosition(this->tilemap->getObject("back")->rect.left,this->tilemap->getObject("back")->rect.top);
@@ -164,7 +170,22 @@ void Level::update(float time)
 	this->window->setView(this->levelView);
 	this->levelView.setCenter(player->getPosition().x, player->getPosition().y);
 
+	this->skyPos1.x -= 0.1f*time;
+	this->skyPos2.x -= 0.1f*time;
 
+	if ((this->sky.getPosition().x + this->sky.getSize().x) < 0)
+	{
+		this->skyPos1.x = this->sky1.getPosition().x + this->sky1.getSize().x;
+	}
+
+	if ((this->sky1.getPosition().x + this->sky1.getSize().x) < 0)
+	{
+		this->skyPos2.x = this->sky.getPosition().x + this->sky.getSize().x;
+	}
+
+
+	this->sky.setPosition(this->skyPos1.x, this->skyPos1.y);
+	this->sky1.setPosition(this->skyPos2.x, this->skyPos2.y);
 }
 
 // RENDER

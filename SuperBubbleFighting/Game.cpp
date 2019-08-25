@@ -16,7 +16,7 @@ void Game::initWindow()
     this->vertical_sync_enable = false;
     this->FrameRateLimit = 120;
     this->winSizeX = 1680; // GetSystemMetrics(SM_CXSCREEN)
-    this->winSizeY = 1000; // GetSystemMetrics(SM_CYSCREEN)
+    this->winSizeY = 1050; // GetSystemMetrics(SM_CYSCREEN)
     this->winTitle = "Super Bubble Fighting";
 
 	setParser.set("title", this->winTitle);
@@ -26,7 +26,7 @@ void Game::initWindow()
 	setParser.set("vsync", this->vertical_sync_enable);
 	setParser.saveToFile();
 
-    this->window = new sf::RenderWindow(sf::VideoMode(winSizeX, winSizeY), winTitle,sf::Style::Titlebar);
+    this->window = new sf::RenderWindow(sf::VideoMode(winSizeX, winSizeY), winTitle,sf::Style::Default);
     this->window->setVerticalSyncEnabled(this->vertical_sync_enable);
     this->window->setFramerateLimit(this->FrameRateLimit);
     this->window->setPosition(sf::Vector2i(0,0));
