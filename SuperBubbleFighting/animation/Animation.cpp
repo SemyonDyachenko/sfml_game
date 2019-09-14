@@ -28,6 +28,7 @@ void Animation::tick(float time)
 	}
 
 	int i = currentFrame;
+
 	sprite.setTextureRect(frames[i]);
 	if (flip) sprite.setTextureRect(frames_flip[i]);
 }

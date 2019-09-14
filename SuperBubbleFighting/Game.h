@@ -14,6 +14,7 @@ private:
     sf::Clock clock;
     float time;
 
+	
 
     std::stack<State*> states; // STATES
 

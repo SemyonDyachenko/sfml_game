@@ -34,9 +34,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -76,14 +76,15 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\superbubble\SuperBubbleFighting\lib;C:\superbubble\SuperBubbleFighting\GLUT;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\superbubble\SuperBubbleFighting\GLUT;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
       <ForcedIncludeFiles>stdafx.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>C:\superbubble\SuperBubbleFighting\GLUT;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glut32.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -92,13 +93,16 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\superbubble\SuperBubbleFighting\lib;C:\superbubble\SuperBubbleFighting\GLUT;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\superbubble\SuperBubbleFighting\GLUT;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <ForcedIncludeFiles>stdafx.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>C:\superbubble\SuperBubbleFighting\GLUT;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glut32.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+      <SubSystem>NotSet</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -109,7 +113,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\superbubble\SuperBubbleFighting\lib;C:\superbubble\SuperBubbleFighting\GLUT;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\superbubble\SuperBubbleFighting\GLUT;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
       <ForcedIncludeFiles>stdafx.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
@@ -151,6 +155,7 @@
     <None Include="resource\shaders\vertexShader.vert" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GUI\selectors\AssetElementSelector.h" />
     <ClInclude Include="components\AnimationComponent.h" />
     <ClInclude Include="animation\Animation.h" />
     <ClInclude Include="animation\AnimationManager.h" />
@@ -169,7 +174,7 @@
     <ClInclude Include="entities\Level.h" />
     <ClInclude Include="entities\Tile.h" />
     <ClInclude Include="entities\MapEditor.h" />
-    <ClInclude Include="GUI\TextureSelector.h" />
+    <ClInclude Include="GUI\selectors\TextureSelector.h" />
     <ClInclude Include="states\TestState.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="TinyXML\tinystr.h" />
@@ -185,6 +190,7 @@
     <ClInclude Include="GUI\TopBar.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GUI\selectors\AssetElementSelector.cpp" />
     <ClCompile Include="components\AnimationComponent.cpp" />
     <ClCompile Include="animation\Animation.cpp" />
     <ClCompile Include="animation\AnimationManager.cpp" />
@@ -202,7 +208,7 @@
     <ClCompile Include="entities\Level.cpp" />
     <ClCompile Include="entities\Tile.cpp" />
     <ClCompile Include="entities\MapEditor.cpp" />
-    <ClCompile Include="GUI\TextureSelector.cpp" />
+    <ClCompile Include="GUI\selectors\TextureSelector.cpp" />
     <ClCompile Include="states\TestState.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -227,30 +233,30 @@
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
-    <Import Project="..\packages\sfml_graphics.redist.2.5.1\build\native\sfml_graphics.redist.targets" Condition="Exists('..\packages\sfml_graphics.redist.2.5.1\build\native\sfml_graphics.redist.targets')" />
     <Import Project="..\packages\sfml_system.redist.2.5.1\build\native\sfml_system.redist.targets" Condition="Exists('..\packages\sfml_system.redist.2.5.1\build\native\sfml_system.redist.targets')" />
     <Import Project="..\packages\sfml_system.2.5.1\build\native\sfml_system.targets" Condition="Exists('..\packages\sfml_system.2.5.1\build\native\sfml_system.targets')" />
+    <Import Project="..\packages\sfml_graphics.redist.2.5.1\build\native\sfml_graphics.redist.targets" Condition="Exists('..\packages\sfml_graphics.redist.2.5.1\build\native\sfml_graphics.redist.targets')" />
     <Import Project="..\packages\sfml_window.redist.2.5.1\build\native\sfml_window.redist.targets" Condition="Exists('..\packages\sfml_window.redist.2.5.1\build\native\sfml_window.redist.targets')" />
     <Import Project="..\packages\sfml_window.2.5.1\build\native\sfml_window.targets" Condition="Exists('..\packages\sfml_window.2.5.1\build\native\sfml_window.targets')" />
     <Import Project="..\packages\sfml_graphics.2.5.1\build\native\sfml_graphics.targets" Condition="Exists('..\packages\sfml_graphics.2.5.1\build\native\sfml_graphics.targets')" />
-    <Import Project="..\packages\sfml_network.redist.2.5.1\build\native\sfml_network.redist.targets" Condition="Exists('..\packages\sfml_network.redist.2.5.1\build\native\sfml_network.redist.targets')" />
-    <Import Project="..\packages\sfml_network.2.5.1\build\native\sfml_network.targets" Condition="Exists('..\packages\sfml_network.2.5.1\build\native\sfml_network.targets')" />
     <Import Project="..\packages\sfml_audio.redist.2.5.1\build\native\sfml_audio.redist.targets" Condition="Exists('..\packages\sfml_audio.redist.2.5.1\build\native\sfml_audio.redist.targets')" />
     <Import Project="..\packages\sfml_audio.2.5.1\build\native\sfml_audio.targets" Condition="Exists('..\packages\sfml_audio.2.5.1\build\native\sfml_audio.targets')" />
+    <Import Project="..\packages\sfml_network.redist.2.5.1\build\native\sfml_network.redist.targets" Condition="Exists('..\packages\sfml_network.redist.2.5.1\build\native\sfml_network.redist.targets')" />
+    <Import Project="..\packages\sfml_network.2.5.1\build\native\sfml_network.targets" Condition="Exists('..\packages\sfml_network.2.5.1\build\native\sfml_network.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\sfml_graphics.redist.2.5.1\build\native\sfml_graphics.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sfml_graphics.redist.2.5.1\build\native\sfml_graphics.redist.targets'))" />
     <Error Condition="!Exists('..\packages\sfml_system.redist.2.5.1\build\native\sfml_system.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sfml_system.redist.2.5.1\build\native\sfml_system.redist.targets'))" />
     <Error Condition="!Exists('..\packages\sfml_system.2.5.1\build\native\sfml_system.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sfml_system.2.5.1\build\native\sfml_system.targets'))" />
+    <Error Condition="!Exists('..\packages\sfml_graphics.redist.2.5.1\build\native\sfml_graphics.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sfml_graphics.redist.2.5.1\build\native\sfml_graphics.redist.targets'))" />
     <Error Condition="!Exists('..\packages\sfml_window.redist.2.5.1\build\native\sfml_window.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sfml_window.redist.2.5.1\build\native\sfml_window.redist.targets'))" />
     <Error Condition="!Exists('..\packages\sfml_window.2.5.1\build\native\sfml_window.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sfml_window.2.5.1\build\native\sfml_window.targets'))" />
     <Error Condition="!Exists('..\packages\sfml_graphics.2.5.1\build\native\sfml_graphics.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sfml_graphics.2.5.1\build\native\sfml_graphics.targets'))" />
-    <Error Condition="!Exists('..\packages\sfml_network.redist.2.5.1\build\native\sfml_network.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sfml_network.redist.2.5.1\build\native\sfml_network.redist.targets'))" />
-    <Error Condition="!Exists('..\packages\sfml_network.2.5.1\build\native\sfml_network.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sfml_network.2.5.1\build\native\sfml_network.targets'))" />
     <Error Condition="!Exists('..\packages\sfml_audio.redist.2.5.1\build\native\sfml_audio.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sfml_audio.redist.2.5.1\build\native\sfml_audio.redist.targets'))" />
     <Error Condition="!Exists('..\packages\sfml_audio.2.5.1\build\native\sfml_audio.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sfml_audio.2.5.1\build\native\sfml_audio.targets'))" />
+    <Error Condition="!Exists('..\packages\sfml_network.redist.2.5.1\build\native\sfml_network.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sfml_network.redist.2.5.1\build\native\sfml_network.redist.targets'))" />
+    <Error Condition="!Exists('..\packages\sfml_network.2.5.1\build\native\sfml_network.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\sfml_network.2.5.1\build\native\sfml_network.targets'))" />
   </Target>
 </Project>

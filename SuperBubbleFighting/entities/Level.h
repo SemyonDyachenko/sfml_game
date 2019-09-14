@@ -20,22 +20,30 @@ protected:
 	std::vector<Enemy*> enemyes;
 	std::vector<SFMLObject*> objects;
 
+	sf::Texture sunT;
+	sf::RectangleShape sun;
+
 	sf::Texture skyT;
 	sf::RectangleShape sky;
 
 	sf::Texture skyT1;
 	sf::RectangleShape sky1;
 
+	sf::Texture skyT2;
+	sf::RectangleShape sky2;
+
+	sf::Texture skyT3;
+	sf::RectangleShape sky3;
+
 	sf::Vector2f skyPos1;
 	sf::Vector2f skyPos2;
 
 
-	sf::Texture forestt1;
-	sf::RectangleShape forest1;
-	sf::Texture forestt2;
-	sf::RectangleShape forest2;
-	sf::Texture forestt3;
-	sf::RectangleShape forest3;
+	sf::Texture skyT4;
+	sf::RectangleShape sky4;
+	sf::Texture skyT5;
+	sf::RectangleShape sky5;
+
 
 	sf::Texture playerTexture;
 
@@ -71,6 +79,8 @@ public:
 
 	const bool & checkEnd() const;
 
+	virtual void checkBackground(float time);
+
 	virtual void updatePlayer(float time);
 	virtual void updateEnemy(float time);
 	virtual void updateObjects(float time);
@@ -78,6 +88,7 @@ public:
 	virtual void renderPlayer(sf::RenderWindow * window);
 	virtual void renderEnemy(sf::RenderWindow * window);
 	virtual void renderObjects(sf::RenderWindow * window);
+
 
 	virtual void update(float time);
 	virtual void render(sf::RenderWindow * window);

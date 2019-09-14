@@ -44,6 +44,7 @@ private:
 	bool life;
 	unsigned hp;
 
+
 	void initDefaultVariables();
 
 public:

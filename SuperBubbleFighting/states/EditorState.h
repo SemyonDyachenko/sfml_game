@@ -4,8 +4,10 @@
 #include "State.h"
 #include "../GUI/Button.h"
 #include "../entities/MapEditor.h"
-#include "../GUI/TextureSelector.h"
+#include "../GUI/selectors/TextureSelector.h"
 #include "../GUI/ObjectCreator.h"
+#include "../GUI/selectors/AssetElementSelector.h"
+
 
 class EditorState :
 	public State
@@ -19,13 +21,15 @@ private:
 
 
 	std::map<std::string, Button*> buttons;
-
+	
 	sf::RenderWindow * window;
 
 	MapEditor * map;
 	
 	sf::View editorView;
 	float cameraSpeed;
+
+	
 
 	sf::RectangleShape selectorRect;
 	
@@ -43,6 +47,7 @@ private:
 
 
 	TextureSelector *textureSelector;
+	AssetElementSelector * assetSelector;
 	
 	sf::Texture tileset;
 

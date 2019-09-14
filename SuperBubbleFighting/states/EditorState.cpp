@@ -23,14 +23,16 @@ void EditorState::initView()
 
 void EditorState::initTextures()
 {
-	if (!this->tileset.loadFromFile("../res/images/tileset.png")) std::cout << "error in EditorState.cpp , don't load tileset texture" << std::endl;
+	if (!this->tileset.loadFromFile("../res/images/tileset.ng")) std::cout << "error in EditorState.cpp , don't load tileset texture" << std::endl;
 }
 
 void EditorState::initGui()
 {
-	this->textureSelector = new TextureSelector(0.f, 0.f, 600.f, 600.f,this->gridSize,&this->tileset,"TS");
+	this->textureSelector = new TextureSelector(0.f, 0.f, 400.f, 600.f,this->gridSize,&this->tileset,"TS");
 
 	this->objCreator = new ObjectCreator(this->window,*this->map);
+
+	this->assetSelector = new AssetElementSelector(0,600.f,1500,400,this->font);
 }
 
 void EditorState::initVariables()
@@ -55,6 +57,7 @@ void EditorState::initSelector()
 
 	this->mouseSelector.setOutlineThickness(2.f);
 	this->mouseSelector.setOutlineColor(sf::Color(61, 59, 59));
+	
 }
 
 
@@ -77,6 +80,9 @@ EditorState::EditorState(sf::RenderWindow * window, std::stack<State*>* states)
 	}
 	this->initGui();
 	this->initButtons();
+
+	
+	
 }
 
 EditorState::~EditorState()
@@ -276,6 +282,7 @@ void EditorState::render(sf::RenderWindow * window)
 	//render GUI
 	window->setView(this->window->getDefaultView());
 	this->textureSelector->render(*window);
+	this->assetSelector->render(window);
 	this->objCreator->render(window);
 	//for (auto &it : this->buttons)
 	//{

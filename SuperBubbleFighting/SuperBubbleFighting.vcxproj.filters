@@ -15,7 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
     <None Include="resource\light\unshadowShader.vert" />
     <None Include="resource\light\lightAttenuationShader.frag" />
     <None Include="resource\light\lightOverShapeShader.frag" />
@@ -23,6 +22,7 @@
     <None Include="resource\light\unshadowShader.frag" />
     <None Include="resource\shaders\vertexShader.vert" />
     <None Include="resource\shaders\fragmentShader.frag" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -79,9 +79,6 @@
     <ClInclude Include="states\EditorState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GUI\TextureSelector.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="states\SettingsState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -119,6 +116,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="resource\SettingsParsers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\selectors\TextureSelector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GUI\selectors\AssetElementSelector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -183,9 +186,6 @@
     <ClCompile Include="states\EditorState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GUI\TextureSelector.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="states\SettingsState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -223,6 +223,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="resource\SettingsParsers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\selectors\TextureSelector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\selectors\AssetElementSelector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

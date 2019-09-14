@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "Game.h"
-#include <Windows.h>
 #include "resource/SettingsParsers.h"
 
 void Game::initWindow()
@@ -18,6 +17,7 @@ void Game::initWindow()
     this->winSizeX = 1680; // GetSystemMetrics(SM_CXSCREEN)
     this->winSizeY = 1050; // GetSystemMetrics(SM_CYSCREEN)
     this->winTitle = "Super Bubble Fighting";
+	
 
 	setParser.set("title", this->winTitle);
 	setParser.set("width",std::to_string(winSizeX));
@@ -26,20 +26,14 @@ void Game::initWindow()
 	setParser.set("vsync", this->vertical_sync_enable);
 	setParser.saveToFile();
 
-    this->window = new sf::RenderWindow(sf::VideoMode(winSizeX, winSizeY), winTitle,sf::Style::Default);
+    this->window = new sf::RenderWindow(sf::VideoMode(winSizeX, winSizeY), winTitle,sf::Style::Titlebar);
     this->window->setVerticalSyncEnabled(this->vertical_sync_enable);
     this->window->setFramerateLimit(this->FrameRateLimit);
     this->window->setPosition(sf::Vector2i(0,0));
 
 
 
-	glEnable(GL_DEPTH);
-	glDepthMask(GL_TRUE);
-	glClearDepth(1.f);
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	gluPerspective(90.f, 1.f, 1.f, 2000.f);
-	glEnable(GL_TEXTURE_2D);
+	
 }
 
 void Game::initStates()

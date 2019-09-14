@@ -35,7 +35,7 @@ Player::Player(sf::RenderWindow * window,float x, float y, sf::Texture & texture
 	this->collider2D.setOutlineThickness(1.f);
 	this->collider2D.setOutlineColor(sf::Color::Green);
 	this->anim.loadFromXML(anim_file, texture);
-	this->anim.set("stay");
+	this->anim.set("run");
 
 	this->buffer.loadFromFile("../res/music/sounds/go.ogg");
 	this->sound.setBuffer(buffer);
@@ -58,14 +58,16 @@ void Player::movement(float time)
 	
 	if (!KeyA && !KeyD && !AxisD && !AxisA)
 	{
+
 		if (this->state == LEFT)
 		{
-			this->anim.flip("stay");
+			this->anim.flip("run");
 		}
 		if (this->state == RIGHT)
 		{
-			this->anim.set("stay");
+			this->anim.set("run");
 		}
+
 	}
 
 	if (KeyD || AxisD)
@@ -182,7 +184,7 @@ void Player::update(float time)
 		case RIGHT:this->dx = speed; break;
 		case JUMP: break;
 		}
-
+		
 		this->posX += dx * time;
 		this->checkCollision(0,dx);
 		this->posY += dy * time;
