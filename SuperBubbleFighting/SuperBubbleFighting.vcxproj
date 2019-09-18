@@ -155,6 +155,7 @@
     <None Include="resource\shaders\vertexShader.vert" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GUI\selectors\assets\Asset.h" />
     <ClInclude Include="GUI\selectors\AssetElementSelector.h" />
     <ClInclude Include="components\AnimationComponent.h" />
     <ClInclude Include="animation\Animation.h" />
@@ -190,6 +191,7 @@
     <ClInclude Include="GUI\TopBar.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GUI\selectors\assets\Asset.cpp" />
     <ClCompile Include="GUI\selectors\AssetElementSelector.cpp" />
     <ClCompile Include="components\AnimationComponent.cpp" />
     <ClCompile Include="animation\Animation.cpp" />

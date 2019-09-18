@@ -14,9 +14,10 @@ void Game::initWindow()
     /* here init and create window */
     this->vertical_sync_enable = false;
     this->FrameRateLimit = 120;
-    this->winSizeX = 1680; // GetSystemMetrics(SM_CXSCREEN)
-    this->winSizeY = 1050; // GetSystemMetrics(SM_CYSCREEN)
+    this->winSizeX = 1920; // GetSystemMetrics(SM_CXSCREEN)
+    this->winSizeY = 1080; // GetSystemMetrics(SM_CYSCREEN)
     this->winTitle = "Super Bubble Fighting";
+
 	
 
 	setParser.set("title", this->winTitle);

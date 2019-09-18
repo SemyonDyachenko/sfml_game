@@ -32,7 +32,7 @@ void EditorState::initGui()
 
 	this->objCreator = new ObjectCreator(this->window,*this->map);
 
-	this->assetSelector = new AssetElementSelector(0,600.f,1500,400,this->font);
+	this->assetSelector = new AssetElementSelector(0,600.f,1500,400,this->font,"../res/images/assets");
 }
 
 void EditorState::initVariables()
@@ -134,6 +134,11 @@ void EditorState::updateInput(const float & time)
 			this->textureSelector->setHide(false);
 		else
 			this->textureSelector->setHide(true);
+
+		if (this->assetSelector->getHide())
+			this->assetSelector->show();
+		else
+			this->assetSelector->hide();
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::O) && this->getKeyTime()) 
