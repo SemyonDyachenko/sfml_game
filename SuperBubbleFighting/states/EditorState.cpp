@@ -97,6 +97,7 @@ EditorState::~EditorState()
 	{
 		delete it->second;
 	}
+	
 }
 
 void EditorState::endState()
@@ -265,6 +266,7 @@ void EditorState::update(float time)
 		}
 	}
 
+	
 }
 
 void EditorState::render(sf::RenderWindow * window)
