@@ -14,28 +14,35 @@ void Level::initTextures()
 	if (!this->playerTexture.loadFromFile("../res/images/shoot.png"))
 		std::cout << "ERROR: don't load playerTexture in level \n";
 
+	this->skyT5.loadFromFile("../res/images/background/layer0.png");
+	this->sky5.setTexture(&skyT3);
+	this->sky5.setSize(sf::Vector2f(this->skyT5.getSize().x, this->window->getSize().y));
+
+	
 	this->sunT.loadFromFile("../res/images/background/layer.png");
 	this->sun.setTexture(&this->sunT);
-	this->sun.setSize(sf::Vector2f(2500, this->window->getSize().y));
+	this->sun.setSize(sf::Vector2f(1920, this->window->getSize().y));
 
 
 	this->skyT.loadFromFile("../res/images/background/layer1.png");
 	this->sky.setTexture(&skyT);
-	this->sky.setSize(sf::Vector2f(2500,this->window->getSize().y));
+	this->sky.setSize(sf::Vector2f(1920,this->window->getSize().y));
 
 	this->skyT1.loadFromFile("../res/images/background/layer2.png");
 	this->sky1.setTexture(&skyT1);
-	this->sky1.setSize(sf::Vector2f(2500, this->window->getSize().y));
+	this->sky1.setSize(sf::Vector2f(this->skyT1.getSize().x, this->window->getSize().y));
 
 	this->skyT2.loadFromFile("../res/images/background/layer3.png");
 	this->sky2.setTexture(&skyT2);
-	this->sky2.setSize(sf::Vector2f(2500,this->window->getSize().y));
+	this->sky2.setSize(sf::Vector2f(this->skyT2.getSize().x,this->window->getSize().y));
 
 	this->skyT3.loadFromFile("../res/images/background/layer4.png");
 	this->sky3.setTexture(&skyT3);
-	this->sky3.setSize(sf::Vector2f(2500,this->window->getSize().y));
+	this->sky3.setSize(sf::Vector2f(this->skyT3.getSize().x,this->window->getSize().y));
 
-
+	this->skyT4.loadFromFile("../res/images/background/layer5.png");
+	this->sky4.setTexture(&skyT3);
+	this->sky4.setSize(sf::Vector2f(this->skyT4.getSize().x, this->window->getSize().y));
 }
 
 void Level::initVariables()
@@ -98,18 +105,19 @@ Level::Level(sf::RenderWindow & window, std::string map_filename, std::string ba
 	this->sky1.setPosition(this->skyPos2.x, this->skyPos2.y);
 
 	
-
+	this->sky5.setPosition(this->tilemap->getObject("back")->rect.left, this->tilemap->getObject("back")->rect.top);
 	this->sun.setPosition(this->tilemap->getObject("back")->rect.left,this->tilemap->getObject("back")->rect.top);
 	this->sky.setPosition(this->tilemap->getObject("back")->rect.left,this->tilemap->getObject("back")->rect.top);
 	this->sky1.setPosition(this->tilemap->getObject("back")->rect.left,this->tilemap->getObject("back")->rect.top);
 	this->sky2.setPosition(this->tilemap->getObject("back")->rect.left,this->tilemap->getObject("back")->rect.top);
-	this->sky3.setPosition(this->tilemap->getObject("back")->rect.left,this->tilemap->getObject("back")->rect.top);
+	this->sky3.setPosition(this->tilemap->getObject("back")->rect.left,this->tilemap->getObject("back")->rect.top );
+	this->sky4.setPosition(this->tilemap->getObject("back")->rect.left,this->tilemap->getObject("back")->rect.top);
 
 
-	music.openFromFile("../res/music/witcher.ogg");
+	music.openFromFile("../res/music/music.ogg");
 	music.setLoop(true);
-	music.setVolume(8);
-	//music.play();
+	music.setVolume(14);
+	music.play();
 }
 
 
@@ -211,14 +219,14 @@ void Level::render(sf::RenderWindow * window)
 {
 	if (!window)
 		window = this->window;
-	 
+	window->draw(sky5);
 	window->draw(sky);
 	window->draw(sun);
 	window->draw(sky1);
 	window->draw(sky2);
 	window->draw(sky3);
 	window->draw(sky4);
-	window->draw(sky5);
+	
 	this->tilemap->render(*window);
 	this->renderObjects(window);
 	this->renderEnemy(window);

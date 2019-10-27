@@ -604,27 +604,323 @@
         <tile x="65" y="29" layer="0" tX="32" tY="32" />
         <tile x="65" y="30" layer="0" tX="32" tY="32" />
         <tile x="65" y="31" layer="0" tX="32" tY="64" />
-        <tile x="66" y="21" layer="0" tX="64" tY="0" />
-        <tile x="66" y="22" layer="0" tX="64" tY="32" />
+        <tile x="66" y="21" layer="0" tX="32" tY="0" />
+        <tile x="66" y="22" layer="0" tX="32" tY="32" />
         <tile x="66" y="23" layer="0" tX="32" tY="32" />
-        <tile x="66" y="24" layer="0" tX="64" tY="32" />
-        <tile x="66" y="25" layer="0" tX="64" tY="32" />
-        <tile x="66" y="26" layer="0" tX="64" tY="32" />
-        <tile x="66" y="27" layer="0" tX="64" tY="32" />
-        <tile x="66" y="28" layer="0" tX="64" tY="32" />
-        <tile x="66" y="29" layer="0" tX="64" tY="32" />
-        <tile x="66" y="30" layer="0" tX="64" tY="32" />
-        <tile x="66" y="31" layer="0" tX="64" tY="32" />
+        <tile x="66" y="24" layer="0" tX="32" tY="32" />
+        <tile x="66" y="25" layer="0" tX="32" tY="32" />
+        <tile x="66" y="26" layer="0" tX="32" tY="32" />
+        <tile x="66" y="27" layer="0" tX="32" tY="32" />
+        <tile x="66" y="28" layer="0" tX="32" tY="32" />
+        <tile x="66" y="29" layer="0" tX="32" tY="32" />
+        <tile x="66" y="30" layer="0" tX="32" tY="32" />
+        <tile x="66" y="31" layer="0" tX="32" tY="64" />
+        <tile x="67" y="21" layer="0" tX="32" tY="0" />
+        <tile x="67" y="22" layer="0" tX="32" tY="32" />
+        <tile x="67" y="23" layer="0" tX="32" tY="32" />
+        <tile x="67" y="24" layer="0" tX="32" tY="32" />
+        <tile x="67" y="25" layer="0" tX="32" tY="32" />
+        <tile x="67" y="26" layer="0" tX="32" tY="32" />
+        <tile x="67" y="27" layer="0" tX="32" tY="32" />
+        <tile x="67" y="28" layer="0" tX="32" tY="32" />
+        <tile x="67" y="29" layer="0" tX="32" tY="32" />
+        <tile x="67" y="30" layer="0" tX="32" tY="32" />
+        <tile x="67" y="31" layer="0" tX="32" tY="64" />
+        <tile x="68" y="21" layer="0" tX="32" tY="0" />
+        <tile x="68" y="22" layer="0" tX="32" tY="32" />
+        <tile x="68" y="23" layer="0" tX="32" tY="32" />
+        <tile x="68" y="24" layer="0" tX="32" tY="32" />
+        <tile x="68" y="25" layer="0" tX="32" tY="32" />
+        <tile x="68" y="26" layer="0" tX="32" tY="32" />
+        <tile x="68" y="27" layer="0" tX="32" tY="32" />
+        <tile x="68" y="28" layer="0" tX="32" tY="32" />
+        <tile x="68" y="29" layer="0" tX="32" tY="32" />
+        <tile x="68" y="30" layer="0" tX="32" tY="32" />
+        <tile x="68" y="31" layer="0" tX="32" tY="64" />
         <tile x="69" y="11" layer="0" tX="0" tY="0" />
+        <tile x="69" y="21" layer="0" tX="32" tY="0" />
+        <tile x="69" y="22" layer="0" tX="32" tY="32" />
+        <tile x="69" y="23" layer="0" tX="32" tY="32" />
+        <tile x="69" y="24" layer="0" tX="32" tY="32" />
+        <tile x="69" y="25" layer="0" tX="32" tY="32" />
+        <tile x="69" y="26" layer="0" tX="32" tY="32" />
+        <tile x="69" y="27" layer="0" tX="32" tY="32" />
+        <tile x="69" y="28" layer="0" tX="32" tY="32" />
+        <tile x="69" y="29" layer="0" tX="32" tY="32" />
+        <tile x="69" y="30" layer="0" tX="32" tY="32" />
+        <tile x="69" y="31" layer="0" tX="32" tY="64" />
         <tile x="70" y="11" layer="0" tX="32" tY="0" />
+        <tile x="70" y="21" layer="0" tX="32" tY="0" />
+        <tile x="70" y="22" layer="0" tX="32" tY="32" />
+        <tile x="70" y="23" layer="0" tX="32" tY="32" />
+        <tile x="70" y="24" layer="0" tX="32" tY="32" />
+        <tile x="70" y="25" layer="0" tX="32" tY="32" />
+        <tile x="70" y="26" layer="0" tX="32" tY="32" />
+        <tile x="70" y="27" layer="0" tX="32" tY="32" />
+        <tile x="70" y="28" layer="0" tX="32" tY="32" />
+        <tile x="70" y="29" layer="0" tX="32" tY="32" />
+        <tile x="70" y="30" layer="0" tX="32" tY="32" />
+        <tile x="70" y="31" layer="0" tX="32" tY="64" />
         <tile x="71" y="11" layer="0" tX="64" tY="0" />
+        <tile x="71" y="21" layer="0" tX="32" tY="0" />
+        <tile x="71" y="22" layer="0" tX="32" tY="32" />
+        <tile x="71" y="23" layer="0" tX="32" tY="32" />
+        <tile x="71" y="24" layer="0" tX="32" tY="32" />
+        <tile x="71" y="25" layer="0" tX="32" tY="32" />
+        <tile x="71" y="26" layer="0" tX="32" tY="32" />
+        <tile x="71" y="27" layer="0" tX="32" tY="32" />
+        <tile x="71" y="28" layer="0" tX="32" tY="32" />
+        <tile x="71" y="29" layer="0" tX="32" tY="32" />
+        <tile x="71" y="30" layer="0" tX="32" tY="32" />
+        <tile x="71" y="31" layer="0" tX="32" tY="64" />
+        <tile x="72" y="21" layer="0" tX="32" tY="0" />
+        <tile x="72" y="22" layer="0" tX="32" tY="32" />
+        <tile x="72" y="23" layer="0" tX="32" tY="32" />
+        <tile x="72" y="24" layer="0" tX="32" tY="32" />
+        <tile x="72" y="25" layer="0" tX="32" tY="32" />
+        <tile x="72" y="26" layer="0" tX="32" tY="32" />
+        <tile x="72" y="27" layer="0" tX="32" tY="32" />
+        <tile x="72" y="28" layer="0" tX="32" tY="32" />
+        <tile x="72" y="29" layer="0" tX="32" tY="32" />
+        <tile x="72" y="30" layer="0" tX="32" tY="32" />
+        <tile x="72" y="31" layer="0" tX="32" tY="64" />
+        <tile x="73" y="21" layer="0" tX="32" tY="0" />
+        <tile x="73" y="22" layer="0" tX="32" tY="32" />
+        <tile x="73" y="23" layer="0" tX="32" tY="32" />
+        <tile x="73" y="24" layer="0" tX="32" tY="32" />
+        <tile x="73" y="25" layer="0" tX="32" tY="32" />
+        <tile x="73" y="26" layer="0" tX="32" tY="32" />
+        <tile x="73" y="27" layer="0" tX="32" tY="32" />
+        <tile x="73" y="28" layer="0" tX="32" tY="32" />
+        <tile x="73" y="29" layer="0" tX="32" tY="32" />
+        <tile x="73" y="30" layer="0" tX="32" tY="32" />
+        <tile x="73" y="31" layer="0" tX="32" tY="64" />
+        <tile x="74" y="21" layer="0" tX="32" tY="0" />
+        <tile x="74" y="22" layer="0" tX="32" tY="32" />
+        <tile x="74" y="23" layer="0" tX="32" tY="32" />
+        <tile x="74" y="24" layer="0" tX="32" tY="32" />
+        <tile x="74" y="25" layer="0" tX="32" tY="32" />
+        <tile x="74" y="26" layer="0" tX="32" tY="32" />
+        <tile x="74" y="27" layer="0" tX="32" tY="32" />
+        <tile x="74" y="28" layer="0" tX="32" tY="32" />
+        <tile x="74" y="29" layer="0" tX="32" tY="32" />
+        <tile x="74" y="30" layer="0" tX="32" tY="32" />
+        <tile x="74" y="31" layer="0" tX="32" tY="64" />
+        <tile x="75" y="21" layer="0" tX="32" tY="0" />
+        <tile x="75" y="22" layer="0" tX="32" tY="32" />
+        <tile x="75" y="23" layer="0" tX="32" tY="32" />
+        <tile x="75" y="24" layer="0" tX="32" tY="32" />
+        <tile x="75" y="25" layer="0" tX="32" tY="32" />
+        <tile x="75" y="26" layer="0" tX="32" tY="32" />
+        <tile x="75" y="27" layer="0" tX="32" tY="32" />
+        <tile x="75" y="28" layer="0" tX="32" tY="32" />
+        <tile x="75" y="29" layer="0" tX="32" tY="32" />
+        <tile x="75" y="30" layer="0" tX="32" tY="32" />
+        <tile x="75" y="31" layer="0" tX="32" tY="64" />
         <tile x="76" y="14" layer="0" tX="96" tY="96" />
+        <tile x="76" y="21" layer="0" tX="32" tY="0" />
+        <tile x="76" y="22" layer="0" tX="32" tY="32" />
+        <tile x="76" y="23" layer="0" tX="32" tY="32" />
+        <tile x="76" y="24" layer="0" tX="32" tY="32" />
+        <tile x="76" y="25" layer="0" tX="32" tY="32" />
+        <tile x="76" y="26" layer="0" tX="32" tY="32" />
+        <tile x="76" y="27" layer="0" tX="32" tY="32" />
+        <tile x="76" y="28" layer="0" tX="32" tY="32" />
+        <tile x="76" y="29" layer="0" tX="32" tY="32" />
+        <tile x="76" y="30" layer="0" tX="32" tY="32" />
+        <tile x="76" y="31" layer="0" tX="32" tY="64" />
+        <tile x="77" y="21" layer="0" tX="32" tY="0" />
+        <tile x="77" y="22" layer="0" tX="32" tY="32" />
+        <tile x="77" y="23" layer="0" tX="32" tY="32" />
+        <tile x="77" y="24" layer="0" tX="32" tY="32" />
+        <tile x="77" y="25" layer="0" tX="32" tY="32" />
+        <tile x="77" y="26" layer="0" tX="32" tY="32" />
+        <tile x="77" y="27" layer="0" tX="32" tY="32" />
+        <tile x="77" y="28" layer="0" tX="32" tY="32" />
+        <tile x="77" y="29" layer="0" tX="32" tY="32" />
+        <tile x="77" y="30" layer="0" tX="32" tY="32" />
+        <tile x="77" y="31" layer="0" tX="32" tY="64" />
+        <tile x="78" y="21" layer="0" tX="32" tY="0" />
+        <tile x="78" y="22" layer="0" tX="32" tY="32" />
+        <tile x="78" y="23" layer="0" tX="32" tY="32" />
+        <tile x="78" y="24" layer="0" tX="32" tY="32" />
+        <tile x="78" y="25" layer="0" tX="32" tY="32" />
+        <tile x="78" y="26" layer="0" tX="32" tY="32" />
+        <tile x="78" y="27" layer="0" tX="32" tY="32" />
+        <tile x="78" y="28" layer="0" tX="32" tY="32" />
+        <tile x="78" y="29" layer="0" tX="32" tY="32" />
+        <tile x="78" y="30" layer="0" tX="32" tY="32" />
+        <tile x="78" y="31" layer="0" tX="32" tY="64" />
+        <tile x="79" y="21" layer="0" tX="32" tY="0" />
+        <tile x="79" y="22" layer="0" tX="32" tY="32" />
+        <tile x="79" y="23" layer="0" tX="32" tY="32" />
+        <tile x="79" y="24" layer="0" tX="32" tY="32" />
+        <tile x="79" y="25" layer="0" tX="32" tY="32" />
+        <tile x="79" y="26" layer="0" tX="32" tY="32" />
+        <tile x="79" y="27" layer="0" tX="32" tY="32" />
+        <tile x="79" y="28" layer="0" tX="32" tY="32" />
+        <tile x="79" y="29" layer="0" tX="32" tY="32" />
+        <tile x="79" y="30" layer="0" tX="32" tY="32" />
+        <tile x="79" y="31" layer="0" tX="32" tY="64" />
+        <tile x="80" y="21" layer="0" tX="32" tY="0" />
+        <tile x="80" y="22" layer="0" tX="32" tY="32" />
+        <tile x="80" y="23" layer="0" tX="32" tY="32" />
+        <tile x="80" y="24" layer="0" tX="32" tY="32" />
+        <tile x="80" y="25" layer="0" tX="32" tY="32" />
+        <tile x="80" y="26" layer="0" tX="32" tY="32" />
+        <tile x="80" y="27" layer="0" tX="32" tY="32" />
+        <tile x="80" y="28" layer="0" tX="32" tY="32" />
+        <tile x="80" y="29" layer="0" tX="32" tY="32" />
+        <tile x="80" y="30" layer="0" tX="32" tY="32" />
+        <tile x="80" y="31" layer="0" tX="32" tY="64" />
         <tile x="81" y="14" layer="0" tX="96" tY="96" />
+        <tile x="81" y="21" layer="0" tX="32" tY="0" />
+        <tile x="81" y="22" layer="0" tX="32" tY="32" />
+        <tile x="81" y="23" layer="0" tX="32" tY="32" />
+        <tile x="81" y="24" layer="0" tX="32" tY="32" />
+        <tile x="81" y="25" layer="0" tX="32" tY="32" />
+        <tile x="81" y="26" layer="0" tX="32" tY="32" />
+        <tile x="81" y="27" layer="0" tX="32" tY="32" />
+        <tile x="81" y="28" layer="0" tX="32" tY="32" />
+        <tile x="81" y="29" layer="0" tX="32" tY="32" />
+        <tile x="81" y="30" layer="0" tX="32" tY="32" />
+        <tile x="81" y="31" layer="0" tX="32" tY="64" />
+        <tile x="82" y="21" layer="0" tX="32" tY="0" />
+        <tile x="82" y="22" layer="0" tX="32" tY="32" />
+        <tile x="82" y="23" layer="0" tX="32" tY="32" />
+        <tile x="82" y="24" layer="0" tX="32" tY="32" />
+        <tile x="82" y="25" layer="0" tX="32" tY="32" />
+        <tile x="82" y="26" layer="0" tX="32" tY="32" />
+        <tile x="82" y="27" layer="0" tX="32" tY="32" />
+        <tile x="82" y="28" layer="0" tX="32" tY="32" />
+        <tile x="82" y="29" layer="0" tX="32" tY="32" />
+        <tile x="82" y="30" layer="0" tX="32" tY="32" />
+        <tile x="82" y="31" layer="0" tX="32" tY="64" />
+        <tile x="83" y="21" layer="0" tX="32" tY="0" />
+        <tile x="83" y="22" layer="0" tX="32" tY="32" />
+        <tile x="83" y="23" layer="0" tX="32" tY="32" />
+        <tile x="83" y="24" layer="0" tX="32" tY="32" />
+        <tile x="83" y="25" layer="0" tX="32" tY="32" />
+        <tile x="83" y="26" layer="0" tX="32" tY="32" />
+        <tile x="83" y="27" layer="0" tX="32" tY="32" />
+        <tile x="83" y="28" layer="0" tX="32" tY="32" />
+        <tile x="83" y="29" layer="0" tX="32" tY="32" />
+        <tile x="83" y="30" layer="0" tX="32" tY="32" />
+        <tile x="83" y="31" layer="0" tX="32" tY="64" />
+        <tile x="84" y="21" layer="0" tX="32" tY="0" />
+        <tile x="84" y="22" layer="0" tX="32" tY="32" />
+        <tile x="84" y="23" layer="0" tX="32" tY="32" />
+        <tile x="84" y="24" layer="0" tX="32" tY="32" />
+        <tile x="84" y="25" layer="0" tX="32" tY="32" />
+        <tile x="84" y="26" layer="0" tX="32" tY="32" />
+        <tile x="84" y="27" layer="0" tX="32" tY="32" />
+        <tile x="84" y="28" layer="0" tX="32" tY="32" />
+        <tile x="84" y="29" layer="0" tX="32" tY="32" />
+        <tile x="84" y="30" layer="0" tX="32" tY="32" />
+        <tile x="84" y="31" layer="0" tX="32" tY="64" />
         <tile x="85" y="14" layer="0" tX="96" tY="96" />
+        <tile x="85" y="21" layer="0" tX="32" tY="0" />
+        <tile x="85" y="22" layer="0" tX="32" tY="32" />
+        <tile x="85" y="23" layer="0" tX="32" tY="32" />
+        <tile x="85" y="24" layer="0" tX="32" tY="32" />
+        <tile x="85" y="25" layer="0" tX="32" tY="32" />
+        <tile x="85" y="26" layer="0" tX="32" tY="32" />
+        <tile x="85" y="27" layer="0" tX="32" tY="32" />
+        <tile x="85" y="28" layer="0" tX="32" tY="32" />
+        <tile x="85" y="29" layer="0" tX="32" tY="32" />
+        <tile x="85" y="30" layer="0" tX="32" tY="32" />
+        <tile x="85" y="31" layer="0" tX="32" tY="64" />
+        <tile x="86" y="21" layer="0" tX="32" tY="0" />
+        <tile x="86" y="22" layer="0" tX="32" tY="32" />
+        <tile x="86" y="23" layer="0" tX="32" tY="32" />
+        <tile x="86" y="24" layer="0" tX="32" tY="32" />
+        <tile x="86" y="25" layer="0" tX="32" tY="32" />
+        <tile x="86" y="26" layer="0" tX="32" tY="32" />
+        <tile x="86" y="27" layer="0" tX="32" tY="32" />
+        <tile x="86" y="28" layer="0" tX="32" tY="32" />
+        <tile x="86" y="29" layer="0" tX="32" tY="32" />
+        <tile x="86" y="30" layer="0" tX="32" tY="32" />
+        <tile x="86" y="31" layer="0" tX="32" tY="64" />
+        <tile x="87" y="21" layer="0" tX="32" tY="0" />
+        <tile x="87" y="22" layer="0" tX="32" tY="32" />
+        <tile x="87" y="23" layer="0" tX="32" tY="32" />
+        <tile x="87" y="24" layer="0" tX="32" tY="32" />
+        <tile x="87" y="25" layer="0" tX="32" tY="32" />
+        <tile x="87" y="26" layer="0" tX="32" tY="32" />
+        <tile x="87" y="27" layer="0" tX="32" tY="32" />
+        <tile x="87" y="28" layer="0" tX="32" tY="32" />
+        <tile x="87" y="29" layer="0" tX="32" tY="32" />
+        <tile x="87" y="30" layer="0" tX="32" tY="32" />
+        <tile x="87" y="31" layer="0" tX="32" tY="64" />
+        <tile x="88" y="21" layer="0" tX="32" tY="0" />
+        <tile x="88" y="22" layer="0" tX="32" tY="32" />
+        <tile x="88" y="23" layer="0" tX="32" tY="32" />
+        <tile x="88" y="24" layer="0" tX="32" tY="32" />
+        <tile x="88" y="25" layer="0" tX="32" tY="32" />
+        <tile x="88" y="26" layer="0" tX="32" tY="32" />
+        <tile x="88" y="27" layer="0" tX="32" tY="32" />
+        <tile x="88" y="28" layer="0" tX="32" tY="32" />
+        <tile x="88" y="29" layer="0" tX="32" tY="32" />
+        <tile x="88" y="30" layer="0" tX="32" tY="32" />
+        <tile x="88" y="31" layer="0" tX="32" tY="32" />
+        <tile x="89" y="21" layer="0" tX="32" tY="0" />
+        <tile x="89" y="22" layer="0" tX="32" tY="32" />
+        <tile x="89" y="23" layer="0" tX="32" tY="32" />
+        <tile x="89" y="24" layer="0" tX="32" tY="32" />
+        <tile x="89" y="25" layer="0" tX="32" tY="32" />
+        <tile x="89" y="26" layer="0" tX="32" tY="32" />
+        <tile x="89" y="27" layer="0" tX="32" tY="32" />
+        <tile x="89" y="28" layer="0" tX="32" tY="32" />
+        <tile x="89" y="29" layer="0" tX="32" tY="32" />
+        <tile x="89" y="30" layer="0" tX="32" tY="32" />
+        <tile x="89" y="31" layer="0" tX="32" tY="32" />
+        <tile x="90" y="21" layer="0" tX="32" tY="0" />
+        <tile x="90" y="22" layer="0" tX="32" tY="32" />
+        <tile x="90" y="23" layer="0" tX="32" tY="32" />
+        <tile x="90" y="24" layer="0" tX="32" tY="32" />
+        <tile x="90" y="25" layer="0" tX="32" tY="32" />
+        <tile x="90" y="26" layer="0" tX="32" tY="32" />
+        <tile x="90" y="27" layer="0" tX="32" tY="32" />
+        <tile x="90" y="28" layer="0" tX="32" tY="32" />
+        <tile x="90" y="29" layer="0" tX="32" tY="32" />
+        <tile x="90" y="30" layer="0" tX="32" tY="32" />
+        <tile x="90" y="31" layer="0" tX="32" tY="32" />
+        <tile x="91" y="21" layer="0" tX="32" tY="0" />
+        <tile x="91" y="22" layer="0" tX="32" tY="32" />
+        <tile x="91" y="23" layer="0" tX="32" tY="32" />
+        <tile x="91" y="24" layer="0" tX="32" tY="32" />
+        <tile x="91" y="25" layer="0" tX="32" tY="32" />
+        <tile x="91" y="26" layer="0" tX="32" tY="32" />
+        <tile x="91" y="27" layer="0" tX="32" tY="32" />
+        <tile x="91" y="28" layer="0" tX="32" tY="32" />
+        <tile x="91" y="29" layer="0" tX="32" tY="32" />
+        <tile x="91" y="30" layer="0" tX="32" tY="32" />
+        <tile x="91" y="31" layer="0" tX="32" tY="32" />
+        <tile x="92" y="21" layer="0" tX="32" tY="0" />
+        <tile x="92" y="22" layer="0" tX="32" tY="32" />
+        <tile x="92" y="23" layer="0" tX="32" tY="32" />
+        <tile x="92" y="24" layer="0" tX="32" tY="32" />
+        <tile x="92" y="25" layer="0" tX="32" tY="32" />
+        <tile x="92" y="26" layer="0" tX="32" tY="32" />
+        <tile x="92" y="27" layer="0" tX="32" tY="32" />
+        <tile x="92" y="28" layer="0" tX="32" tY="32" />
+        <tile x="92" y="29" layer="0" tX="32" tY="32" />
+        <tile x="92" y="30" layer="0" tX="32" tY="32" />
+        <tile x="92" y="31" layer="0" tX="32" tY="64" />
+        <tile x="93" y="21" layer="0" tX="64" tY="0" />
+        <tile x="93" y="22" layer="0" tX="64" tY="32" />
+        <tile x="93" y="23" layer="0" tX="64" tY="32" />
+        <tile x="93" y="24" layer="0" tX="64" tY="32" />
+        <tile x="93" y="25" layer="0" tX="64" tY="32" />
+        <tile x="93" y="26" layer="0" tX="64" tY="32" />
+        <tile x="93" y="27" layer="0" tX="64" tY="32" />
+        <tile x="93" y="28" layer="0" tX="64" tY="32" />
+        <tile x="93" y="29" layer="0" tX="64" tY="32" />
+        <tile x="93" y="30" layer="0" tX="64" tY="32" />
+        <tile x="93" y="31" layer="0" tX="64" tY="64" />
     </tiles>
     <objects>
-        <object x="1" y="8" layer="0" name="solid" />
-        <object x="9" y="1" layer="0" name="back" />
+        <object x="9" y="0" layer="0" name="back" />
         <object x="12" y="21" layer="0" name="solid" />
         <object x="12" y="22" layer="0" name="solid" />
         <object x="12" y="23" layer="0" name="solid" />
@@ -700,21 +996,48 @@
         <object x="65" y="13" layer="0" name="solid" />
         <object x="65" y="21" layer="0" name="solid" />
         <object x="66" y="21" layer="0" name="solid" />
-        <object x="66" y="22" layer="0" name="solid" />
-        <object x="66" y="23" layer="0" name="solid" />
-        <object x="66" y="24" layer="0" name="solid" />
-        <object x="66" y="25" layer="0" name="solid" />
-        <object x="66" y="26" layer="0" name="solid" />
-        <object x="66" y="27" layer="0" name="solid" />
-        <object x="66" y="28" layer="0" name="solid" />
-        <object x="66" y="29" layer="0" name="solid" />
-        <object x="66" y="30" layer="0" name="solid" />
-        <object x="66" y="31" layer="0" name="solid" />
+        <object x="67" y="21" layer="0" name="solid" />
+        <object x="68" y="21" layer="0" name="solid" />
         <object x="69" y="11" layer="0" name="solid" />
+        <object x="69" y="21" layer="0" name="solid" />
         <object x="70" y="11" layer="0" name="solid" />
+        <object x="70" y="21" layer="0" name="solid" />
         <object x="71" y="11" layer="0" name="solid" />
+        <object x="71" y="21" layer="0" name="solid" />
+        <object x="72" y="21" layer="0" name="solid" />
+        <object x="73" y="21" layer="0" name="solid" />
+        <object x="74" y="21" layer="0" name="solid" />
+        <object x="75" y="21" layer="0" name="solid" />
         <object x="76" y="14" layer="0" name="solid" />
+        <object x="76" y="21" layer="0" name="solid" />
+        <object x="77" y="21" layer="0" name="solid" />
+        <object x="78" y="21" layer="0" name="solid" />
+        <object x="79" y="21" layer="0" name="solid" />
+        <object x="80" y="21" layer="0" name="solid" />
         <object x="81" y="14" layer="0" name="solid" />
+        <object x="81" y="21" layer="0" name="solid" />
+        <object x="82" y="21" layer="0" name="solid" />
+        <object x="83" y="21" layer="0" name="solid" />
+        <object x="84" y="21" layer="0" name="solid" />
         <object x="85" y="14" layer="0" name="solid" />
+        <object x="85" y="21" layer="0" name="solid" />
+        <object x="86" y="21" layer="0" name="solid" />
+        <object x="87" y="21" layer="0" name="solid" />
+        <object x="88" y="21" layer="0" name="solid" />
+        <object x="89" y="21" layer="0" name="solid" />
+        <object x="90" y="21" layer="0" name="solid" />
+        <object x="91" y="21" layer="0" name="solid" />
+        <object x="92" y="21" layer="0" name="solid" />
+        <object x="93" y="21" layer="0" name="solid" />
+        <object x="93" y="22" layer="0" name="solid" />
+        <object x="93" y="23" layer="0" name="solid" />
+        <object x="93" y="24" layer="0" name="solid" />
+        <object x="93" y="25" layer="0" name="solid" />
+        <object x="93" y="26" layer="0" name="solid" />
+        <object x="93" y="27" layer="0" name="solid" />
+        <object x="93" y="28" layer="0" name="solid" />
+        <object x="93" y="29" layer="0" name="solid" />
+        <object x="93" y="30" layer="0" name="solid" />
+        <object x="93" y="31" layer="0" name="solid" />
     </objects>
 </map>

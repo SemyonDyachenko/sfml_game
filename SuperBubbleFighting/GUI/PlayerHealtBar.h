@@ -10,6 +10,13 @@ private:
 	sf::RectangleShape bar;
 	sf::RectangleShape deathBar;
 	int max;
+
+	sf::Text text;
+	sf::Font font;
+	sf::String string;
+
+	void initText();
+	
 public:
 	PlayerHealtBar();
 	virtual ~PlayerHealtBar();
