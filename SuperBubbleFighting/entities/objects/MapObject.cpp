@@ -9,7 +9,7 @@ MapObject::MapObject()
 
 void MapObject::initFonts() 
 {
-	if (!this->font.loadFromFile("../res/fonts/font.ttf"))
+	if (!this->font.loadFromFile("../res/fonts/sans.otf"))
 		std::cout << "error load font from file for MapObject ... \n";
 }
 

@@ -4,8 +4,10 @@
 #include "Tile.h"
 #include "../animation/AnimationManager.h"
 #include "objects/MapObject.h"
-
+#include "Bullet.h"
 #include "MapEditor.h"
+
+
 
 class Tile;
 class MapEditor;
@@ -24,6 +26,7 @@ private:
 		LEFT,
 		RIGHT,
 		JUMP,
+		SHOOT
 	};
 	sf::Sprite sprite;
 	MovementDirection state;
@@ -43,8 +46,19 @@ private:
 
 	bool life;
 	unsigned hp;
+	
+	sf::Clock timer;
+	float timerValue;
+	std::vector<Bullet*> bullets;
+
+	//shoot sound
+	sf::SoundBuffer  shootBuffer;
+	sf::Sound shoot;
+	bool isShoot;
 
 
+
+	void initSound();
 	void initDefaultVariables();
 
 public:

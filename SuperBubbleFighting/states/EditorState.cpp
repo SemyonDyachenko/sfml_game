@@ -23,7 +23,7 @@ void EditorState::initView()
 
 void EditorState::initTextures()
 {
-	if (!this->tileset.loadFromFile("../res/images/tileset.ng")) std::cout << "error in EditorState.cpp , don't load tileset texture" << std::endl;
+	if (!this->tileset.loadFromFile("../res/images/tileset.png")) std::cout << "error in EditorState.cpp , don't load tileset texture" << std::endl;
 }
 
 void EditorState::initGui()
@@ -32,12 +32,12 @@ void EditorState::initGui()
 
 	this->objCreator = new ObjectCreator(this->window,*this->map);
 
-	this->assetSelector = new AssetElementSelector(0,600.f,1500,400,this->font,"../res/images/assets");
+	this->assetSelector = new AssetElementSelector(0,600.f,this->window->getSize().x,400,this->font,"../res/images/assets");
 }
 
 void EditorState::initVariables()
 {
-	if (!this->font.loadFromFile("../res/fonts/font.ttf")) std::cout << "ERROR: don't load font from file, EditorState.cpp line 8" << "\n";
+	if (!this->font.loadFromFile("../res/fonts/sans.otf")) std::cout << "ERROR: don't load font from file, EditorState.cpp line 8" << "\n";
 	this->text.setFont(font);
 	
 	this->textureRect = sf::IntRect(this->gridSize, 0,static_cast<int>(this->gridSize),static_cast<int>(this->gridSize));
@@ -289,7 +289,7 @@ void EditorState::render(sf::RenderWindow * window)
 	//render GUI
 	window->setView(this->window->getDefaultView());
 	this->textureSelector->render(*window);
-	this->assetSelector->render(window);
+	//this->assetSelector->render(window);
 	this->objCreator->render(window);
 	//for (auto &it : this->buttons)
 	//{

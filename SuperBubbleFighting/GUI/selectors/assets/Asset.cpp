@@ -36,11 +36,6 @@ const sf::Vector2f & Asset::getPosition() const
 	return this->shape.getPosition();
 }
 
-const sf::Vector2f & Asset::getSize() const
-{
-	this->shape.getSize();
-}
-
 void Asset::update()
 {
 }

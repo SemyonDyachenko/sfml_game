@@ -16,7 +16,7 @@ void Game::initWindow()
     this->FrameRateLimit = 120;
     this->winSizeX = 1920; // GetSystemMetrics(SM_CXSCREEN)
     this->winSizeY = 1080; // GetSystemMetrics(SM_CYSCREEN)
-    this->winTitle = "Super Bubble Fighting";
+    this->winTitle = "Guns of Bullshit";
 
 	
 
@@ -27,7 +27,7 @@ void Game::initWindow()
 	setParser.set("vsync", this->vertical_sync_enable);
 	setParser.saveToFile();
 
-    this->window = new sf::RenderWindow(sf::VideoMode(winSizeX, winSizeY), winTitle,sf::Style::Titlebar);
+    this->window = new sf::RenderWindow(sf::VideoMode(winSizeX, winSizeY), winTitle,sf::Style::Default);
     this->window->setVerticalSyncEnabled(this->vertical_sync_enable);
     this->window->setFramerateLimit(this->FrameRateLimit);
     this->window->setPosition(sf::Vector2i(0,0));

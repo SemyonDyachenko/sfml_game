@@ -4,7 +4,9 @@
 #include "Enemy.h"
 #include "objects/SFMLObject.h"
 #include "Player.h"
+#include "../GUI/PlayerHealtBar.h"
 
+class PlayerHealtBar;
 class MapEditor;
 class AnimationManger;
 class Player;
@@ -52,6 +54,9 @@ protected:
 
 	sf::View levelView;
 
+
+	//bar
+	PlayerHealtBar bar;
 
 	Music music;
 

@@ -127,6 +127,9 @@
     <ClInclude Include="GUI\selectors\assets\Asset.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GUI\PlayerHealtBar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -235,6 +238,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GUI\selectors\assets\Asset.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GUI\PlayerHealtBar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

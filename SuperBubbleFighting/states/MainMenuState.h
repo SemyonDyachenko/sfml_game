@@ -20,6 +20,9 @@ private:
 
 	Music theme;
 
+
+	sf::Text text;
+
     //funcs
 	void initCursor();
     void initVariables();

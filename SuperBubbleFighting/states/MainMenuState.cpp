@@ -13,6 +13,12 @@ void MainMenuState::initCursor()
 
 void MainMenuState::initVariables()
 {
+	this->text.setFont(this->font);
+	this->text.setString("GUNS OF BULLSHIT");
+	this->text.setCharacterSize(80);
+	this->text.setPosition(this->window->getSize().x / 2-420, 90);
+	this->text.setFillColor(sf::Color::Magenta);
+	
 }
 
 void MainMenuState::initBackground()
@@ -21,7 +27,7 @@ void MainMenuState::initBackground()
 
 
 
-    if (!this->backgroundTexture.loadFromFile("../res/images/background.png"))
+    if (!this->backgroundTexture.loadFromFile("../res/images/background.jpg"))
     {
         std::cout << "ERROR in GAMEMENUSTATE (initBackground):: ERROR LOAD TEXTURE FROM FILE";
     }
@@ -154,7 +160,7 @@ void MainMenuState::render(sf::RenderWindow * window)
 
     window->draw(background);
     this->renderButtons(window);
-
+	window->draw(text);
 
 	window->draw(this->cursor);
 }

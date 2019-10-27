@@ -16,13 +16,13 @@ ObjectCreator::ObjectCreator(sf::RenderWindow * window,MapEditor& map)
 	this->creationWindow.setOutlineColor(sf::Color(255, 255, 255, 200));
 	this->text.setPosition(enterField.getPosition().x + 10, enterField.getPosition().y + 5);
 
-	this->font.loadFromFile("../res/fonts/font.ttf");
+	this->font.loadFromFile("../res/fonts/sans.otf");
 	this->text.setFont(font);
 	this->text.setCharacterSize(18);
 	this->text.setFillColor(sf::Color::Black);
 	this->keytime = 0.f;
 	this->keytimeMax = 10.f;
-	this->name = "default";
+	this->name = "";
 	this->text.setString(name);
 
 	this->isHide = true;
@@ -114,6 +114,8 @@ void ObjectCreator::update(sf::Vector2f mousePos,float time)
 
 				{
 
+					
+
 					if (event.text.unicode == 13) // return key
 
 					{
@@ -132,6 +134,7 @@ void ObjectCreator::update(sf::Vector2f mousePos,float time)
 
 					}
 
+				
 					text.setString(name);
 
 				}

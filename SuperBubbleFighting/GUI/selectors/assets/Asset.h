@@ -25,7 +25,7 @@ public:
 
 	const bool& checkSelect() const;
 	const sf::Vector2f& getPosition() const;
-	const sf::Vector2f& getSize() const;
+	
 
 	virtual void update();
 	

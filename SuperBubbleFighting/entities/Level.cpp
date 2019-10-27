@@ -11,7 +11,7 @@ void Level::initShaders()
 
 void Level::initTextures()
 {
-	if (!this->playerTexture.loadFromFile("../res/images/hero.png"))
+	if (!this->playerTexture.loadFromFile("../res/images/shoot.png"))
 		std::cout << "ERROR: don't load playerTexture in level \n";
 
 	this->sunT.loadFromFile("../res/images/background/layer.png");
@@ -35,13 +35,7 @@ void Level::initTextures()
 	this->sky3.setTexture(&skyT3);
 	this->sky3.setSize(sf::Vector2f(2500,this->window->getSize().y));
 
-	this->skyT4.loadFromFile("../res/images/background/layer5.png");
-	this->sky4.setTexture(&skyT4);
-	this->sky4.setSize(sf::Vector2f(2500,this->window->getSize().y));
 
-	this->skyT5.loadFromFile("../res/images/background/layer6.png");
-	this->sky5.setTexture(&skyT5);
-	this->sky5.setSize(sf::Vector2f(2500,this->window->getSize().y));
 }
 
 void Level::initVariables()
@@ -93,7 +87,7 @@ Level::Level(sf::RenderWindow & window, std::string map_filename, std::string ba
 	this->tilemap->setGameMap(true);
 	this->player = new Player(&window,this->tilemap->getObject("player")->getGlobalBounds().left, this->tilemap->getObject("player")->getGlobalBounds().top, playerTexture, "../res/animation/anim.xml", *this->tilemap);
 	this->levelView.setCenter(player->getPosition().x, player->getPosition().y);
-
+	this->levelView.zoom(0.5);
 	this->skyPos1.x = this->tilemap->getObject("back")->rect.left;
 	this->skyPos1.y = this->tilemap->getObject("back")->rect.top;
 
@@ -110,13 +104,12 @@ Level::Level(sf::RenderWindow & window, std::string map_filename, std::string ba
 	this->sky1.setPosition(this->tilemap->getObject("back")->rect.left,this->tilemap->getObject("back")->rect.top);
 	this->sky2.setPosition(this->tilemap->getObject("back")->rect.left,this->tilemap->getObject("back")->rect.top);
 	this->sky3.setPosition(this->tilemap->getObject("back")->rect.left,this->tilemap->getObject("back")->rect.top);
-	this->sky4.setPosition(this->tilemap->getObject("back")->rect.left,this->tilemap->getObject("back")->rect.top);
-	this->sky5.setPosition(this->tilemap->getObject("back")->rect.left,this->tilemap->getObject("back")->rect.top);
+
 
 	music.openFromFile("../res/music/witcher.ogg");
 	music.setLoop(true);
 	music.setVolume(8);
-	music.play();
+	//music.play();
 }
 
 
@@ -187,6 +180,8 @@ void Level::update(float time)
 	this->window->setView(this->levelView);
 	this->levelView.setCenter(player->getPosition().x, player->getPosition().y);
 	checkBackground(time);
+
+	this->bar.update(60);
 }
 
 // RENDER
@@ -245,4 +240,6 @@ void Level::render(sf::RenderWindow * window)
 			}
 		}
 	}
+
+	this->bar.render(window);
 }

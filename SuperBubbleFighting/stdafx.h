@@ -20,4 +20,3 @@
 #include <SFML/Audio.hpp>
 
 // OPENGL
-#include <glut.h>
