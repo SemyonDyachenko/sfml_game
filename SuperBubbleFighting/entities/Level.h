@@ -46,6 +46,11 @@ protected:
 	sf::Texture skyT5;
 	sf::RectangleShape sky5;
 
+	sf::Texture skyT6;
+	sf::RectangleShape sky6;
+
+
+
 
 	sf::Texture playerTexture;
 

@@ -47,6 +47,7 @@ Player::Player(sf::RenderWindow * window,float x, float y, sf::Texture & texture
 
 	this->buffer.loadFromFile("../res/music/shoot.ogg");
 	this->sound.setBuffer(buffer);
+	this->sound.setVolume(10);
 	this->sound.setLoop(true);
 	this->soundplay = false;
 	this->timerValue = 500;
@@ -70,6 +71,12 @@ void Player::movement(float time)
 		this->anim.set("stay");
 	}
 
+
+	if(!KeyD && !KeyA && !KeySpace && !sf::Keyboard::isKeyPressed(sf::Keyboard::E))
+	{
+		//this->state = STAY;
+	}
+	
 	if (KeyD || AxisD)
 	{
 		this->state = RIGHT; this->speed = 0.2f;
@@ -203,7 +210,7 @@ void Player::update(float time)
 
 
 
-	this->timerValue = 500;
+	this->timerValue = 100;
 
 
 	if (this->playerOnGround)

@@ -35,9 +35,9 @@ MapEditor::MapEditor(sf::RenderWindow * window,std::string textureFile)
 	this->gridSizeF = 32.f;
 	this->gridSizeU = static_cast<unsigned>(this->gridSizeF);
 	this->maxSizeWorldGrid.x = 200;
-	this->maxSizeWorldGrid.y = 200;
+	this->maxSizeWorldGrid.y = 100;
 	this->maxSizeF.x = 200 * this->gridSizeF;
-	this->maxSizeF.y = 200 * this->gridSizeF;
+	this->maxSizeF.y = 100 * this->gridSizeF;
 	this->layers = 1;
 	this->textureFile = textureFile;
 	this->inGame = false;

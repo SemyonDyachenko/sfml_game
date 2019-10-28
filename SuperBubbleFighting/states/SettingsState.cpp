@@ -101,6 +101,7 @@ void SettingsState::update(float time)
 {
 	this->updateInput(time);
 	this->updateButtons();
+	
 }
 
 void SettingsState::renderButtons(sf::RenderWindow * window)
